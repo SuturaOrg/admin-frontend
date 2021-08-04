@@ -60,6 +60,21 @@ export const MENU_ITEMS: NbMenuItem[] = [
   icon: 'home-outline',
   link: '/pages/contributions',
 },
+{
+  title: 'Refunds',
+  icon: 'home-outline',
+  link: '/pages/refunds',
+},
+{
+  title: 'Dons',
+  icon: 'home-outline',
+  link: '/pages/dons',
+},
+{
+  title: 'Parameters',
+  icon: 'home-outline',
+  link: '/pages/parameters',
+},
   {
     title: 'FEATURES',
     group: true,

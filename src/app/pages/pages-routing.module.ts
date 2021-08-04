@@ -8,7 +8,9 @@ import { NotFoundComponent } from './miscellaneous/not-found/not-found.component
 import { LoansComponent } from './loans/loans.component';
 import { FundsComponent } from './funds/funds.component';
 import { ContributionsComponent } from './contributions/contributions.component';
-
+import { RefundsComponent } from './refunds/Refunds.component';
+import { DonsComponent } from './dons/dons.component';
+import { ParametersComponent } from './parameters/parameters.component';
 const routes: Routes = [{
   path: '',
   component: PagesComponent,
@@ -28,6 +30,18 @@ const routes: Routes = [{
     {
       path: 'contributions',
       component: ContributionsComponent,
+    },
+    {
+      path: 'refunds',
+      component: RefundsComponent,
+    },
+    {
+      path: 'dons',
+      component: DonsComponent,
+    },
+    {
+      path: 'parameters',
+      component: ParametersComponent,
     },
     {
       path: 'loans',
