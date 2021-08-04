@@ -30,9 +30,8 @@ export class SmartTableComponent implements OnInit {
       confirmDelete: true,
     },
     columns: {
-      prenom: {
+      firstname: {
         title: 'Prénom',
-        addable: false
       },
       email: {
         title: 'Email',
@@ -49,21 +48,18 @@ export class SmartTableComponent implements OnInit {
 
 
   source: LocalDataSource = new LocalDataSource();
-  headers:HttpHeaders;
+  headers: HttpHeaders;
 
 
   constructor(private service: SmartTableData, private http: HttpClient) {
-const token="eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjI3NzAzMTIxLCJleHAiOjE2MjgzMDc5MjF9.4BY9J3G6D2Cujzs-MqbvK-euTA3BBq9CtbhpRuPWW_qbCWu-v9H2IapK5dtmFRHTQPrEP1QJj310387rE3bVaQ"
-this.headers = new HttpHeaders({'Authorization': 'Bearer ' + token});// create header object
-  
-}
+    const token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMzQ5IiwiaWF0IjoxNjI4MDc5NDU2LCJleHAiOjE2Mjg2ODQyNTZ9.8qNksg2mj7OdAiaDDxzEekOoJeESUZ7oC8-T9w_I_vk60TqVHvXIKCtsLHNcy73DTmzvYlZn2UDJIcXRwCYcjA";
+       this.headers = new HttpHeaders({ 'Authorization': 'Bearer ' + token });// create header object
+  }
 
   ngOnInit(): void {
-    console.log("jkj")
-    this.http.get<any>('http://localhost:8082/api/etudiants/',{ headers:this.headers}).subscribe(
+    this.http.get<any>('http://localhost:8082/api/students/', { headers: this.headers }).subscribe(
       data => {
-        console.log("hjb", data._embedded.etudiants);
-        this.source.load(data._embedded.etudiants);
+        this.source.load(data._embedded.students);
       },
       (err: HttpErrorResponse) => {
         if (err.error instanceof Error) {
@@ -90,7 +86,7 @@ this.headers = new HttpHeaders({'Authorization': 'Bearer ' + token});// create h
         "email": event.newData.email,
         "prenom": event.newData.prenom
       };
-      this.http.put<any>('http://localhost:8082/api/etudiants/' + event.newData.id, data,{ headers:this.headers}).subscribe(
+      this.http.put<any>('http://localhost:8082/api/students/' + event.newData.id, data, { headers: this.headers }).subscribe(
         res => {
           console.log(res);
           event.confirm.resolve(event.newData);
@@ -109,7 +105,17 @@ this.headers = new HttpHeaders({'Authorization': 'Bearer ' + token});// create h
   }
   onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {
-      event.confirm.resolve();
+      this.http.delete<any>('http://localhost:8082/api/students/' + event.newData.id, { headers: this.headers }).subscribe(
+        data => {
+          console.log(data);
+        },
+        (err: HttpErrorResponse) => {
+          if (err.error instanceof Error) {
+            console.log("Client-side error occured.");
+          } else {
+            console.log("Server-side error occured.");
+          }
+        });
     } else {
       event.confirm.reject();
     }
