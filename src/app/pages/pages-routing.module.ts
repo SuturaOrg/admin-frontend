@@ -7,6 +7,7 @@ import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import { LoansComponent } from './loans/loans.component';
 import { FundsComponent } from './funds/funds.component';
+import { ContributionsComponent } from './contributions/contributions.component';
 
 const routes: Routes = [{
   path: '',
@@ -23,6 +24,10 @@ const routes: Routes = [{
     {
       path: 'funds',
       component: FundsComponent,
+    },
+    {
+      path: 'contributions',
+      component: ContributionsComponent,
     },
     {
       path: 'loans',

@@ -55,6 +55,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
   icon: 'home-outline',
   link: '/pages/funds',
 },
+{
+  title: 'Contributions',
+  icon: 'home-outline',
+  link: '/pages/contributions',
+},
   {
     title: 'FEATURES',
     group: true,
