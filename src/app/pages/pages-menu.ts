@@ -33,6 +33,23 @@ export const MENU_ITEMS: NbMenuItem[] = [
       }
     ],
   },
+  { title: 'Adherents',
+  icon: 'layout-outline',
+  children: [
+    {
+      title: 'Contributed',
+      link: '/pages/adherents/contributed',
+    },
+    {
+      title: 'Not Contributed',
+      link: '/pages/adherents/notContributed',
+    },
+    {
+      title: 'Advanced',
+      link: '/pages/adherents/advanced',
+    }
+  ],
+},
   {
     title: 'FEATURES',
     group: true,

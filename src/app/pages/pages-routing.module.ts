@@ -25,6 +25,11 @@ const routes: Routes = [{
         .then(m => m.LoansModule),
     },
     {
+      path: 'adherents',
+      loadChildren: () => import('./adherents/adherents.module')
+        .then(m => m.AdherentsModule),
+    },
+    {
       path: 'layout',
       loadChildren: () => import('./layout/layout.module')
         .then(m => m.LayoutModule),
