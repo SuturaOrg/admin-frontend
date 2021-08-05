@@ -4,9 +4,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { OwnsComponent } from './owns.component';
 import { AdvancedComponent } from '../advanced/advanced.component';
 import { ownsTableSettings } from './owns.table-settings';
-import { LoansComponent } from './loans/loans.component';
-import { FundsComponent } from './funds/funds.component';
-
 const routes: Routes = [{
   path: '',
   component: OwnsComponent,
