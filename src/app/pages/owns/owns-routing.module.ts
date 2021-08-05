@@ -36,7 +36,7 @@ const routes: Routes = [{
     {
       path: 'parameters',
       component: AdvancedComponent,
-      data: ownsTableSettings.funds
+      data: ownsTableSettings.parameters
     },
 
   ],
