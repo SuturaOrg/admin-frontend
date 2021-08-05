@@ -9,7 +9,7 @@ import { LoansComponent } from './loans/loans.component';
 import { FundsComponent } from './funds/funds.component';
 import { ContributionsComponent } from './contributions/contributions.component';
 import { RefundsComponent } from './refunds/Refunds.component';
-import { DonsComponent } from './dons/dons.component';
+import { DonationsComponent } from './donations/donations.component';
 import { ParametersComponent } from './parameters/parameters.component';
 import { ProfileComponent } from './profile/profile.component';
 const routes: Routes = [{
@@ -37,8 +37,8 @@ const routes: Routes = [{
       component: RefundsComponent,
     },
     {
-      path: 'dons',
-      component: DonsComponent,
+      path: 'donations',
+      component: DonationsComponent,
     },
     {
       path: 'parameters',

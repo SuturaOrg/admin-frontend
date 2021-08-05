@@ -57,24 +57,25 @@ export const MENU_ITEMS: NbMenuItem[] = [
   ],
 },
 {
-  title: 'Funds',
-  icon: 'cube-outline',
-  link: '/pages/funds',
-},
-{
   title: 'Contributions',
   icon: 'layers-outline',
   link: '/pages/contributions',
 },
+
 {
   title: 'Refunds',
   icon: 'repeat-outline',
   link: '/pages/refunds',
 },
 {
-  title: 'Dons',
+  title: 'Donations',
   icon: 'gift-outline',
-  link: '/pages/dons',
+  link: '/pages/donations',
+},
+{
+  title: 'Funds',
+  icon: 'cube-outline',
+  link: '/pages/funds',
 },
 {
   title: 'Parameters',
