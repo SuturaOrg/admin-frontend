@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AdherentsComponent } from './adherents.component';
 import { ContributedComponent } from './contributed/contributed.component';
-import { AdvancedComponent } from './advanced/advanced.component';
+import { AdvancedComponent } from '../advanced/advanced.component';
 import { NotContributedComponent } from './notContributed/notContributed.component';
 import { adherentsTableSettings} from './adherents.table-settings';
 
