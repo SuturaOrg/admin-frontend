@@ -17,63 +17,77 @@ export const MENU_ITEMS: NbMenuItem[] = [
     group: true,
   },
   { title: 'Loans',
-    icon: 'layout-outline',
+    icon: 'shake-outline',
     children: [
       {
         title: 'Chosen',
+        icon: 'clock-outline',
         link: '/pages/loans/chosen',
       },
       {
         title: 'Finished',
+        icon: 'done-all-outline',
         link: '/pages/loans/finished',
       },
       {
         title: 'Refunded',
         link: '/pages/loans/refunded',
+        icon: 'repeat-outline',
       }
     ],
   },
   { title: 'Adherents',
-  icon: 'layout-outline',
+  icon: 'person-outline',
   children: [
     {
       title: 'Contributed',
       link: '/pages/adherents/contributed',
+      icon: 'person-done-outline',
     },
     {
       title: 'Not Contributed',
       link: '/pages/adherents/notContributed',
+      icon: 'person-delete-outline',
     },
     {
       title: 'Advanced',
       link: '/pages/adherents/advanced',
+      icon: 'settings-outline',  
     }
   ],
 },
 {
   title: 'Funds',
-  icon: 'home-outline',
+  icon: 'cube-outline',
   link: '/pages/funds',
 },
 {
   title: 'Contributions',
-  icon: 'home-outline',
+  icon: 'layers-outline',
   link: '/pages/contributions',
 },
 {
   title: 'Refunds',
-  icon: 'home-outline',
+  icon: 'repeat-outline',
   link: '/pages/refunds',
 },
 {
   title: 'Dons',
-  icon: 'home-outline',
+  icon: 'gift-outline',
   link: '/pages/dons',
 },
 {
   title: 'Parameters',
-  icon: 'home-outline',
+  icon: 'settings-outline',
   link: '/pages/parameters',
+},
+{
+  title: 'TRASH',
+  group: true,
+},{
+  title: 'Trash',
+  icon: 'trash-2-outline',
+  link: '/pages/trash',
 },
 {
   title: 'USER',
@@ -85,6 +99,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   link: '/pages/profile',
   hidden:true
 },
+
   {
     title: 'FEATURES',
     group: true,
