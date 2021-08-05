@@ -5,27 +5,24 @@ import { LoansComponent } from './loans.component';
 import { AdvancedComponent } from '../../advanced/advanced.component';
 import { loansTableSettings} from './loans.table-settings';
 
+let children = [];
+const paths = ['chosen', 'finished', 'refunded'];
+
+for (let p of paths){
+  let obj = {
+    path: p,
+    component: AdvancedComponent,
+    data: loansTableSettings[p]
+  };
+  children.push(obj);
+
+}
+
+
 const routes: Routes = [{
   path: '',
   component: LoansComponent,
-  children: [
-    {
-      path: 'chosen',
-      component: AdvancedComponent,
-      data:loansTableSettings.chosen
-    },
-    {
-      path: 'finished',
-      component: AdvancedComponent,
-      data:loansTableSettings.finished
-    },
-    {
-      path: 'refunded',
-      component: AdvancedComponent,
-      data:loansTableSettings.refunded
-    },
-    
-  ],
+  children: children,
 }];
 
 @NgModule({
