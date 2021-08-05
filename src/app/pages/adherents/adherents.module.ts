@@ -7,6 +7,7 @@ import { ContributedComponent } from './contributed/contributed.component';
 import { AdvancedComponent } from './advanced/advanced.component';
 import { AdherentsRoutingModule } from './adherents-routing.module';
 import { NotContributedComponent } from './notContributed/notContributed.component';
+import { AdherentsComponent } from './adherents.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { NotContributedComponent } from './notContributed/notContributed.compone
   declarations: [
    AdvancedComponent,
    ContributedComponent,
-   NotContributedComponent
+   NotContributedComponent,
+   AdherentsComponent,
   ],
 })
 export class AdherentsModule { }

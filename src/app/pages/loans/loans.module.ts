@@ -6,6 +6,7 @@ import { ThemeModule } from '../../@theme/theme.module';
 import { ChosenComponent } from './chosen/chosen.component';
 import { FinishedComponent } from './finished/finished.component';
 import { LoansRoutingModule } from './loans-routing.module';
+import { LoansComponent } from './loans.component';
 import { RefundedComponent } from './refunded/refunded.component';
 
 @NgModule({
@@ -21,7 +22,8 @@ import { RefundedComponent } from './refunded/refunded.component';
   declarations: [
    FinishedComponent,
    ChosenComponent,
-   RefundedComponent
+   RefundedComponent,
+   LoansComponent,
   ],
 })
 export class LoansModule { }

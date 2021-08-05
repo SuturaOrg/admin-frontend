@@ -1,15 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'ngx-adherents',
-  templateUrl: './adherents.component.html',
-  styleUrls: ['./adherents.component.scss']
+  template: `
+    <router-outlet></router-outlet>
+  `,
 })
-export class AdherentsComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class AdherentsComponent {
 }
