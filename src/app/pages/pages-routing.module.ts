@@ -6,7 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import { LoansComponent } from './owns/loans/loans.component';
-import { FundsComponent } from './funds/funds.component';
+import { FundsComponent } from './owns/funds/funds.component';
 import { ContributionsComponent } from './contributions/contributions.component';
 import { RefundsComponent } from './refunds/Refunds.component';
 import { DonationsComponent } from './donations/donations.component';
