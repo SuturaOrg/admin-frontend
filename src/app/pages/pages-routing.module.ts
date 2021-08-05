@@ -5,7 +5,7 @@ import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
-import { LoansComponent } from './loans/loans.component';
+import { LoansComponent } from './owns/loans/loans.component';
 import { FundsComponent } from './funds/funds.component';
 import { ContributionsComponent } from './contributions/contributions.component';
 import { RefundsComponent } from './refunds/Refunds.component';
@@ -50,7 +50,7 @@ const routes: Routes = [{
     },
     {
       path: 'loans',
-      loadChildren: () => import('./loans/loans.module')
+      loadChildren: () => import('./owns/loans/loans.module')
         .then(m => m.LoansModule),
     },
     {

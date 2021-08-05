@@ -12,12 +12,12 @@ const routes: Routes = [{
     {
       path: 'contributed',
       component: AdvancedComponent,
-      data:adherentsTableSettings.notContributed
+      data:adherentsTableSettings.contributed
     },
     {
       path: 'advanced',
       component: AdvancedComponent,
-      data:adherentsTableSettings.notContributed
+      data:adherentsTableSettings.advanced
     },
     {
       path: 'notContributed',

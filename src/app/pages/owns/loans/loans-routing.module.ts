@@ -2,9 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { LoansComponent } from './loans.component';
-import { ChosenComponent } from './chosen/chosen.component';
-import { FinishedComponent } from './finished/finished.component';
-import { RefundedComponent } from './refunded/refunded.component';
+import { AdvancedComponent } from '../../advanced/advanced.component';
+import { loansTableSettings} from './loans.table-settings';
 
 const routes: Routes = [{
   path: '',
@@ -12,15 +11,18 @@ const routes: Routes = [{
   children: [
     {
       path: 'chosen',
-      component: ChosenComponent,
+      component: AdvancedComponent,
+      data:loansTableSettings.chosen
     },
     {
       path: 'finished',
-      component: FinishedComponent,
+      component: AdvancedComponent,
+      data:loansTableSettings.finished
     },
     {
       path: 'refunded',
-      component: RefundedComponent,
+      component: AdvancedComponent,
+      data:loansTableSettings.refunded
     },
     
   ],
@@ -31,4 +33,5 @@ const routes: Routes = [{
   exports: [RouterModule],
 })
 export class LoansRoutingModule {
+  
 }

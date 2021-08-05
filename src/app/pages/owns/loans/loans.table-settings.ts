@@ -1,5 +1,5 @@
-export const adherentsTableSettings = {
-    notContributed: {
+export const loansTableSettings = {
+    chosen: {
         settings: {
             add: {
                 addButtonContent: '<i class="nb-plus"></i>',
@@ -37,7 +37,7 @@ export const adherentsTableSettings = {
         entity: "students"
 
     },
-    contributed: {
+    finished: {
         settings: {
             add: {
                 addButtonContent: '<i class="nb-plus"></i>',
@@ -75,7 +75,7 @@ export const adherentsTableSettings = {
         entity: "students"
 
     },
-    advanced: {
+    refunded: {
         settings: {
             add: {
                 addButtonContent: '<i class="nb-plus"></i>',
