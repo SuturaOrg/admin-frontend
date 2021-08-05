@@ -3,9 +3,7 @@ import { NbCardModule, NbIconModule, NbInputModule, NbTreeGridModule } from '@ne
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 import { ThemeModule } from '../../@theme/theme.module';
-import { AdvancedModule} from '../advanced/advanced.module';
-import { AdherentsRoutingModule } from './adherents-routing.module';
-import { AdherentsComponent } from './adherents.component';
+import { AdvancedComponent } from '../advanced/advanced.component';
 
 @NgModule({
   imports: [
@@ -14,12 +12,9 @@ import { AdherentsComponent } from './adherents.component';
     NbIconModule,
     NbInputModule,
     ThemeModule,
-    AdvancedModule,
-    AdherentsRoutingModule,
     Ng2SmartTableModule,
   ],
   declarations: [
-   AdherentsComponent,
-  ],
+AdvancedComponent  ],
 })
-export class AdherentsModule { }
+export class AdvancedModule { }
