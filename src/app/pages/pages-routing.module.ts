@@ -11,6 +11,7 @@ import { ContributionsComponent } from './contributions/contributions.component'
 import { RefundsComponent } from './refunds/Refunds.component';
 import { DonsComponent } from './dons/dons.component';
 import { ParametersComponent } from './parameters/parameters.component';
+import { ProfileComponent } from './profile/profile.component';
 const routes: Routes = [{
   path: '',
   component: PagesComponent,
@@ -42,6 +43,10 @@ const routes: Routes = [{
     {
       path: 'parameters',
       component: ParametersComponent,
+    },
+    {
+      path: 'profile',
+      component: ProfileComponent,
     },
     {
       path: 'loans',

@@ -5,11 +5,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./footer.component.scss'],
   template: `
     <span class="created-by">
-      &copy;sutura.in_2021
+      &copy;sutura.in 2021
     </span>
     <div class="socials">
-      <a href="#" target="_blank" class="ion ion-social-github"></a>
-      <a href="#" target="_blank" class="ion ion-social-facebook"></a>
+      <a href="https://github.com/SuturaOrg" target="_blank" class="ion ion-social-github"></a>
+      <a href="https://web.facebook.com/Sutura-100906312128627" target="_blank" class="ion ion-social-facebook"></a>
     </div>
   `,
 })

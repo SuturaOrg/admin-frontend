@@ -75,6 +75,16 @@ export const MENU_ITEMS: NbMenuItem[] = [
   icon: 'home-outline',
   link: '/pages/parameters',
 },
+{
+  title: 'USER',
+  group: true,
+  hidden:true
+},{
+  title: 'Profile',
+  icon: 'person-outline',
+  link: '/pages/profile',
+  hidden:true
+},
   {
     title: 'FEATURES',
     group: true,
