@@ -5,22 +5,24 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 import { ThemeModule } from '../../@theme/theme.module';
 import { AdvancedModule} from '../advanced/advanced.module';
-import { ownsRoutingModule } from './owns-routing.module';
-import { ownsComponent } from './owns.component';
+import { LoansComponent } from './loans/loans.component';
+import { OwnsRoutingModule } from './owns-routing.module';
+import { OwnsComponent } from './owns.component';
 
 @NgModule({
-  imports: [RouterModule,
+  imports: [
     NbCardModule,
     NbTreeGridModule,
     NbIconModule,
     NbInputModule,
     ThemeModule,
     AdvancedModule,
-    ownsRoutingModule,
+    OwnsRoutingModule,
     Ng2SmartTableModule,
   ],
   declarations: [
-   ownsComponent,
+   OwnsComponent,
+   LoansComponent,
   ],
 })
 export class ownsModule { }

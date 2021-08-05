@@ -50,8 +50,8 @@ const routes: Routes = [{
     },
     {
       path: 'loans',
-      loadChildren: () => import('./owns/loans/loans.module')
-        .then(m => m.LoansModule),
+      loadChildren: () => import('./owns/owns.module')
+        .then(m => m.ownsModule),
     },
     {
       path: 'adherents',
