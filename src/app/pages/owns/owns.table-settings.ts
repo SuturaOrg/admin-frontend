@@ -1,4 +1,4 @@
-export const loansTableSettings = {
+export const ownsTableSettings = {
     chosen: {
         settings: {
             add: {

@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { OwnTablesComponent } from './ownTabless.component';
+import { ownsComponent } from './owns.component';
 import { AdvancedComponent } from '../advanced/advanced.component';
-import { ownTablesTableSettings} from './ownTables.table-settings';
+import { ownsTableSettings} from './owns.table-settings';
 import { LoansComponent } from './loans/loans.component';
 
 const routes: Routes = [{
   path: '',
-  component: OwnTablesComponent,
+  component: ownsComponent,
   children: [
     {
       path: 'loans',
@@ -17,12 +17,12 @@ const routes: Routes = [{
     {
       path: 'finished',
       component: AdvancedComponent,
-      data:ownTablesTableSettings.finished
+      data:ownsTableSettings.finished
     },
     {
       path: 'refunded',
       component: AdvancedComponent,
-      data:ownTablesTableSettings.refunded
+      data:ownsTableSettings.refunded
     },
     
   ],
@@ -32,6 +32,6 @@ const routes: Routes = [{
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class OwnTablesRoutingModule {
+export class ownsRoutingModule {
   
 }

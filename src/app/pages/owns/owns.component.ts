@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'ngx-loans',
+  selector: 'ngx-owns',
   template: `
     <router-outlet></router-outlet>
   `,
 })
-export class LoansComponent {
+export class ownsComponent {
 }

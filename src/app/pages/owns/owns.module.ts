@@ -5,8 +5,8 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 import { ThemeModule } from '../../@theme/theme.module';
 import { AdvancedModule} from '../advanced/advanced.module';
-import { OwnTablesRoutingModule } from './ownTables-routing.module';
-import { OwnTablesComponent } from './ownTabless.component';
+import { ownsRoutingModule } from './owns-routing.module';
+import { ownsComponent } from './owns.component';
 
 @NgModule({
   imports: [RouterModule,
@@ -16,11 +16,11 @@ import { OwnTablesComponent } from './ownTabless.component';
     NbInputModule,
     ThemeModule,
     AdvancedModule,
-    OwnTablesRoutingModule,
+    ownsRoutingModule,
     Ng2SmartTableModule,
   ],
   declarations: [
-   OwnTablesComponent,
+   ownsComponent,
   ],
 })
-export class OwnTablesModule { }
+export class ownsModule { }
