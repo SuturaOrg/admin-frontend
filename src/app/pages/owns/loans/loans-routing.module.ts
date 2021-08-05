@@ -6,21 +6,21 @@ import { AdvancedComponent } from '../../advanced/advanced.component';
 import { loansTableSettings} from './loans.table-settings';
 
 const routes: Routes = [{
-  path: 'owns/',
+  path: '',
   component: LoansComponent,
   children: [
     {
-      path: 'owns/chosen',
+      path: 'chosen',
       component: AdvancedComponent,
       data:loansTableSettings.chosen
     },
     {
-      path: 'owns/finished',
+      path: 'finished',
       component: AdvancedComponent,
       data:loansTableSettings.finished
     },
     {
-      path: 'owns/refunded',
+      path: 'refunded',
       component: AdvancedComponent,
       data:loansTableSettings.refunded
     },
