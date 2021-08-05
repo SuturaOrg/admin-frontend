@@ -22,7 +22,6 @@ import { OwnsComponent } from './owns.component';
   ],
   declarations: [
    OwnsComponent,
-   LoansComponent,
   ],
 })
 export class ownsModule { }

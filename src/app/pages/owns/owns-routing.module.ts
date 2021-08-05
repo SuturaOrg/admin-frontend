@@ -13,7 +13,8 @@ const routes: Routes = [{
   children: [
     {
       path: 'loans',
-      component: LoansComponent,
+      loadChildren: () => import('./loans/loans.module')
+        .then(m => m.LoansModule)
     },
     {
       path: 'funds',
