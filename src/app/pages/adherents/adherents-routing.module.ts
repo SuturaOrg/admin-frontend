@@ -5,6 +5,7 @@ import { AdherentsComponent } from './adherents.component';
 import { ContributedComponent } from './contributed/contributed.component';
 import { AdvancedComponent } from './advanced/advanced.component';
 import { NotContributedComponent } from './notContributed/notContributed.component';
+import { adherentsTableSettings} from './adherents.table-settings';
 
 const routes: Routes = [{
   path: '',
@@ -20,7 +21,8 @@ const routes: Routes = [{
     },
     {
       path: 'notContributed',
-      component: NotContributedComponent,
+      component: AdvancedComponent,
+      data:adherentsTableSettings.notContributed
     },
     
   ],

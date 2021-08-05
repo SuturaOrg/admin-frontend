@@ -1,7 +1,9 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { LocalDataSource } from 'ng2-smart-table';
 import { SmartTableData } from '../../../@core/data/smart-table';
+import { TableEventService } from '../../../services/tableEvent.service';
 
 @Component({
   selector: 'ngx-advanced',
@@ -9,6 +11,7 @@ import { SmartTableData } from '../../../@core/data/smart-table';
   styleUrls: ['./advanced.component.scss'],
 })
 export class AdvancedComponent implements OnInit {
+  @Input()
   settings = {
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
@@ -43,29 +46,36 @@ export class AdvancedComponent implements OnInit {
       },
     },
   };
+  @Input()
+  entity = 'students';
 
 
-  source: LocalDataSource = new LocalDataSource();
+  source: LocalDataSource
   headers: HttpHeaders;
+  sub;
 
 
-  constructor(private service: SmartTableData, private http: HttpClient) {
+  constructor(private route: ActivatedRoute, private service: SmartTableData, private http: HttpClient, private tableEventService: TableEventService) {
     const token = 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMzQ5IiwiaWF0IjoxNjI4MDc5NDU2LCJleHAiOjE2Mjg2ODQyNTZ9.8qNksg2mj7OdAiaDDxzEekOoJeESUZ7oC8-T9w_I_vk60TqVHvXIKCtsLHNcy73DTmzvYlZn2UDJIcXRwCYcjA';
-       this.headers = new HttpHeaders({ 'Authorization': 'Bearer ' + token }); // create header object
+    this.headers = new HttpHeaders({ 'Authorization': 'Bearer ' + token }); // create header object
   }
 
-  ngOnInit(): void {
-    this.http.get<any>('http://localhost:8082/api/students/', { headers: this.headers }).subscribe(
-      data => {
-        this.source.load(data._embedded.students);
-      },
-      (err: HttpErrorResponse) => {
-        if (err.error instanceof Error) {
-          console.log('Client-side error occured.');
-        } else {
-          console.log('Server-side error occured.');
-        }
-      });
+  ngOnInit() {
+    this.sub = this.route
+      .data
+      .subscribe(data => {
+        this.entity = data.entity;
+        this.settings = data.settings;
+        console.log(data)
+      }
+      );
+      this.tableEventService.loadEntity(this.entity, this.settings);
+      this.source = this.tableEventService.source;
+  }
+
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
   onSearch(query: string) {
     this.source.setFilter([
@@ -77,70 +87,7 @@ export class AdvancedComponent implements OnInit {
     ], false);
   }
 
-  onEditConfirm(event): void {
-    if (window.confirm('Are you sure you want to save?')) {
-
-      const data =event.newData;
-      this.http.patch<any>('http://localhost:8082/api/students/' + event.newData.id, data, { headers: this.headers }).subscribe(
-        async res => {
-          console.log(event.data);
-          event.confirm.resolve();
-         // await this.source.update(event.data,res);
-        },
-        (err: HttpErrorResponse) => {
-          if (err.error instanceof Error) {
-            console.log('Client-side error occured.');
-          } else {
-            console.log('Server-side error occured.');
-          }
-        });
-
-    } else {
-      event.confirm.reject();
-    }
-  }
-  onCreateConfirm(event): void {
-    if (window.confirm('Are you sure you want to create?')) {
-
-      const data =event.newData;
-      this.http.post<any>('http://localhost:8082/api/students/', data, { headers: this.headers }).subscribe(
-        async res => {
-          console.log(res);
-          await this.source.add(res);
-         // await this.source.find(res);
-          event.confirm.resolve();
-
-        },
-        (err: HttpErrorResponse) => {
-          if (err.error instanceof Error) {
-            console.log('Client-side error occured.');
-          } else {
-            console.log('Server-side error occured.');
-          }
-        });
-
-    } else {
-      event.confirm.reject();
-    }
-  }
-  onDeleteConfirm(event): void {
-    if (window.confirm('Are you sure you want to delete?')) {
-      this.http.delete<any>('http://localhost:8082/api/students/' + event.data.id, { headers: this.headers }).subscribe(
-      async  data => {
-          console.log(data);
-         await this.source.remove(event.data);
-         event.confirm.resolve();
-        // await this.source.reset();
-        },
-        (err: HttpErrorResponse) => {
-          if (err.error instanceof Error) {
-            console.log('Client-side error occured.');
-          } else {
-            console.log('Server-side error occured.');
-          }
-        });
-    } else {
-      event.confirm.reject();
-    }
-  }
+  onEditConfirm = this.tableEventService.onEditConfirm;
+  onCreateConfirm = this.tableEventService.onCreateConfirm;
+  onDeleteConfirm = this.tableEventService.onDeleteConfirm;
 }
