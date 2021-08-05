@@ -5,12 +5,6 @@ import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
-import { LoansComponent } from './owns/loans/loans.component';
-import { FundsComponent } from './owns/funds/funds.component';
-import { ContributionsComponent } from './contributions/contributions.component';
-import { RefundsComponent } from './refunds/Refunds.component';
-import { DonationsComponent } from './donations/donations.component';
-import { ParametersComponent } from './parameters/parameters.component';
 import { ProfileComponent } from './profile/profile.component';
 const routes: Routes = [{
   path: '',
@@ -25,31 +19,11 @@ const routes: Routes = [{
       component: DashboardComponent,
     },
     {
-      path: 'funds',
-      component: FundsComponent,
-    },
-    {
-      path: 'contributions',
-      component: ContributionsComponent,
-    },
-    {
-      path: 'refunds',
-      component: RefundsComponent,
-    },
-    {
-      path: 'donations',
-      component: DonationsComponent,
-    },
-    {
-      path: 'parameters',
-      component: ParametersComponent,
-    },
-    {
       path: 'profile',
       component: ProfileComponent,
     },
     {
-      path: 'loans',
+      path: 'owns',
       loadChildren: () => import('./owns/owns.module')
         .then(m => m.ownsModule),
     },

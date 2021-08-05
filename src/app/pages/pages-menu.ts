@@ -22,16 +22,16 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: 'Chosen',
         icon: 'clock-outline',
-        link: '/pages/loans/chosen',
+        link: '/pages/owns/loans/chosen',
       },
       {
         title: 'Finished',
         icon: 'done-all-outline',
-        link: '/pages/loans/finished',
+        link: '/pages/owns/loans/finished',
       },
       {
         title: 'Refunded',
-        link: '/pages/loans/refunded',
+        link: '/pages/owns/loans/refunded',
         icon: 'repeat-outline',
       }
     ],
@@ -41,17 +41,17 @@ export const MENU_ITEMS: NbMenuItem[] = [
   children: [
     {
       title: 'Contributed',
-      link: '/pages/adherents/contributed',
+      link: '/pages/owns/adherents/contributed',
       icon: 'person-done-outline',
     },
     {
       title: 'Not Contributed',
-      link: '/pages/adherents/notContributed',
+      link: '/pages/owns/adherents/notContributed',
       icon: 'person-delete-outline',
     },
     {
       title: 'Advanced',
-      link: '/pages/adherents/advanced',
+      link: '/pages/owns/adherents/advanced',
       icon: 'settings-outline',  
     }
   ],
@@ -59,28 +59,28 @@ export const MENU_ITEMS: NbMenuItem[] = [
 {
   title: 'Contributions',
   icon: 'layers-outline',
-  link: '/pages/contributions',
+  link: '/pages/owns/contributions',
 },
 
 {
   title: 'Refunds',
   icon: 'repeat-outline',
-  link: '/pages/refunds',
+  link: '/pages/owns/refunds',
 },
 {
   title: 'Donations',
   icon: 'gift-outline',
-  link: '/pages/donations',
+  link: '/pages/owns/donations',
 },
 {
   title: 'Funds',
   icon: 'cube-outline',
-  link: '/pages/funds',
+  link: '/pages/owns/funds',
 },
 {
   title: 'Parameters',
   icon: 'settings-outline',
-  link: '/pages/parameters',
+  link: '/pages/owns/parameters',
 },
 {
   title: 'TRASH',

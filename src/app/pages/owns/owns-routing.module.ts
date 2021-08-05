@@ -3,8 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { OwnsComponent } from './owns.component';
 import { AdvancedComponent } from '../advanced/advanced.component';
-import { ownsTableSettings} from './owns.table-settings';
+import { ownsTableSettings } from './owns.table-settings';
 import { LoansComponent } from './loans/loans.component';
+import { FundsComponent } from './funds/funds.component';
 
 const routes: Routes = [{
   path: '',
@@ -15,16 +16,31 @@ const routes: Routes = [{
       component: LoansComponent,
     },
     {
-      path: 'finished',
+      path: 'funds',
       component: AdvancedComponent,
-      data:ownsTableSettings.finished
+      data: ownsTableSettings.funds
     },
     {
-      path: 'refunded',
+      path: 'contributions',
       component: AdvancedComponent,
-      data:ownsTableSettings.refunded
+      data: ownsTableSettings.funds,
     },
-    
+    {
+      path: 'refunds',
+      component: AdvancedComponent,
+      data: ownsTableSettings.funds
+    },
+    {
+      path: 'donations',
+      component: AdvancedComponent,
+      data: ownsTableSettings.funds
+    },
+    {
+      path: 'parameters',
+      component: AdvancedComponent,
+      data: ownsTableSettings.funds
+    },
+
   ],
 }];
 
@@ -33,5 +49,5 @@ const routes: Routes = [{
   exports: [RouterModule],
 })
 export class OwnsRoutingModule {
-  
+
 }
