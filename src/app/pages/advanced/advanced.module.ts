@@ -16,5 +16,6 @@ import { AdvancedComponent } from '../advanced/advanced.component';
   ],
   declarations: [
 AdvancedComponent  ],
+  exports: [AdvancedComponent],
 })
 export class AdvancedModule { }

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdvancedComponent } from '../advanced/advanced.component';
 import { ownsTableSettings } from './owns.table-settings';
+import {OwnsComponent} from './owns.component';
 
 
 const children: any = [{

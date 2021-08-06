@@ -116,7 +116,7 @@ export const ownsTableSettings = {
         entity: 'parameters',
 
     },
-    refunded: {
+    refunds: {
         settings: {
             add: {
                 addButtonContent: '<i class="nb-plus"></i>',
@@ -151,7 +151,7 @@ export const ownsTableSettings = {
                 },
             },
         },
-        entity: 'students',
+        entity: 'refunds',
 
     },
     funds: {
