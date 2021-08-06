@@ -25,7 +25,7 @@ const routes: Routes = [{
     {
       path: 'owns',
       loadChildren: () => import('./owns/owns.module')
-        .then(m => m.ownsModule),
+        .then(m => m.OwnsModule),
     },
     {
       path: 'adherents',

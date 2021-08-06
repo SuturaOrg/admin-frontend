@@ -23,4 +23,4 @@ import { OwnsComponent } from './owns.component';
    OwnsComponent,
   ],
 })
-export class ownsModule { }
+export class OwnsModule { }

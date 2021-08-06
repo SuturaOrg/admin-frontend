@@ -2,9 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'ngx-owns',
-  template: `
-    <router-outlet></router-outlet>
-  `,
+  template: ``,
 })
 export class OwnsComponent {
 }

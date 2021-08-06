@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
-import { OwnsComponent } from './owns.component';
 import { AdvancedComponent } from '../advanced/advanced.component';
 import { ownsTableSettings } from './owns.table-settings';
 
@@ -23,7 +21,6 @@ for (const p of paths) {
 }
 const routes: Routes = [{
   path: '',
-  component: OwnsComponent,
   children: children,
 }];
 

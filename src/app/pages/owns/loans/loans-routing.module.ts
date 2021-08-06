@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
-import { LoansComponent } from './loans.component';
 import { AdvancedComponent } from '../../advanced/advanced.component';
 import { loansTableSettings} from './loans.table-settings';
 
@@ -21,7 +19,6 @@ for (const p of paths) {
 
 const routes: Routes = [{
   path: '',
-  component: LoansComponent,
   children: children,
 }];
 
