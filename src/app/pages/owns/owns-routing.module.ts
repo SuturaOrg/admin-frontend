@@ -1,22 +1,31 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { AdvancedComponent } from '../advanced/advanced.component';
-import { ownsTableSettings } from './owns.table-settings';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
+import {AdvancedComponent} from '../advanced/advanced.component';
+import {ownsTableSettings} from './owns.table-settings';
 import {OwnsComponent} from './owns.component';
 
 
-const children: any = [{
+const children: any = [];
+const paths = [{
   path: 'loans',
-  loadChildren: () => import('./loans/loans.module')
-    .then(m => m.LoansModule),
-}];
-const paths = ['funds', 'contributions', 'refunds', 'donations', 'parameters'];
+  children: ['chosen', 'finished','refunded'],
+},
+  {
+    path: 'contributions',
+    children: [],
+  }];
 
 for (const p of paths) {
   const obj = {
-    path: p,
-    component: AdvancedComponent,
-    data: ownsTableSettings[p],
+    path: p.path,
+    component:!p.children.length?AdvancedComponent:null,
+    children: p.children.map((j) => {
+      return {
+        path: j,
+        component: AdvancedComponent,
+        data: ownsTableSettings[p[j]],
+      };
+    }),
   };
   children.push(obj);
 }

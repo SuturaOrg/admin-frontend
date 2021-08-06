@@ -40,18 +40,18 @@ export const MENU_ITEMS: NbMenuItem[] = [
   icon: 'person-outline',
   children: [
     {
-      title: 'Contributed',
-      link: '/pages/owns/adherents/contributed',
+      title: 'Chosen',
+      link: '/pages/owns/adherents/chosen',
       icon: 'person-done-outline',
     },
     {
-      title: 'Not Contributed',
-      link: '/pages/owns/adherents/notContributed',
+      title: 'Finished',
+      link: '/pages/owns/adherents/finished',
       icon: 'person-delete-outline',
     },
     {
-      title: 'Advanced',
-      link: '/pages/owns/adherents/advanced',
+      title: 'Refunded',
+      link: '/pages/owns/adherents/refunded',
       icon: 'settings-outline',
     },
   ],
