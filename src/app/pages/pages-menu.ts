@@ -33,7 +33,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: 'Refunded',
         link: '/pages/owns/loans/refunded',
         icon: 'repeat-outline',
-      }
+      },
     ],
   },
   { title: 'Adherents',
@@ -52,8 +52,8 @@ export const MENU_ITEMS: NbMenuItem[] = [
     {
       title: 'Advanced',
       link: '/pages/owns/adherents/advanced',
-      icon: 'settings-outline',  
-    }
+      icon: 'settings-outline',
+    },
   ],
 },
 {
@@ -85,7 +85,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
 {
   title: 'TRASH',
   group: true,
-},{
+}, {
   title: 'Trash',
   icon: 'trash-2-outline',
   link: '/pages/trash',
@@ -93,12 +93,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
 {
   title: 'USER',
   group: true,
-  hidden:true
-},{
+  hidden: true,
+}, {
   title: 'Profile',
   icon: 'person-outline',
   link: '/pages/profile',
-  hidden:true
+  hidden: true,
 },
 
   {

@@ -1,4 +1,6 @@
-export const loansTableSettings = {
+type pathsType= 'chosen'|'finished'| 'refunded';
+type pathsMap = { [path in pathsType]: Object };
+export const loansTableSettings: pathsMap = {
     chosen: {
         settings: {
             add: {
@@ -34,8 +36,6 @@ export const loansTableSettings = {
                 },
             },
         },
-        entity: "students"
-
     },
     finished: {
         settings: {
@@ -72,7 +72,7 @@ export const loansTableSettings = {
                 },
             },
         },
-        entity: "students"
+        entity: 'students',
 
     },
     refunded: {
@@ -110,7 +110,7 @@ export const loansTableSettings = {
                 },
             },
         },
-        entity: "students"
+        entity: 'students',
 
-    }
-}
+    },
+};

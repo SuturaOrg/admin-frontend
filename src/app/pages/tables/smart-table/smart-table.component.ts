@@ -16,7 +16,7 @@ export class SmartTableComponent implements OnInit {
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
-      confirmCreate: true
+      confirmCreate: true,
     },
     edit: {
       editButtonContent: '<i class="nb-edit"></i>',
@@ -35,7 +35,7 @@ export class SmartTableComponent implements OnInit {
       },
       email: {
         title: 'Email',
-        filter: true
+        filter: true,
       },
       updatedAt: {
         title: 'Modifié',
@@ -43,7 +43,7 @@ export class SmartTableComponent implements OnInit {
         editable: false,
 
       },
-    }
+    },
   };
 
 
@@ -52,8 +52,8 @@ export class SmartTableComponent implements OnInit {
 
 
   constructor(private service: SmartTableData, private http: HttpClient) {
-    const token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMzQ5IiwiaWF0IjoxNjI4MDc5NDU2LCJleHAiOjE2Mjg2ODQyNTZ9.8qNksg2mj7OdAiaDDxzEekOoJeESUZ7oC8-T9w_I_vk60TqVHvXIKCtsLHNcy73DTmzvYlZn2UDJIcXRwCYcjA";
-       this.headers = new HttpHeaders({ 'Authorization': 'Bearer ' + token });// create header object
+    const token = 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMzQ5IiwiaWF0IjoxNjI4MDc5NDU2LCJleHAiOjE2Mjg2ODQyNTZ9.8qNksg2mj7OdAiaDDxzEekOoJeESUZ7oC8-T9w_I_vk60TqVHvXIKCtsLHNcy73DTmzvYlZn2UDJIcXRwCYcjA';
+       this.headers = new HttpHeaders({ 'Authorization': 'Bearer ' + token }); // create header object
   }
 
   ngOnInit(): void {
@@ -63,9 +63,9 @@ export class SmartTableComponent implements OnInit {
       },
       (err: HttpErrorResponse) => {
         if (err.error instanceof Error) {
-          console.log("Client-side error occured.");
+          console.log('Client-side error occured.');
         } else {
-          console.log("Server-side error occured.");
+          console.log('Server-side error occured.');
         }
       });
   }
@@ -74,17 +74,17 @@ export class SmartTableComponent implements OnInit {
       // fields we want to include in the search
       {
         field: 'email',
-        search: query
-      }
+        search: query,
+      },
     ], false);
   }
 
   onEditConfirm(event): void {
     if (window.confirm('Are you sure you want to save?')) {
 
-      var data = {
-        "email": event.newData.email,
-        "prenom": event.newData.prenom
+      const data = {
+        'email': event.newData.email,
+        'prenom': event.newData.prenom,
       };
       this.http.put<any>('http://localhost:8082/api/students/' + event.newData.id, data, { headers: this.headers }).subscribe(
         res => {
@@ -93,9 +93,9 @@ export class SmartTableComponent implements OnInit {
         },
         (err: HttpErrorResponse) => {
           if (err.error instanceof Error) {
-            console.log("Client-side error occured.");
+            console.log('Client-side error occured.');
           } else {
-            console.log("Server-side error occured.");
+            console.log('Server-side error occured.');
           }
         });
 
@@ -111,9 +111,9 @@ export class SmartTableComponent implements OnInit {
         },
         (err: HttpErrorResponse) => {
           if (err.error instanceof Error) {
-            console.log("Client-side error occured.");
+            console.log('Client-side error occured.');
           } else {
-            console.log("Server-side error occured.");
+            console.log('Server-side error occured.');
           }
         });
     } else {

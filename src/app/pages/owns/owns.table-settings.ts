@@ -34,7 +34,7 @@ export const ownsTableSettings = {
                 },
             },
         },
-        entity: "students"
+        entity: 'students',
 
     },
     finished: {
@@ -72,7 +72,7 @@ export const ownsTableSettings = {
                 },
             },
         },
-        entity: "students"
+        entity: 'students',
 
     },
     parameters: {
@@ -113,7 +113,7 @@ export const ownsTableSettings = {
                 },
             },
         },
-        entity: "parameters"
+        entity: 'parameters',
 
     },
     refunded: {
@@ -151,10 +151,10 @@ export const ownsTableSettings = {
                 },
             },
         },
-        entity: "students"
+        entity: 'students',
 
     },
-    funds:{
+    funds: {
         settings: {
             add: {
                 addButtonContent: '<i class="nb-plus"></i>',
@@ -189,7 +189,7 @@ export const ownsTableSettings = {
                 },
             },
         },
-        entity: "students"
+        entity: 'students',
 
     },
-}
+};

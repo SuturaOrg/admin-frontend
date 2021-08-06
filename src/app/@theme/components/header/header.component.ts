@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private destroy$: Subject<void> = new Subject<void>();
   userPictureOnly: boolean = false;
   user: any;
-  notificationStatus:NbComponentOrCustomStatus="warning";
+  notificationStatus: NbComponentOrCustomStatus = 'warning';
 
   themes = [
     {
@@ -39,7 +39,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   currentTheme = 'default';
 
-  userMenu:NbMenuItem[] = [ { title: 'Profile',link:'pages/profile',icon:'person-outline' }, { title: 'Log out',link:'auth/logout',icon:'log-out-outline' } ];
+  userMenu: NbMenuItem[] = [ { title: 'Profile', link: 'pages/profile', icon: 'person-outline' }, { title: 'Log out', link: 'auth/logout', icon: 'log-out-outline' } ];
 
   constructor(private sidebarService: NbSidebarService,
               private menuService: NbMenuService,

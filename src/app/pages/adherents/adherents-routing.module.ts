@@ -12,19 +12,19 @@ const routes: Routes = [{
     {
       path: 'contributed',
       component: AdvancedComponent,
-      data:adherentsTableSettings.contributed
+      data: adherentsTableSettings.contributed,
     },
     {
       path: 'advanced',
       component: AdvancedComponent,
-      data:adherentsTableSettings.advanced
+      data: adherentsTableSettings.advanced,
     },
     {
       path: 'notContributed',
       component: AdvancedComponent,
-      data:adherentsTableSettings.notContributed
+      data: adherentsTableSettings.notContributed,
     },
-    
+
   ],
 }];
 
@@ -33,5 +33,5 @@ const routes: Routes = [{
   exports: [RouterModule],
 })
 export class AdherentsRoutingModule {
-  
+
 }

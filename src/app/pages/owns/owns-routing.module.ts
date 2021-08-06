@@ -6,18 +6,18 @@ import { AdvancedComponent } from '../advanced/advanced.component';
 import { ownsTableSettings } from './owns.table-settings';
 
 
-const children:any = [{
+const children: any = [{
   path: 'loans',
   loadChildren: () => import('./loans/loans.module')
-    .then(m => m.LoansModule)
+    .then(m => m.LoansModule),
 }];
-const paths = ["loans","funds","contributions","refunds","donations","parameters"];
+const paths = ['funds', 'contributions', 'refunds', 'donations', 'parameters'];
 
 for (const p of paths) {
   const obj = {
     path: p,
     component: AdvancedComponent,
-    data: ownsTableSettings[p]
+    data: ownsTableSettings[p],
   };
   children.push(obj);
 }

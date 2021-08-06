@@ -11,7 +11,7 @@ describe('ownsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OwnsComponent ]
+      declarations: [ OwnsComponent ],
     })
     .compileComponents();
   }));

@@ -11,7 +11,7 @@ describe('AdherentsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AdherentsComponent ]
+      declarations: [ AdherentsComponent ],
     })
     .compileComponents();
   }));

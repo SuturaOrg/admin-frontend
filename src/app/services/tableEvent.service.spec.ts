@@ -6,7 +6,7 @@ import { TableEventService } from './tableEvent.service';
 describe('Service: TableEvent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [TableEventService]
+      providers: [TableEventService],
     });
   });
 

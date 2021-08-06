@@ -5,14 +5,14 @@ import { LoansComponent } from './loans.component';
 import { AdvancedComponent } from '../../advanced/advanced.component';
 import { loansTableSettings} from './loans.table-settings';
 
-let children = [];
+const children = [];
 const paths = ['chosen', 'finished', 'refunded'];
 
-for (let p of paths){
-  let obj = {
+for (const p of paths) {
+  const obj = {
     path: p,
     component: AdvancedComponent,
-    data: loansTableSettings[p]
+    data: loansTableSettings[p],
   };
   children.push(obj);
 
@@ -30,5 +30,5 @@ const routes: Routes = [{
   exports: [RouterModule],
 })
 export class LoansRoutingModule {
-  
+
 }

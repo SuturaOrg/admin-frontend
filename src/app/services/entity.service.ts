@@ -4,11 +4,11 @@ import { SmartTableData } from '../@core/data/smart-table';
 import { LocalDataSource } from 'ng2-smart-table';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class EntityService implements OnInit{
+export class EntityService implements OnInit {
   #settings;
-  entity:string;
+  entity: string;
   source: LocalDataSource = new LocalDataSource();
   headers: HttpHeaders;
 
@@ -29,8 +29,8 @@ ngOnInit(): void {
 onEditConfirm(event): void {
   if (window.confirm('Are you sure you want to save?')) {
 
-    const data =event.newData;
-    this.http.patch<any>('http://localhost:8082/api/'+this.entity+'/' + event.newData.id, data, { headers: this.headers }).subscribe(
+    const data = event.newData;
+    this.http.patch<any>('http://localhost:8082/api/' + this.entity + '/' + event.newData.id, data, { headers: this.headers }).subscribe(
       async res => {
         console.log(event.data);
         event.confirm.resolve();
@@ -51,8 +51,8 @@ onEditConfirm(event): void {
 onCreateConfirm(event): void {
   if (window.confirm('Are you sure you want to create?')) {
 
-    const data =event.newData;
-    this.http.post<any>('http://localhost:8082/api/'+this.entity+'/', data, { headers: this.headers }).subscribe(
+    const data = event.newData;
+    this.http.post<any>('http://localhost:8082/api/' + this.entity + '/', data, { headers: this.headers }).subscribe(
       async res => {
         console.log(res);
         await this.source.add(res);
@@ -74,7 +74,7 @@ onCreateConfirm(event): void {
 }
 onDeleteConfirm(event): void {
   if (window.confirm('Are you sure you want to delete?')) {
-    this.http.delete<any>('http://localhost:8082/api/'+this.entity+'/' + event.data.id, { headers: this.headers }).subscribe(
+    this.http.delete<any>('http://localhost:8082/api/' + this.entity + '/' + event.data.id, { headers: this.headers }).subscribe(
     async  data => {
         console.log(data);
        await this.source.remove(event.data);

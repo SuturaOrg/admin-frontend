@@ -11,7 +11,7 @@ describe('AdvancedComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AdvancedComponent ]
+      declarations: [ AdvancedComponent ],
     })
     .compileComponents();
   }));

@@ -50,12 +50,15 @@ export class AdvancedComponent implements OnInit {
   entity = 'students';
 
 
-  source: LocalDataSource
+  source: LocalDataSource;
   headers: HttpHeaders;
   sub;
 
 
-  constructor(private route: ActivatedRoute, private service: SmartTableData, private http: HttpClient, private tableEventService: TableEventService) {
+  constructor(private route: ActivatedRoute,
+              private service: SmartTableData,
+              private http: HttpClient,
+              private tableEventService: TableEventService) {
     const token = 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMzQ5IiwiaWF0IjoxNjI4MDc5NDU2LCJleHAiOjE2Mjg2ODQyNTZ9.8qNksg2mj7OdAiaDDxzEekOoJeESUZ7oC8-T9w_I_vk60TqVHvXIKCtsLHNcy73DTmzvYlZn2UDJIcXRwCYcjA';
     this.headers = new HttpHeaders({ 'Authorization': 'Bearer ' + token }); // create header object
   }
@@ -66,8 +69,8 @@ export class AdvancedComponent implements OnInit {
       .subscribe(data => {
         this.entity = data.entity;
         this.settings = data.settings;
-        console.log(data)
-      }
+        console.log(data);
+      },
       );
       this.tableEventService.loadEntity(this.entity, this.settings);
       this.source = this.tableEventService.source;

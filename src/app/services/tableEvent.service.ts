@@ -4,7 +4,7 @@ import { LocalDataSource } from 'ng2-smart-table';
 import { SmartTableData } from '../@core/data/smart-table';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TableEventService {
   settings;

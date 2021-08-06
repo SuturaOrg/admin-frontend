@@ -34,7 +34,7 @@ export const adherentsTableSettings = {
                 },
             },
         },
-        entity: "students"
+        entity: 'students',
 
     },
     contributed: {
@@ -72,7 +72,7 @@ export const adherentsTableSettings = {
                 },
             },
         },
-        entity: "students"
+        entity: 'students',
 
     },
     advanced: {
@@ -110,7 +110,7 @@ export const adherentsTableSettings = {
                 },
             },
         },
-        entity: "students"
+        entity: 'students',
 
-    }
-}
+    },
+};
