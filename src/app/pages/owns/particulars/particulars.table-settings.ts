@@ -1,6 +1,6 @@
 type pathsType= 'chosen'|'finished'| 'refunded';
 type pathsMap = { [path in pathsType]: Object };
-export const loansTableSettings: pathsMap = {
+export const particularsTableSettings: pathsMap = {
     chosen: {
         settings: {
             add: {

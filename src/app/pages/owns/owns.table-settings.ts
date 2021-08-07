@@ -74,7 +74,7 @@ export const ownsTableSettings = {
         },
         entity: 'students',
 
-    },},
+    }},
     parameters: {
         settings: {
             add: {

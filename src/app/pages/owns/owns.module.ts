@@ -9,10 +9,6 @@ import {AdvancedModule} from '../advanced/advanced.module';
 
 @NgModule({
   imports: [
-    NbCardModule,
-    NbTreeGridModule,
-    NbIconModule,
-    NbInputModule,
     ThemeModule,
     OwnsRoutingModule,
     Ng2SmartTableModule,

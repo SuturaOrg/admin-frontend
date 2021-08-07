@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'ngx-loans',
+  selector: 'ngx-particulars',
   template: `
 
   `,
 })
-export class LoansComponent {
+export class ParticularsComponent {
 }
