@@ -2,11 +2,11 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {AdvancedComponent} from '../advanced/advanced.component';
 import {ownsTableSettings} from './owns.table-settings';
+import {ParticularsComponent} from './particulars/particulars.component';
 
 const baseChildren: {}[] = [{
   path: 'particulars',
-  loadChildren: () => import('./particulars/particulars.module')
-    .then(m => m.ParticularsModule),
+  component: ParticularsComponent,
 }];
 
 function setChildren(base: {}[]) {
