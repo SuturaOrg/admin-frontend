@@ -9,30 +9,25 @@ import { SmartTableData } from '../@core/data/smart-table';
 export class TableEventService {
   settings;
   entity;
+  baseApi='http://localhost:8082/api/';
 
   source: LocalDataSource = new LocalDataSource();
   headers: HttpHeaders;
 
 
   constructor(private service: SmartTableData, private http: HttpClient) {
-    const token = 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMzQ5IiwiaWF0IjoxNjI4MDc5NDU2LCJleHAiOjE2Mjg2ODQyNTZ9.8qNksg2mj7OdAiaDDxzEekOoJeESUZ7oC8-T9w_I_vk60TqVHvXIKCtsLHNcy73DTmzvYlZn2UDJIcXRwCYcjA';
+    const token = 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMDYiLCJpYXQiOjE2MjgzMzUzNjIsImV4cCI6MTYyODk0MDE2Mn0.e4g9xXditdJGHxUxN1rc2Jd0XAwSr-H4ghfXAIslz6uodqycpUQTbVaQdM_zi9X_O_c3Dlc3b2rE8-_I-6c3Lw';
     this.headers = new HttpHeaders({ 'Authorization': 'Bearer ' + token }); // create header object
   }
 
   loadEntity(entity, settings) {
     this.entity = entity;
     this.settings = settings;
-    this.http.get<any>('http://localhost:8082/api/' + this.entity + '/', { headers: this.headers }).subscribe(
+    this.http.get<any>(this.baseApi + this.entity + '/', { headers: this.headers }).subscribe(
       data => {
         this.source.load(data._embedded[this.entity]);
       },
-      (err: HttpErrorResponse) => {
-        if (err.error instanceof Error) {
-          console.log('Client-side error occured.');
-        } else {
-          console.log('Server-side error occured.');
-        }
-      });
+      this.handleError);
   }
   onSearch(query: string) {
     this.source.setFilter([
@@ -48,7 +43,7 @@ export class TableEventService {
     if (window.confirm('Are you sure you want to save?')) {
 
       const data = event.newData;
-      this.http.patch<any>('http://localhost:8082/api/' + this.entity + '/' + event.newData.id, data, { headers: this.headers }).subscribe(
+      this.http.patch<any>(this.baseApi + this.entity + '/' + event.newData.id, data, { headers: this.headers }).subscribe(
         async res => {
           console.log(event.data);
           event.confirm.resolve();
@@ -64,7 +59,7 @@ export class TableEventService {
     if (window.confirm('Are you sure you want to create?')) {
 
       const data = event.newData;
-      this.http.post<any>('http://localhost:8082/api/' + this.entity + '/', data, { headers: this.headers }).subscribe(
+      this.http.post<any>(this.baseApi + this.entity + '/', data, { headers: this.headers }).subscribe(
         async res => {
           console.log(res);
           await this.source.add(res);
@@ -79,6 +74,7 @@ export class TableEventService {
     }
   }
   handleError(err: HttpErrorResponse) {
+    console.log(err);
     if (err.error instanceof Error) {
       console.log('Client-side error occured.');
     } else {
@@ -88,7 +84,7 @@ export class TableEventService {
   }
   onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {
-      this.http.delete<any>('http://localhost:8082/api/' + this.entity + '/' + event.data.id, { headers: this.headers }).subscribe(
+      this.http.delete<any>(this.baseApi + this.entity + '/' + event.data.id, { headers: this.headers }).subscribe(
         async data => {
           console.log(data);
           await this.source.remove(event.data);
