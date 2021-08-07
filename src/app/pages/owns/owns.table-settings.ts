@@ -1,4 +1,42 @@
 export const ownsTableSettings = {
+  contributions: {
+  settings: {
+    add: {
+      addButtonContent:  '<i class="nb-plus"></i>',
+        createButtonContent:  '<i class="nb-checkmark"></i>',
+        cancelButtonContent:  '<i class="nb-close"></i>',
+        confirmCreate:  true,
+    },
+    edit: {
+      editButtonContent:  '<i class="nb-edit"></i>',
+        saveButtonContent:  '<i class="nb-checkmark"></i>',
+        cancelButtonContent:  '<i class="nb-close"></i>',
+        confirmSave:  true,
+
+    },
+    delete: {
+      deleteButtonContent:  '<i class="nb-trash"></i>',
+        confirmDelete:  true,
+    },
+    columns: {
+      amount: {
+        title:  'Amount',
+      },
+      email: {
+        title:  'Email',
+          filter:  true,
+      },
+      updatedAt: {
+        title:  'Modifié',
+          filter:  true,
+          editable:  false,
+
+      },
+    },
+  },
+  entity:  'contributions',
+
+},
    loans: {chosen: {
         settings: {
             add: {
@@ -192,4 +230,4 @@ export const ownsTableSettings = {
         entity: 'students',
 
     },
-};
+}

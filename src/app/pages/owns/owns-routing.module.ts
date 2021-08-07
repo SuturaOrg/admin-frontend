@@ -23,6 +23,7 @@ function setChildren(base: {}[]) {
     const obj = {
       path: group.path,
       component: !group.children.length ? AdvancedComponent : null,
+      data: !group.children.length ? ownsTableSettings[group.path] : null,
       children: group.children.map((child) => {
         return {
           path: child,
