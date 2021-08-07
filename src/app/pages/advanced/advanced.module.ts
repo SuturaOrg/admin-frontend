@@ -14,8 +14,7 @@ import { AdvancedComponent } from '../advanced/advanced.component';
     ThemeModule,
     Ng2SmartTableModule,
   ],
-  declarations: [
-AdvancedComponent  ],
+  declarations: [AdvancedComponent ],
   exports: [AdvancedComponent],
 })
 export class AdvancedModule { }
