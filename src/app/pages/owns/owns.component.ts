@@ -6,5 +6,5 @@ import {ownsTableSettings} from './owns.table-settings';
   template: `<ngx-advanced [data]="data" ></ngx-advanced>`,
 })
 export class OwnsComponent {
-  data = ownsTableSettings.chosen;
+  data = ownsTableSettings.loans.chosen;
 }

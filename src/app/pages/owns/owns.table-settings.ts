@@ -1,5 +1,5 @@
 export const ownsTableSettings = {
-    chosen: {
+   loans: {chosen: {
         settings: {
             add: {
                 addButtonContent: '<i class="nb-plus"></i>',
@@ -74,7 +74,7 @@ export const ownsTableSettings = {
         },
         entity: 'students',
 
-    },
+    },},
     parameters: {
         settings: {
             add: {
