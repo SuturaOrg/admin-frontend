@@ -1,28 +1,44 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { AdvancedComponent } from '../advanced/advanced.component';
-import { ownsTableSettings } from './owns.table-settings';
-import {OwnsComponent} from './owns.component';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
+import {AdvancedComponent} from '../advanced/advanced.component';
+import {ownsTableSettings} from './owns.table-settings';
 
-
-const children: any = [{
-  path: 'loans',
-  loadChildren: () => import('./loans/loans.module')
-    .then(m => m.LoansModule),
+const baseChildren: {}[] = [{
+  path: 'particulars',
+  loadChildren: () => import('./particulars/particulars.module')
+    .then(m => m.ParticularsModule),
 }];
-const paths = ['funds', 'contributions', 'refunds', 'donations', 'parameters'];
 
-for (const p of paths) {
-  const obj = {
-    path: p,
-    component: AdvancedComponent,
-    data: ownsTableSettings[p],
-  };
-  children.push(obj);
+function setChildren(base: {}[]) {
+  const paths = [{
+    path: 'loans',
+    children: ['chosen', 'finished', 'refunded'],
+  },
+    {
+      path: 'contributions',
+      children: [],
+    }];
+
+  for (const group of paths) {
+    const obj = {
+      path: group.path,
+      component: !group.children.length ? AdvancedComponent : null,
+      children: group.children.map((child) => {
+        return {
+          path: child,
+          component: AdvancedComponent,
+          data: ownsTableSettings[group.path][child],
+        };
+      }),
+    };
+    base.push(obj);
+  }
+  return base;
 }
+
 const routes: Routes = [{
   path: '',
-  children: children,
+  children: setChildren(baseChildren),
 }];
 
 @NgModule({
