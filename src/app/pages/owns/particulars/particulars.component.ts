@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {particularsTableSettings} from './particulars.table-settings';
-import {AdvancedComponent} from '../../advanced/advanced.component';
 
 @Component({
   selector: 'ngx-particulars',
