@@ -12,10 +12,34 @@ const baseChildren: {}[] = [{
 function setChildren(base: {}[]) {
   const paths = [{
     path: 'loans',
-    children: ['chosen', 'finished', 'refunded'],
+    children: ['chosen', 'finished', 'refunded','others'],
   },
+  {
+      path: 'adherents',
+      children: ['contributed', 'notContributed', 'all'],
+    },
     {
       path: 'contributions',
+      children: [],
+    },
+    {
+      path: 'refunds',
+      children: [],
+     },
+    {
+      path: 'donations',
+      children: [],
+     },
+    {
+      path: 'funds',
+      children: [],
+     },
+    {
+      path: 'parameters',
+      children: [],
+    },
+    {
+      path: 'trash',
       children: [],
     }];
 
