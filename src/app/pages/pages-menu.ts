@@ -34,25 +34,30 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/owns/loans/refunded',
         icon: 'repeat-outline',
       },
+      {
+        title: 'Others',
+        link: '/pages/owns/loans/others',
+        icon: 'list-outline',
+      },
     ],
   },
   { title: 'Adherents',
   icon: 'person-outline',
   children: [
     {
-      title: 'Chosen',
-      link: '/pages/owns/adherents/chosen',
+      title: 'Contributed',
+      link: '/pages/owns/adherents/contributed',
       icon: 'person-done-outline',
     },
     {
-      title: 'Finished',
-      link: '/pages/owns/adherents/finished',
+      title: 'NotContributed',
+      link: '/pages/owns/adherents/notContributed',
       icon: 'person-delete-outline',
     },
     {
-      title: 'Refunded',
-      link: '/pages/owns/adherents/refunded',
-      icon: 'settings-outline',
+      title: 'All',
+      link: '/pages/owns/adherents/all',
+      icon: 'people-outline',
     },
   ],
 },
@@ -83,12 +88,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
   link: '/pages/owns/parameters',
 },
 {
-  title: 'TRASH',
+  title: 'OTHERS',
   group: true,
 }, {
   title: 'Trash',
   icon: 'trash-2-outline',
-  link: '/pages/trash',
+  link: '/pages/owns/trash',
 },
 {
   title: 'USER',
