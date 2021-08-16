@@ -19,18 +19,28 @@ export const ownsTableSettings = {
         confirmDelete:  true,
     },
     columns: {
+    firstName: {
+          title: 'Firstname',
+      },
+      lastName: {
+          title: 'Lastname',
+      },
       amount: {
-        title:  'Amount',
+          title: 'Amount',
+          filter: true,
+          editable: false,
       },
-      email: {
-        title:  'Email',
-          filter:  true,
+      period: {
+          title: 'Period',
+          filter: true,
       },
-      updatedAt: {
-        title:  'Modifié',
-          filter:  true,
-          editable:  false,
-
+      date: {
+          title: 'Date',
+          filter: true,
+      },
+      expiration: {
+          title: 'Date of expiration',
+          filter: true,
       },
     },
   },
@@ -57,22 +67,35 @@ export const ownsTableSettings = {
                 confirmDelete: true,
             },
             columns: {
-                firstname: {
+                firstName: {
                     title: 'Firstname',
                 },
-                email: {
-                    title: 'Email',
+                lastName: {
+                    title: 'Lastname',
                     filter: true,
                 },
-                updatedAt: {
-                    title: 'Modifié',
+                amount: {
+                    title: 'amount',
                     filter: true,
                     editable: false,
-
                 },
+                date: {
+                    title: 'date',
+                    filter: true,
+                    editable: false,
+                },
+                priority: {
+                    title: 'Priority',
+                },
+                RIB: {
+                    title: 'RIB',
+                },
+                phone: {
+                    title: 'Phone',
+                  },
             },
         },
-        entity: 'students',
+        entity: 'loans',
 
     },
     finished: {
@@ -95,24 +118,132 @@ export const ownsTableSettings = {
                 confirmDelete: true,
             },
             columns: {
-                firstname: {
-                    title: 'Firstname',
-                },
-                email: {
-                    title: 'Email',
-                    filter: true,
-                },
-                updatedAt: {
-                    title: 'Modifié',
-                    filter: true,
-                    editable: false,
-
-                },
+                firstName: {
+                 title: 'Firstname',
+                 },
+                 lastName: {
+                     title: 'Lastname',
+                     filter: true,
+                 },
+                 amount: {
+                     title: 'amount',
+                     filter: true,
+                     editable: false,
+                 },
+                 amountRefunded: {
+                     title: 'Amount refunded',
+                 },
+                 sliceCount: {
+                      title: 'Slices',
+                 },
+                 phone: {
+                     title: 'Phone',
+                 },
             },
         },
-        entity: 'students',
+        entity: 'loans',
 
-    }},
+    },
+    refunded: {
+        settings: {
+            add: {
+                addButtonContent: '<i class="nb-plus"></i>',
+                createButtonContent: '<i class="nb-checkmark"></i>',
+                cancelButtonContent: '<i class="nb-close"></i>',
+                confirmCreate: true,
+            },
+            edit: {
+                editButtonContent: '<i class="nb-edit"></i>',
+                saveButtonContent: '<i class="nb-checkmark"></i>',
+                cancelButtonContent: '<i class="nb-close"></i>',
+                confirmSave: true,
+
+            },
+            delete: {
+                deleteButtonContent: '<i class="nb-trash"></i>',
+                confirmDelete: true,
+            },
+            columns: {
+                firstName: {
+                 title: 'Firstname',
+                 },
+                 lastName: {
+                     title: 'Lastname',
+                     filter: true,
+                 },
+                 amount: {
+                     title: 'amount',
+                     filter: true,
+                     editable: false,
+                 },
+                 amountRefunded: {
+                     title: 'Amount refunded',
+                 },
+                 sliceCount: {
+                      title: 'Slices',
+                 },
+                 phone: {
+                     title: 'Phone',
+                 },
+            },
+        },
+        entity: 'loans',
+    },
+    others: {
+            settings: {
+                add: {
+                    addButtonContent: '<i class="nb-plus"></i>',
+                    createButtonContent: '<i class="nb-checkmark"></i>',
+                    cancelButtonContent: '<i class="nb-close"></i>',
+                    confirmCreate: true,
+                },
+                edit: {
+                    editButtonContent: '<i class="nb-edit"></i>',
+                    saveButtonContent: '<i class="nb-checkmark"></i>',
+                    cancelButtonContent: '<i class="nb-close"></i>',
+                    confirmSave: true,
+                },
+                delete: {
+                    deleteButtonContent: '<i class="nb-trash"></i>',
+                    confirmDelete: true,
+                },
+                columns: {
+                    firstName: {
+                     title: 'Firstname',
+                     },
+                     lastName: {
+                         title: 'Lastname',
+                         filter: true,
+                     },
+                     amount: {
+                         title: 'amount',
+                         filter: true,
+                         editable: false,
+                     },
+                     date: {
+                         title: 'date',
+                         filter: true,
+                         editable: false,
+                     },
+                     status: {
+                         title: 'status',
+                     },
+                     priority: {
+                         title: 'priority',
+                     },
+                     reason: {
+                         title: 'reason',
+                     },
+                     comment: {
+                         title: 'comment',
+                     },
+                     phone: {
+                         title: 'Phone',
+                     },
+                },
+            },
+            entity: 'loans',
+        }},
     parameters: {
         settings: {
             add: {
@@ -136,7 +267,7 @@ export const ownsTableSettings = {
                 period: {
                     title: 'Period',
                 },
-                dateExpiration: {
+                ExpirationDate: {
                     title: 'Expiration',
                 },
                 email: {
@@ -174,19 +305,29 @@ export const ownsTableSettings = {
                 confirmDelete: true,
             },
             columns: {
-                firstname: {
-                    title: 'Firstname',
-                },
-                email: {
-                    title: 'Email',
-                    filter: true,
-                },
-                updatedAt: {
-                    title: 'Modifié',
-                    filter: true,
-                    editable: false,
-
-                },
+               firstName: {
+                         title: 'Firstname',
+                     },
+                     lastName: {
+                         title: 'Lastname',
+                     },
+                     amount: {
+                         title: 'Amount',
+                         filter: true,
+                         editable: false,
+                     },
+                     period: {
+                         title: 'Period',
+                         filter: true,
+                     },
+                     date: {
+                          title: 'date',
+                          filter: true,
+                     },
+                     type: {
+                         title: 'Type',
+                         filter: true,
+                     },
             },
         },
         entity: 'refunds',
@@ -212,22 +353,169 @@ export const ownsTableSettings = {
                 confirmDelete: true,
             },
             columns: {
-                firstname: {
-                    title: 'Firstname',
+                isFavorable: {
+                    title: 'IsFavorable',
                 },
-                email: {
-                    title: 'Email',
+                threshold: {
+                    title: 'Threshold',
+                },
+                amountFund: {
+                    title: 'Amount Fund',
                     filter: true,
                 },
-                updatedAt: {
-                    title: 'Modifié',
+                currentAmount: {
+                    title: 'CurrentAmount',
                     filter: true,
-                    editable: false,
-
+                },
+                period: {
+                    title: 'period',
+                    filter: true,
                 },
             },
         },
-        entity: 'students',
-
+        entity: 'funds',
     },
+
+    adherents: {contributed: {
+            settings: {
+                add: {
+                    addButtonContent: '<i class="nb-plus"></i>',
+                    createButtonContent: '<i class="nb-checkmark"></i>',
+                    cancelButtonContent: '<i class="nb-close"></i>',
+                    confirmCreate: true,
+                },
+                edit: {
+                    editButtonContent: '<i class="nb-edit"></i>',
+                    saveButtonContent: '<i class="nb-checkmark"></i>',
+                    cancelButtonContent: '<i class="nb-close"></i>',
+                    confirmSave: true,
+                },
+                delete: {
+                    deleteButtonContent: '<i class="nb-trash"></i>',
+                    confirmDelete: true,
+                },
+                columns: {
+                    firstName: {
+                        title: 'Firstname',
+                    },
+                    lastName: {
+                        title: 'Lastname',
+                    },
+                    amount: {
+                        title: 'Amount',
+                        filter: true,
+                    },
+                    town: {
+                        title: 'Town',
+                        filter: true,
+                        editable: false,
+                    },
+                    totalAmount: {
+                        title: 'Total amount',
+                        filter: true,
+                    },
+                    totalPeriods: {
+                        title: 'Total periods',
+                        filter: true,
+                    },
+                },
+            },
+            entity: 'contributions',
+
+        },
+        notContributed: {
+            settings: {
+                add: {
+                    addButtonContent: '<i class="nb-plus"></i>',
+                    createButtonContent: '<i class="nb-checkmark"></i>',
+                    cancelButtonContent: '<i class="nb-close"></i>',
+                    confirmCreate: true,
+                },
+                edit: {
+                    editButtonContent: '<i class="nb-edit"></i>',
+                    saveButtonContent: '<i class="nb-checkmark"></i>',
+                    cancelButtonContent: '<i class="nb-close"></i>',
+                    confirmSave: true,
+
+                },
+                delete: {
+                    deleteButtonContent: '<i class="nb-trash"></i>',
+                    confirmDelete: true,
+                },
+                columns: {
+                     firstName: {
+                        title: 'Firstname',
+                    },
+                    lastName: {
+                        title: 'Lastname',
+                    },
+                    town: {
+                        title: 'Town',
+                        filter: true,
+                        editable: false,
+                    },
+                    totalAmount: {
+                        title: 'Total amount',
+                        filter: true,
+                    },
+                    totalPeriods: {
+                        title: 'Total periods',
+                        filter: true,
+                    },
+                },
+            },
+            entity: 'contributions',
+
+        },
+      all: {
+          settings: {
+              add: {
+                  addButtonContent: '<i class="nb-plus"></i>',
+                  createButtonContent: '<i class="nb-checkmark"></i>',
+                  cancelButtonContent: '<i class="nb-close"></i>',
+                  confirmCreate: true,
+              },
+              edit: {
+                  editButtonContent: '<i class="nb-edit"></i>',
+                  saveButtonContent: '<i class="nb-checkmark"></i>',
+                  cancelButtonContent: '<i class="nb-close"></i>',
+                  confirmSave: true,
+              },
+              delete: {
+                  deleteButtonContent: '<i class="nb-trash"></i>',
+                  confirmDelete: true,
+              },
+              columns: {
+                  firstName: {
+                      title: 'Firstname',
+                  },
+                  lastName: {
+                      title: 'Lastname',
+                  },
+                  duration: {
+                      title: 'Duration',
+                      filter: true,
+                      editable: false,
+                  },
+                  town: {
+                      title: 'Town',
+                      filter: true,
+                  },
+                  phone: {
+                      title: 'Phone',
+                      filter: true,
+                  },
+                  email: {
+                      title: 'email',
+                      filter: true,
+                  },
+                  faculty: {
+                      title: 'faculty',
+                      filter: true,
+                  },
+              },
+          },
+          entity: 'studentPrimes',
+      }},
+
 }
