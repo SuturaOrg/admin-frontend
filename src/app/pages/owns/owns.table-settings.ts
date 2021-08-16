@@ -39,7 +39,7 @@ export const ownsTableSettings = {
           filter: true,
       },
       expiration: {
-          title: 'Date of expiration',
+          title: 'Expiration date',
           filter: true,
       },
     },
