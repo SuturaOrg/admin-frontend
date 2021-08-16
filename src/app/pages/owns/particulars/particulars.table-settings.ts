@@ -75,7 +75,8 @@ export const particularsTableSettings = {
     entity:  'contributions',
 
   },
-  loans: {chosen: {
+  loans: {
+    chosen: {
       settings: {
         add: {
           addButtonContent: '<i class="nb-plus"></i>',
@@ -95,8 +96,11 @@ export const particularsTableSettings = {
           confirmDelete: true,
         },
         columns: {
-          firstname: {
+          firstName: {
             title: 'Firstname',
+          },
+          lastName: {
+            title: 'LastName',
           },
           email: {
             title: 'Email',
@@ -110,7 +114,7 @@ export const particularsTableSettings = {
           },
         },
       },
-      entity: 'students',
+      entity: 'loans',
 
     },
     finished: {
