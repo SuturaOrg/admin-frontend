@@ -16,7 +16,7 @@ export class TableEventService {
 
 
   constructor(private service: SmartTableData, private http: HttpClient) {
-    const token = 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMDYiLCJpYXQiOjE2MjgzMzUzNjIsImV4cCI6MTYyODk0MDE2Mn0.e4g9xXditdJGHxUxN1rc2Jd0XAwSr-H4ghfXAIslz6uodqycpUQTbVaQdM_zi9X_O_c3Dlc3b2rE8-_I-6c3Lw';
+    const token = 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyMiIsImlhdCI6MTYyOTEyMDg3NSwiZXhwIjoxNjI5NzI1Njc1fQ.2scbG8iWo_hIO_ww19gYQjvVucZ2Gtj0Z_E15M3KH_zt1IZNvape8bo8X7CGI9oMXAldHGlS4oKgfLlveRnFHQ';
     this.headers = new HttpHeaders({ 'Authorization': 'Bearer ' + token }); // create header object
   }
 

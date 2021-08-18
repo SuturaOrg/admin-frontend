@@ -267,18 +267,13 @@ export const ownsTableSettings = {
                 period: {
                     title: 'Period',
                 },
-                ExpirationDate: {
+                expiration: {
                     title: 'Expiration',
                 },
-                email: {
-                    title: 'Email',
-                    filter: true,
-                },
                 updatedAt: {
-                    title: 'Modifié',
+                    title: 'UpdatedAt',
                     filter: true,
                     editable: false,
-
                 },
             },
         },
@@ -375,6 +370,51 @@ export const ownsTableSettings = {
         },
         entity: 'funds',
     },
+
+    donations: {
+            settings: {
+                add: {
+                    addButtonContent: '<i class="nb-plus"></i>',
+                    createButtonContent: '<i class="nb-checkmark"></i>',
+                    cancelButtonContent: '<i class="nb-close"></i>',
+                    confirmCreate: true,
+                },
+                edit: {
+                    editButtonContent: '<i class="nb-edit"></i>',
+                    saveButtonContent: '<i class="nb-checkmark"></i>',
+                    cancelButtonContent: '<i class="nb-close"></i>',
+                    confirmSave: true,
+
+                },
+                delete: {
+                    deleteButtonContent: '<i class="nb-trash"></i>',
+                    confirmDelete: true,
+                },
+                columns: {
+                   contributor: {
+                             title: 'Contributor',
+                         },
+                         admin: {
+                             title: 'Admin',
+                         },
+                         amount: {
+                             title: 'Amount',
+                             filter: true,
+                             editable: false,
+                         },
+                         period: {
+                             title: 'Period',
+                             filter: true,
+                         },
+                         date: {
+                              title: 'date',
+                              filter: true,
+                         },
+                },
+            },
+            entity: 'donations',
+
+        },
 
     adherents: {contributed: {
             settings: {
