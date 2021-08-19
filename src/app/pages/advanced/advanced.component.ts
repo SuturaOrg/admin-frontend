@@ -19,10 +19,12 @@ export class AdvancedComponent implements OnInit, OnDestroy {
   source: LocalDataSource;
   headers: HttpHeaders;
   sub;
+  onEditConfirm: (event) => void;
+  onCreateConfirm: (event) => void;
+  onDeleteConfirm: (event) => void;
 
 
   constructor(private route: ActivatedRoute,
-              private service: SmartTableData,
               private http: HttpClient,
               private tableEventService: TableEventService) {
     const token = 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMzQ5IiwiaWF0IjoxNjI4MjMxODc0LCJleHAiOjE2Mjg4MzY2NzR9.TuIp6dIT4wKWDl9t4cZTP6cFLEvMlFFV_f90XdL_BNtxR-52deLOah9Jx0B1-zCj2Abvp2cCT1--iF8xWjOcQw';
@@ -44,6 +46,9 @@ export class AdvancedComponent implements OnInit, OnDestroy {
     }
     this.data ? this.tableEventService.loadEntity(this.data.entity, this.data.settings) : null;
     this.source = this.tableEventService.source;
+    this.onEditConfirm = this.tableEventService.onEditConfirm.bind(this.tableEventService);
+    this.onCreateConfirm = this.tableEventService.onCreateConfirm.bind(this.tableEventService);
+    this.onDeleteConfirm = this.tableEventService.onDeleteConfirm.bind(this.tableEventService);
   }
 
 
@@ -61,7 +66,5 @@ export class AdvancedComponent implements OnInit, OnDestroy {
     ], false);
   }
 
-  onEditConfirm = this.tableEventService.onEditConfirm;
-  onCreateConfirm = this.tableEventService.onCreateConfirm;
-  onDeleteConfirm = this.tableEventService.onDeleteConfirm;
+
 }

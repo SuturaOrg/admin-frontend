@@ -9,7 +9,7 @@ import { SmartTableData } from '../@core/data/smart-table';
 export class TableEventService {
   settings;
   entity;
-  baseApi='http://localhost:8082/api/';
+  baseApi   = 'http://localhost:8082/api/';
 
   source: LocalDataSource = new LocalDataSource();
   headers: HttpHeaders;
@@ -74,11 +74,10 @@ export class TableEventService {
     }
   }
   handleError(err: HttpErrorResponse) {
-    console.log(err);
     if (err.error instanceof Error) {
-      console.log('Client-side error occured.');
+      console.log('Client-side error occured.',err);
     } else {
-      console.log('Server-side error occured.');
+      console.log('Server-side error occured.',err);
     }
 
   }
