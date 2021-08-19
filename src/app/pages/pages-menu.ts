@@ -93,7 +93,33 @@ export const MENU_ITEMS: NbMenuItem[] = [
 }, {
   title: 'Trash',
   icon: 'trash-2-outline',
-  link: '/pages/owns/trash',
+  children: [
+      {
+        title: 'Loans',
+        link: '/pages/owns/trash/contributed',
+        icon: 'shake-outline',
+      },
+      {
+        title: 'Contributions',
+        link: '/pages/owns/trash/notContributed',
+        icon: 'layers-outline',
+      },
+      {
+        title: 'Refunds',
+        link: '/pages/owns/trash/refunds',
+        icon: 'repeat-outline',
+      },
+      {
+        title: 'Donations',
+        link: '/pages/owns/trash/donations',
+        icon: 'gift-outline',
+      },
+      {
+        title: 'Adherents',
+        link: '/pages/owns/trash/adherents',
+        icon: 'people-outline',
+      },
+    ],
 },
 {
   title: 'USER',
