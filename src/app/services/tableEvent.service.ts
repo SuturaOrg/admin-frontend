@@ -1,4 +1,4 @@
-import {HttpHeaders, HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Injectable, OnInit} from '@angular/core';
 import {SmartTableData} from '../@core/data/smart-table';
 import {CustomDataServerSource} from './CustomDataServerSource';
@@ -12,12 +12,9 @@ export class TableEventService {
   baseApi = 'http://localhost:8082/api/';
 
   source: CustomDataServerSource;
-  headers: HttpHeaders;
 
 
   constructor(private service: SmartTableData, private http: HttpClient) {
-    const token = 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyMiIsImlhdCI6MTYyOTM5Nzk2OSwiZXhwIjoxNjMwMDAyNzY5fQ.VRUhFm6_3gtwEVPEcy_Yi533kP-texrVwBrCCLY5X9ZAFtfneCgUEfE9cDsqGe0LMAVkAQ7tI2H9Q81UrwsV8w';
-    this.headers = new HttpHeaders({'Authorization': 'Bearer ' + token}); // create header object
   }
 
   loadEntity(entity, settings) {
@@ -79,10 +76,11 @@ export class TableEventService {
       const data = event.newData;
       this.http.patch<any>(this.baseApi
         + this.entity + '/'
-        + event.newData.id, data, {headers: this.headers}).subscribe(
+        + event.newData.id, data).subscribe(
         async res => {
           console.log(event.data);
           event.confirm.resolve();
+          this.source.refresh();
           // await this.source.update(event.data,res);
         },
         this.handleError);
@@ -96,7 +94,7 @@ export class TableEventService {
     if (window.confirm('Are you sure you want to create?')) {
 
       const data = event.newData;
-      this.http.post<any>(this.baseApi + this.entity + '/', data, {headers: this.headers}).subscribe(
+      this.http.post<any>(this.baseApi + this.entity + '/', data).subscribe(
         async res => {
           console.log(res);
           await this.source.add(res);
@@ -122,7 +120,7 @@ export class TableEventService {
 
   onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {
-      this.http.delete<any>(this.baseApi + this.entity + '/' + event.data.id, {headers: this.headers}).subscribe(
+      this.http.delete<any>(this.baseApi + this.entity + '/' + event.data.id).subscribe(
         async data => {
           console.log(data);
           await this.source.remove(event.data);
