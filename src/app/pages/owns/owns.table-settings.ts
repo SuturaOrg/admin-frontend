@@ -96,8 +96,7 @@ export const ownsTableSettings = {
             },
           joints: [
             {
-              entity: 'studentPrimes',
-              field: 'createdBy',
+              entity: 'studentPrime',
               columns: ['firstname', 'lastname'],
             },
           ],
@@ -149,8 +148,7 @@ export const ownsTableSettings = {
             },
           joints: [
             {
-              entity: 'studentPrimes',
-              field: 'createdBy',
+              entity: 'studentPrime',
               columns: ['firstname', 'lastname'],
             },
           ],
@@ -202,8 +200,7 @@ export const ownsTableSettings = {
             },
           joints: [
             {
-              entity: 'studentPrimes',
-              field: 'createdBy',
+              entity: 'studentPrime',
               columns: ['firstname', 'lastname'],
             },
           ],
@@ -487,8 +484,26 @@ export const ownsTableSettings = {
                         filter: true,
                     },
                 },
+              pager: {
+                display: true,
+                perPage: 5,
+              },
+              superClass: true,
+              classChildren: [ 'admins', 'students'],
+              filters: [
+                {
+                  contribution: [],
+                },
+              ],
+              joints: [
+                {
+                  entity: 'contributions',
+                  isCollection: true,
+                  columns: ['totalAmount', 'amount'],
+                },
+              ],
             },
-            entity: 'contributions',
+            entity: 'studentPrimes',
 
         },
         notContributed: {
@@ -531,8 +546,10 @@ export const ownsTableSettings = {
                         filter: true,
                     },
                 },
+              superClass: true,
+              classChildren: [ 'admins', 'students'],
             },
-            entity: 'contributions',
+            entity: 'studentPrimes',
 
         },
       all: {
@@ -582,6 +599,8 @@ export const ownsTableSettings = {
                       filter: true,
                   },
               },
+            superClass: true,
+            classChildren: [ 'admins', 'students'],
           },
           entity: 'studentPrimes',
       }},

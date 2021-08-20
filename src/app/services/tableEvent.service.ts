@@ -1,7 +1,7 @@
 import {HttpHeaders, HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Injectable, OnInit} from '@angular/core';
-import {LocalDataSource} from 'ng2-smart-table';
 import {SmartTableData} from '../@core/data/smart-table';
+import {CustomDataServerSource} from './CustomDataServerSource';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +11,7 @@ export class TableEventService {
   entity;
   baseApi = 'http://localhost:8082/api/';
 
-  source: LocalDataSource = new LocalDataSource();
+  source: CustomDataServerSource;
   headers: HttpHeaders;
 
 
@@ -23,27 +23,44 @@ export class TableEventService {
   loadEntity(entity, settings) {
     this.entity = entity;
     this.settings = settings;
+/*
     this.http.get<any>(this.baseApi + this.entity + '/', {headers: this.headers}).subscribe(
       async data => {
-        const initialData: any[] = data._embedded[this.entity];
-        if (settings.joints) {
-        for (const joint of settings.joints) {
-          console.log(joint);
-          await Promise.all(initialData.map(async item => {
-            const studentPrimeData = await this.http.get<any>(this.baseApi
-              + joint.entity + '/'
-              + item[joint.field], {headers: this.headers}).toPromise();
-            // console.log(studentPrimeDataInit);
-            for (const column of joint.columns) {
-              item[column] = studentPrimeData[column];
-            }
-          }));
+        let initialData: any[];
+        if (settings.superClass) {
+          initialData = [];
+          for (const classChild of settings.classChildren) {
+            console.log(data._embedded[classChild]);
+            data._embedded[classChild] ? initialData = initialData.concat(data._embedded[classChild]) : null;
+          }
+        } else {
+          initialData = data._embedded[this.entity];
         }
+        if (settings.joints) {
+          for (const joint of settings.joints) {
+            console.log(joint);
+            await Promise.all(initialData.map(async item => {
+              const studentPrimeData = await this.http.get<any>(item._links[joint.entity].href, {headers: this.headers}).toPromise();
+              // console.log(studentPrimeDataInit);
+              for (const column of joint.columns) {
+                item[column] = studentPrimeData[column];
+              }
+            }));
+          }
         }
         console.log(initialData);
-        this.source.load(initialData);
+       // this.source.load(initialData);
       },
       this.handleError);
+ */
+    this.source = new CustomDataServerSource(this.http,
+      {
+        endPoint: this.baseApi + this.entity + '/',
+        dataKey: settings.superClass ?  `_embedded.` + settings.classChildren[0] :  `_embedded.` + this.entity,
+        totalKey:'page.totalElements',
+        pagerLimitKey: 'size',
+        pagerPageKey: 'page',
+      });
   }
 
   onSearch(query: string) {

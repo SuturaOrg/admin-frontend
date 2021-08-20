@@ -1,7 +1,7 @@
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {LocalDataSource} from 'ng2-smart-table';
+import {CustomDataServerSource} from '../../services/CustomDataServerSource';
 import {SmartTableData} from '../../@core/data/smart-table';
 import {TableEventService} from '../../services/tableEvent.service';
 import {defaultTableSettings} from './advanced.table-settings';
@@ -16,7 +16,7 @@ export class AdvancedComponent implements OnInit, OnDestroy {
   @Input()
   data: { settings: Object, entity: string } | null;
 
-  source: LocalDataSource;
+  source: CustomDataServerSource;
   headers: HttpHeaders;
   sub;
   onEditConfirm: (event) => void;
