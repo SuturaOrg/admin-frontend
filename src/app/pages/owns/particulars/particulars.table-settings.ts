@@ -96,10 +96,10 @@ export const particularsTableSettings = {
           confirmDelete: true,
         },
         columns: {
-          firstName: {
+          firstname: {
             title: 'Firstname',
           },
-          lastName: {
+          lastname: {
             title: 'LastName',
           },
           email: {

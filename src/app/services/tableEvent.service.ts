@@ -30,9 +30,9 @@ export class TableEventService {
           let studentPrimeDataInit;
           const studentPrimeData = await this.http.get<any>(this.baseApi + 'studentPrimes' + '/' + item.createdBy, {headers: this.headers}).toPromise();
           // console.log(studentPrimeDataInit);
-          item.firstName = studentPrimeData.firstname;
+          item.firstname = studentPrimeData.firstname;
           //console.log(studentPrimeData);
-          item.lastName = studentPrimeData.lastname;
+          item.lastname = studentPrimeData.lastname;
         }));
         console.log(initialData);
         this.source.load(initialData);

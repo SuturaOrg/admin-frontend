@@ -19,10 +19,10 @@ export const ownsTableSettings = {
         confirmDelete:  true,
     },
     columns: {
-    firstName: {
+    firstname: {
           title: 'Firstname',
       },
-      lastName: {
+      lastname: {
           title: 'Lastname',
       },
       amount: {
@@ -67,10 +67,10 @@ export const ownsTableSettings = {
                 confirmDelete: true,
             },
             columns: {
-                firstName: {
+                firstname: {
                     title: 'Firstname',
                 },
-                lastName: {
+                lastname: {
                     title: 'Lastname',
                     filter: true,
                 },
@@ -118,10 +118,10 @@ export const ownsTableSettings = {
                 confirmDelete: true,
             },
             columns: {
-                firstName: {
+                firstname: {
                  title: 'Firstname',
                  },
-                 lastName: {
+                 lastname: {
                      title: 'Lastname',
                      filter: true,
                  },
@@ -164,10 +164,10 @@ export const ownsTableSettings = {
                 confirmDelete: true,
             },
             columns: {
-                firstName: {
+                firstname: {
                  title: 'Firstname',
                  },
-                 lastName: {
+                 lastname: {
                      title: 'Lastname',
                      filter: true,
                  },
@@ -208,10 +208,10 @@ export const ownsTableSettings = {
                     confirmDelete: true,
                 },
                 columns: {
-                    firstName: {
+                    firstname: {
                      title: 'Firstname',
                      },
-                     lastName: {
+                     lastname: {
                          title: 'Lastname',
                          filter: true,
                      },
@@ -300,10 +300,10 @@ export const ownsTableSettings = {
                 confirmDelete: true,
             },
             columns: {
-               firstName: {
+               firstname: {
                          title: 'Firstname',
                      },
-                     lastName: {
+                     lastname: {
                          title: 'Lastname',
                      },
                      amount: {
@@ -435,10 +435,10 @@ export const ownsTableSettings = {
                     confirmDelete: true,
                 },
                 columns: {
-                    firstName: {
+                    firstname: {
                         title: 'Firstname',
                     },
-                    lastName: {
+                    lastname: {
                         title: 'Lastname',
                     },
                     amount: {
@@ -483,10 +483,10 @@ export const ownsTableSettings = {
                     confirmDelete: true,
                 },
                 columns: {
-                     firstName: {
+                     firstname: {
                         title: 'Firstname',
                     },
-                    lastName: {
+                    lastname: {
                         title: 'Lastname',
                     },
                     town: {
@@ -526,10 +526,10 @@ export const ownsTableSettings = {
                   confirmDelete: true,
               },
               columns: {
-                  firstName: {
+                  firstname: {
                       title: 'Firstname',
                   },
-                  lastName: {
+                  lastname: {
                       title: 'Lastname',
                   },
                   duration: {
