@@ -25,15 +25,21 @@ export class TableEventService {
     this.settings = settings;
     this.http.get<any>(this.baseApi + this.entity + '/', {headers: this.headers}).subscribe(
       async data => {
-        let initialData: any[] = data._embedded[this.entity];
-        await Promise.all(initialData.map(async item => {
-          let studentPrimeDataInit;
-          const studentPrimeData = await this.http.get<any>(this.baseApi + 'studentPrimes' + '/' + item.createdBy, {headers: this.headers}).toPromise();
-          // console.log(studentPrimeDataInit);
-          item.firstname = studentPrimeData.firstname;
-          //console.log(studentPrimeData);
-          item.lastname = studentPrimeData.lastname;
-        }));
+        const initialData: any[] = data._embedded[this.entity];
+        if (settings.joints) {
+        for (const joint of settings.joints) {
+          console.log(joint);
+          await Promise.all(initialData.map(async item => {
+            const studentPrimeData = await this.http.get<any>(this.baseApi
+              + joint.entity + '/'
+              + item[joint.field], {headers: this.headers}).toPromise();
+            // console.log(studentPrimeDataInit);
+            for (const column of joint.columns) {
+              item[column] = studentPrimeData[column];
+            }
+          }));
+        }
+        }
         console.log(initialData);
         this.source.load(initialData);
       },
@@ -54,7 +60,9 @@ export class TableEventService {
     if (window.confirm('Are you sure you want to save?')) {
 
       const data = event.newData;
-      this.http.patch<any>(this.baseApi + this.entity + '/' + event.newData.id, data, {headers: this.headers}).subscribe(
+      this.http.patch<any>(this.baseApi
+        + this.entity + '/'
+        + event.newData.id, data, {headers: this.headers}).subscribe(
         async res => {
           console.log(event.data);
           event.confirm.resolve();

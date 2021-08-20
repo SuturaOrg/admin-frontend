@@ -94,6 +94,13 @@ export const ownsTableSettings = {
                     title: 'Phone',
                   },
             },
+          joints: [
+            {
+              entity: 'studentPrimes',
+              field: 'createdBy',
+              columns: ['firstname', 'lastname'],
+            },
+          ],
         },
         entity: 'loans',
 
@@ -140,6 +147,13 @@ export const ownsTableSettings = {
                      title: 'Phone',
                  },
             },
+          joints: [
+            {
+              entity: 'studentPrimes',
+              field: 'createdBy',
+              columns: ['firstname', 'lastname'],
+            },
+          ],
         },
         entity: 'loans',
 
@@ -186,6 +200,13 @@ export const ownsTableSettings = {
                      title: 'Phone',
                  },
             },
+          joints: [
+            {
+              entity: 'studentPrimes',
+              field: 'createdBy',
+              columns: ['firstname', 'lastname'],
+            },
+          ],
         },
         entity: 'loans',
     },
@@ -241,6 +262,13 @@ export const ownsTableSettings = {
                          title: 'Phone',
                      },
                 },
+              joints: [
+                {
+                  entity: 'studentPrimes',
+                  field: 'createdBy',
+                  columns: ['firstname', 'lastname'],
+                },
+              ],
             },
             entity: 'loans',
         }},
@@ -558,4 +586,4 @@ export const ownsTableSettings = {
           entity: 'studentPrimes',
       }},
 
-}
+};
