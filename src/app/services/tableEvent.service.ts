@@ -20,44 +20,50 @@ export class TableEventService {
   loadEntity(entity, settings) {
     this.entity = entity;
     this.settings = settings;
-/*
-    this.http.get<any>(this.baseApi + this.entity + '/', {headers: this.headers}).subscribe(
-      async data => {
-        let initialData: any[];
-        if (settings.superClass) {
-          initialData = [];
-          for (const classChild of settings.classChildren) {
-            console.log(data._embedded[classChild]);
-            data._embedded[classChild] ? initialData = initialData.concat(data._embedded[classChild]) : null;
-          }
-        } else {
-          initialData = data._embedded[this.entity];
-        }
-        if (settings.joints) {
-          for (const joint of settings.joints) {
-            console.log(joint);
-            await Promise.all(initialData.map(async item => {
-              const studentPrimeData = await this.http.get<any>(item._links[joint.entity].href, {headers: this.headers}).toPromise();
-              // console.log(studentPrimeDataInit);
-              for (const column of joint.columns) {
-                item[column] = studentPrimeData[column];
+    /*
+        this.http.get<any>(this.baseApi + this.entity + '/', {headers: this.headers}).subscribe(
+          async data => {
+            let initialData: any[];
+            if (settings.superClass) {
+              initialData = [];
+              for (const classChild of settings.classChildren) {
+                console.log(data._embedded[classChild]);
+                data._embedded[classChild] ? initialData = initialData.concat(data._embedded[classChild]) : null;
               }
-            }));
-          }
-        }
-        console.log(initialData);
-       // this.source.load(initialData);
-      },
-      this.handleError);
- */
+            } else {
+              initialData = data._embedded[this.entity];
+            }
+            if (settings.joints) {
+              for (const joint of settings.joints) {
+                console.log(joint);
+                await Promise.all(initialData.map(async item => {
+                  const studentPrimeData = await this.http.get<any>(item._links[joint.entity].href, {headers: this.headers}).toPromise();
+                  // console.log(studentPrimeDataInit);
+                  for (const column of joint.columns) {
+                    item[column] = studentPrimeData[column];
+                  }
+                }));
+              }
+            }
+            console.log(initialData);
+           // this.source.load(initialData);
+          },
+          this.handleError);
+     */
     this.source = new CustomDataServerSource(this.http,
       {
         endPoint: this.baseApi + this.entity + '/',
-        dataKey: settings.superClass ?  `_embedded.` + settings.classChildren[0] :  `_embedded.` + this.entity,
-        totalKey:'page.totalElements',
+        dataKey: settings.superClass ? `_embedded.` + settings.classChildren[0] : `_embedded.` + this.entity,
+        totalKey: 'page.totalElements',
         pagerLimitKey: 'size',
         pagerPageKey: 'page',
+        filterFieldKey: '#field#',
       });
+    if (settings.autofilter && settings.autofilter.length) {
+      for (const filter of settings.autofilter) {
+        this.source.setFilter([{field: filter.column, search: filter.value}]);
+      }
+    }
   }
 
   onSearch(query: string) {
@@ -131,5 +137,16 @@ export class TableEventService {
     } else {
       event.confirm.reject();
     }
+  }
+
+  onRowSelect(event): void {
+    console.log('xx');
+    /* this.source.getElements().then(els=>{
+      //els.map(el=>{el.firstname="fd"});
+      // event.close();
+       this.source.load(els);
+     });
+
+     */
   }
 }

@@ -77,7 +77,6 @@ export const ownsTableSettings = {
           },
           amount: {
             title: 'amount',
-            filter: true,
             editable: false,
           },
           date: {
@@ -95,6 +94,10 @@ export const ownsTableSettings = {
             title: 'Phone',
           },
         },
+        autofilter: [{
+          column: 'status',
+          value: 'CHOSEN',
+        }],
         joints: [
           {
             entity: 'studentPrime',
@@ -147,6 +150,10 @@ export const ownsTableSettings = {
             title: 'Phone',
           },
         },
+        autofilter: [{
+          column: 'status',
+          value: 'FINISHED',
+        }],
         joints: [
           {
             entity: 'studentPrime',
@@ -208,7 +215,7 @@ export const ownsTableSettings = {
       },
       entity: 'loans',
     },
-    others: {
+    all: {
       settings: {
         add: {
           addButtonContent: '<i class="nb-plus"></i>',
@@ -269,7 +276,7 @@ export const ownsTableSettings = {
         ],
       },
       entity: 'loans',
-    }
+    },
   },
   parameters: {
     settings: {

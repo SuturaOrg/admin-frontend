@@ -35,8 +35,8 @@ export const MENU_ITEMS: NbMenuItem[] = [
         icon: 'repeat-outline',
       },
       {
-        title: 'Others',
-        link: '/pages/owns/loans/others',
+        title: 'All',
+        link: '/pages/owns/loans/all',
         icon: 'list-outline',
       },
     ],

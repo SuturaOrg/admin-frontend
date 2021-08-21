@@ -22,6 +22,7 @@ export class AdvancedComponent implements OnInit, OnDestroy {
   onEditConfirm: (event) => void;
   onCreateConfirm: (event) => void;
   onDeleteConfirm: (event) => void;
+  onRowSelect: (event) => void;
 
 
   constructor(private route: ActivatedRoute,
@@ -49,6 +50,8 @@ export class AdvancedComponent implements OnInit, OnDestroy {
     this.onEditConfirm = this.tableEventService.onEditConfirm.bind(this.tableEventService);
     this.onCreateConfirm = this.tableEventService.onCreateConfirm.bind(this.tableEventService);
     this.onDeleteConfirm = this.tableEventService.onDeleteConfirm.bind(this.tableEventService);
+    this.onRowSelect = this.tableEventService.onRowSelect.bind(this.tableEventService);
+
   }
 
 
@@ -65,6 +68,5 @@ export class AdvancedComponent implements OnInit, OnDestroy {
       },
     ], false);
   }
-
 
 }
