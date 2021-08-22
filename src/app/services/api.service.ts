@@ -16,19 +16,24 @@ export class ApiService {
   post(entity: string, data: any): Observable<any> {
     return this.http.post<any>(this.baseApi + entity + '/', data);
   };
+
   get(entity: string): Observable<any> {
-    return this.http.get<any>(this.baseApi + entity + '/', );
+    return this.http.get<any>(this.baseApi + entity + '/');
   };
-  getFromId(entity: string, id:number): Observable<any> {
-    return this.http.get<any>(this.baseApi + entity + '/'+ id, );
+
+  getFromId(entity: string, id: number): Observable<any> {
+    return this.http.get<any>(this.baseApi + entity + '/' + id);
   };
-  patchFromId(entity: string, id:number,data: any): Observable<any> {
-    return this.http.patch<any>(this.baseApi + entity + '/'+ id, data);
+
+  patchFromId(entity: string, id: number, data: any): Observable<any> {
+    return this.http.patch<any>(this.baseApi + entity + '/' + id, data);
   };
-  deleteFromId(entity: string, id:number): Observable<any> {
-    return this.http.delete<any>(this.baseApi + entity + '/'+ id);
+
+  deleteFromId(entity: string, id: number): Observable<any> {
+    return this.http.delete<any>(this.baseApi + entity + '/' + id);
   };
-  getCustomDataServerSource(entity:string,settings: any):CustomDataServerSource{
+
+  getCustomDataServerSource(entity: string, settings: any): CustomDataServerSource {
     return new CustomDataServerSource(this.http,
       {
         endPoint: this.baseApi + entity + '/',

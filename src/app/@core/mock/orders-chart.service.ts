@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { PeriodsService } from './periods.service';
 import { OrdersChart, OrdersChartData } from '../data/orders-chart';
+import {ApiService} from '../../services/api.service';
+import {ApiDataPeriodService} from './api-data-period.service';
 
 @Injectable()
 export class OrdersChartService extends OrdersChartData {
@@ -17,7 +19,7 @@ export class OrdersChartService extends OrdersChartData {
 
   private data = { };
 
-  constructor(private period: PeriodsService) {
+  constructor(private period: PeriodsService,private apiDataPeriodService: ApiDataPeriodService) {
     super();
     this.data = {
       week: this.getDataForWeekPeriod(),
@@ -27,36 +29,29 @@ export class OrdersChartService extends OrdersChartData {
   }
 
   private getDataForWeekPeriod(): OrdersChart {
-    return {
-      chartLabel: this.getDataLabels(42, this.period.getWeeks()),
+    const nPoints =42;
+   let y1;
+   this.apiDataPeriodService.get('loans', "week", nPoints).subscribe((res) => {
+      console.log("xd0",res);
+      y1= [184, 267, 326, 366, 389, 399,
+        392, 371, 340, 304, 265, 227,
+        191, 158, 130, 108, 95, 91, 97,
+        109, 125, 144, 166, 189, 212,
+        236, 259, 280, 300, 316, 329,
+        338, 342, 339, 329, 312, 288,
+        258, 221, 178, 128, 71,
+      ]
+    });
+   console.log("dsdsdsds",y1);
+    return <OrdersChart>{
+      chartLabel: this.getDataLabels(nPoints, this.period.getWeeks()),
       linesData: [
-        [
-          184, 267, 326, 366, 389, 399,
-          392, 371, 340, 304, 265, 227,
-          191, 158, 130, 108, 95, 91, 97,
-          109, 125, 144, 166, 189, 212,
-          236, 259, 280, 300, 316, 329,
-          338, 342, 339, 329, 312, 288,
-          258, 221, 178, 128, 71,
-        ],
-        [
-          158, 178, 193, 205, 212, 213,
-          204, 190, 180, 173, 168, 164,
-          162, 160, 159, 158, 159, 166,
-          179, 195, 215, 236, 257, 276,
-          292, 301, 304, 303, 300, 293,
-          284, 273, 262, 251, 241, 234,
-          232, 232, 232, 232, 232, 232,
-        ],
-        [
-          58, 137, 202, 251, 288, 312,
-          323, 324, 311, 288, 257, 222,
-          187, 154, 124, 100, 81, 68, 61,
-          58, 61, 69, 80, 96, 115, 137,
-          161, 186, 210, 233, 254, 271,
-          284, 293, 297, 297, 297, 297,
-          297, 297, 297, 297, 297,
-        ],
+
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ],
+      y1,
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+          0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       ],
     };
   }
