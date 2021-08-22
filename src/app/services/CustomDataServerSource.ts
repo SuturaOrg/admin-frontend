@@ -9,4 +9,13 @@ export class CustomDataServerSource extends ServerDataSource  {
     }
     return httpParams;
   }
+  addSortRequestParams(httpParams: HttpParams): HttpParams {
+    if (this.sortConf) {
+      this.sortConf.forEach((fieldConf) => {
+        httpParams = httpParams.set(this.conf.sortFieldKey, fieldConf.field + "," +fieldConf.direction);
+      });
+    }
+
+    return httpParams;
+  }
 }

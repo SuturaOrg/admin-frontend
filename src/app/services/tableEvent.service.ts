@@ -58,6 +58,7 @@ export class TableEventService {
         pagerLimitKey: 'size',
         pagerPageKey: 'page',
         filterFieldKey: '#field#',
+        sortFieldKey: 'sort',
       });
     if (settings.autofilter && settings.autofilter.length) {
       for (const filter of settings.autofilter) {
