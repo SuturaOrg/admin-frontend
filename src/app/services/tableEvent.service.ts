@@ -1,5 +1,5 @@
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import {Injectable, OnInit} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {SmartTableData} from '../@core/data/smart-table';
 import {CustomDataServerSource} from './CustomDataServerSource';
 
@@ -139,14 +139,11 @@ export class TableEventService {
     }
   }
 
-  onRowSelect(event): void {
-    console.log('xx');
-    /* this.source.getElements().then(els=>{
+   /* this.source.getElements().then(els=>{
       //els.map(el=>{el.firstname="fd"});
       // event.close();
        this.source.load(els);
      });
 
      */
-  }
 }

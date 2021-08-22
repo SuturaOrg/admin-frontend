@@ -206,6 +206,10 @@ export const ownsTableSettings = {
             title: 'Phone',
           },
         },
+        autofilter: [{
+          column: 'statusRefund',
+          value: 'true',
+        }],
         joints: [
           {
             entity: 'studentPrime',
