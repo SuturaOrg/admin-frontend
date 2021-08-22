@@ -2,6 +2,7 @@ import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {SmartTableData} from '../@core/data/smart-table';
 import {CustomDataServerSource} from './CustomDataServerSource';
+import {ApiService} from './api.service';
 
 @Injectable({
   providedIn: 'root',
@@ -14,52 +15,13 @@ export class TableEventService {
   source: CustomDataServerSource;
 
 
-  constructor(private service: SmartTableData, private http: HttpClient) {
+  constructor(private service: SmartTableData,private apiService: ApiService) {
   }
 
   loadEntity(entity, settings) {
     this.entity = entity;
-    this.settings = settings;
-    /*
-        this.http.get<any>(this.baseApi + this.entity + '/', {headers: this.headers}).subscribe(
-          async data => {
-            let initialData: any[];
-            if (settings.superClass) {
-              initialData = [];
-              for (const classChild of settings.classChildren) {
-                console.log(data._embedded[classChild]);
-                data._embedded[classChild] ? initialData = initialData.concat(data._embedded[classChild]) : null;
-              }
-            } else {
-              initialData = data._embedded[this.entity];
-            }
-            if (settings.joints) {
-              for (const joint of settings.joints) {
-                console.log(joint);
-                await Promise.all(initialData.map(async item => {
-                  const studentPrimeData = await this.http.get<any>(item._links[joint.entity].href, {headers: this.headers}).toPromise();
-                  // console.log(studentPrimeDataInit);
-                  for (const column of joint.columns) {
-                    item[column] = studentPrimeData[column];
-                  }
-                }));
-              }
-            }
-            console.log(initialData);
-           // this.source.load(initialData);
-          },
-          this.handleError);
-     */
-    this.source = new CustomDataServerSource(this.http,
-      {
-        endPoint: this.baseApi + this.entity + '/',
-        dataKey: settings.superClass ? `_embedded.` + settings.classChildren[0] : `_embedded.` + this.entity,
-        totalKey: 'page.totalElements',
-        pagerLimitKey: 'size',
-        pagerPageKey: 'page',
-        filterFieldKey: '#field#',
-        sortFieldKey: 'sort',
-      });
+    this.source = this.apiService.getCustomDataServerSource(this.entity, settings);
+
     if (settings.autofilter && settings.autofilter.length) {
       for (const filter of settings.autofilter) {
         this.source.setFilter([{field: filter.column, search: filter.value}]);
@@ -81,9 +43,7 @@ export class TableEventService {
     if (window.confirm('Are you sure you want to save?')) {
 
       const data = event.newData;
-      this.http.patch<any>(this.baseApi
-        + this.entity + '/'
-        + event.newData.id, data).subscribe(
+      this.apiService.patchFromId(this.entity, event.newData.id, data).subscribe(
         async res => {
           console.log(event.data);
           event.confirm.resolve();
@@ -101,7 +61,7 @@ export class TableEventService {
     if (window.confirm('Are you sure you want to create?')) {
 
       const data = event.newData;
-      this.http.post<any>(this.baseApi + this.entity + '/', data).subscribe(
+      this.apiService.post(this.entity, data).subscribe(
         async res => {
           console.log(res);
           await this.source.add(res);
@@ -127,7 +87,7 @@ export class TableEventService {
 
   onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {
-      this.http.delete<any>(this.baseApi + this.entity + '/' + event.data.id).subscribe(
+      this.apiService.deleteFromId(this.entity,event.data.id).subscribe(
         async data => {
           console.log(data);
           await this.source.remove(event.data);
