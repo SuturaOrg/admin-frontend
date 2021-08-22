@@ -1,11 +1,12 @@
-import { Injectable } from '@angular/core';
-import { PeriodsService } from './periods.service';
-import { OrdersChart, OrdersChartData } from '../data/orders-chart';
+import {Injectable, OnInit} from '@angular/core';
+import {PeriodsService} from './periods.service';
+import {OrdersChart, OrdersChartData} from '../data/orders-chart';
 import {ApiService} from '../../services/api.service';
 import {ApiDataPeriodService} from './api-data-period.service';
+import {Observable, Subject} from 'rxjs';
 
 @Injectable()
-export class OrdersChartService extends OrdersChartData {
+export class OrdersChartService extends OrdersChartData implements OnInit {
 
   private year = [
     '2012',
@@ -17,43 +18,49 @@ export class OrdersChartService extends OrdersChartData {
     '2018',
   ];
 
-  private data = { };
+  private data = {};
+  private weekData: number[];
 
-  constructor(private period: PeriodsService,private apiDataPeriodService: ApiDataPeriodService) {
+  constructor(private period: PeriodsService, private apiDataPeriodService: ApiDataPeriodService) {
     super();
+    this.getDataForWeekPeriod();
+    console.log(this.weekData);
     this.data = {
-      week: this.getDataForWeekPeriod(),
+      week: this.weekData,
       month: this.getDataForMonthPeriod(),
       year: this.getDataForYearPeriod(),
     };
   }
 
-  private getDataForWeekPeriod(): OrdersChart {
-    const nPoints =42;
-   let y1;
-   this.apiDataPeriodService.get('loans', "week", nPoints).subscribe((res) => {
-      console.log("xd0",res);
-      y1= [184, 267, 326, 366, 389, 399,
-        392, 371, 340, 304, 265, 227,
-        191, 158, 130, 108, 95, 91, 97,
-        109, 125, 144, 166, 189, 212,
-        236, 259, 280, 300, 316, 329,
-        338, 342, 339, 329, 312, 288,
-        258, 221, 178, 128, 71,
-      ]
-    });
-   console.log("dsdsdsds",y1);
-    return <OrdersChart>{
+  ngOnInit(): void {
+  }
+
+  private getDataForWeekPeriod(): Observable<OrdersChart> {
+    const nPoints = 42;
+    const subject = new Subject<OrdersChart>();
+    const ordersChart = {
       chartLabel: this.getDataLabels(nPoints, this.period.getWeeks()),
       linesData: [
 
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ],
-      y1,
+          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
           0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       ],
     };
+    this.apiDataPeriodService.get('loans', 'week', nPoints).subscribe((res) => {
+        console.log('vxcx', res);
+        ordersChart.linesData[1]=res;
+
+        subject.next(<OrdersChart>ordersChart);
+        subject.complete();
+        this.weekData = res;
+      },
+    );
+    return subject.asObservable();
+
   }
 
   private getDataForMonthPeriod(): OrdersChart {
@@ -144,7 +151,13 @@ export class OrdersChartService extends OrdersChartData {
     });
   }
 
-  getOrdersChartData(period: string): OrdersChart {
-    return this.data[period];
+  getOrdersChartData(period: string): Observable<OrdersChart> {
+    if (period == 'week') {
+      return this.getDataForWeekPeriod();
+    } else {
+      return this.data[period];
+    }
   }
+
+
 }
