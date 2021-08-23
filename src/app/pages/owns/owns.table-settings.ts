@@ -23,9 +23,15 @@ export const ownsTableSettings = {
       columns: {
         firstname: {
           title: 'Firstname',
+          valuePrepareFunction: (val, row) => {
+            return row.studentPrime.firstname;
+          }
         },
         lastname: {
           title: 'Lastname',
+          valuePrepareFunction: (val, row) => {
+            return row.studentPrime.lastname;
+          }
         },
         amount: {
           title: 'Amount',
@@ -496,6 +502,9 @@ export const ownsTableSettings = {
         columns: {
           firstname: {
             title: 'Firstname',
+            filterFunction: (a, b) => {
+              console.log(a, b);
+            },
           },
           lastname: {
             title: 'Lastname',
@@ -511,7 +520,6 @@ export const ownsTableSettings = {
           },
           totalAmount: {
             title: 'Total amount',
-            filter: true,
           },
           totalPeriods: {
             title: 'Total periods',
@@ -527,13 +535,10 @@ export const ownsTableSettings = {
             contribution: [],
           },
         ],
-        joints: [
-          {
-            entity: 'contributions',
-            isCollection: true,
-            columns: ['totalAmount', 'amount'],
-          },
-        ],
+        autofilter: [{
+          column: 'projection',
+          value: 'contributionsProjection',
+        }],
       },
       entity: 'students',
 
@@ -578,6 +583,10 @@ export const ownsTableSettings = {
             filter: true,
           },
         },
+        autofilter: [{
+          column: 'projection',
+          value: 'contributionsProjection',
+        }],
       },
       entity: 'students',
 
@@ -629,6 +638,10 @@ export const ownsTableSettings = {
             filter: true,
           },
         },
+        autofilter: [{
+          column: 'projection',
+          value: 'contributionsProjection',
+        }],
       },
       entity: 'students',
     }

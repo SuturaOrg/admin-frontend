@@ -15,16 +15,17 @@ export class TableEventService {
   source: CustomDataServerSource;
 
 
-  constructor(private service: SmartTableData,private apiService: ApiService) {
+  constructor(private service: SmartTableData, private apiService: ApiService) {
   }
 
   loadEntity(entity, settings) {
     this.entity = entity;
     this.source = this.apiService.getCustomDataServerSource(this.entity, settings);
-
     if (settings.autofilter && settings.autofilter.length) {
       for (const filter of settings.autofilter) {
-        this.source.setFilter([{field: filter.column, search: filter.value}]);
+        this.source.addFilter({
+          field: filter.column, search: filter.value,
+        });
       }
     }
   }
@@ -87,7 +88,7 @@ export class TableEventService {
 
   onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {
-      this.apiService.deleteFromId(this.entity,event.data.id).subscribe(
+      this.apiService.deleteFromId(this.entity, event.data.id).subscribe(
         async data => {
           console.log(data);
           await this.source.remove(event.data);
@@ -100,11 +101,11 @@ export class TableEventService {
     }
   }
 
-   /* this.source.getElements().then(els=>{
-      //els.map(el=>{el.firstname="fd"});
-      // event.close();
-       this.source.load(els);
-     });
+  /* this.source.getElements().then(els=>{
+     //els.map(el=>{el.firstname="fd"});
+     // event.close();
+      this.source.load(els);
+    });
 
-     */
+    */
 }
