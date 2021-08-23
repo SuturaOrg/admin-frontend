@@ -1,3 +1,5 @@
+import {HttpClient, HttpHeaders, HttpXhrBackend} from '@angular/common/http';
+
 export const ownsTableSettings = {
   contributions: {
     settings: {
@@ -70,10 +72,15 @@ export const ownsTableSettings = {
         columns: {
           firstname: {
             title: 'Firstname',
+            valuePrepareFunction: (val, row) => {
+              return row.studentPrime.firstname;
+            }
           },
           lastname: {
             title: 'Lastname',
-            filter: true,
+            valuePrepareFunction: (val, row) => {
+              return row.studentPrime.lastname;
+            }
           },
           amount: {
             title: 'amount',
@@ -130,10 +137,15 @@ export const ownsTableSettings = {
         columns: {
           firstname: {
             title: 'Firstname',
+            valuePrepareFunction: (val, row) => {
+              return row.studentPrime.firstname;
+            }
           },
           lastname: {
             title: 'Lastname',
-            filter: true,
+            valuePrepareFunction: (val, row) => {
+              return row.studentPrime.lastname;
+            }
           },
           amount: {
             title: 'amount',
@@ -240,10 +252,15 @@ export const ownsTableSettings = {
         columns: {
           firstname: {
             title: 'Firstname',
+            valuePrepareFunction: (val, row) => {
+              return row.studentPrime.firstname;
+            }
           },
           lastname: {
             title: 'Lastname',
-            filter: true,
+            valuePrepareFunction: (val, row) => {
+              return row.studentPrime.lastname;
+            }
           },
           amount: {
             title: 'amount',
@@ -340,9 +357,15 @@ export const ownsTableSettings = {
       columns: {
         firstname: {
           title: 'Firstname',
+          valuePrepareFunction: (val, row) => {
+            return row.studentPrime.firstname;
+          }
         },
         lastname: {
           title: 'Lastname',
+          valuePrepareFunction: (val, row) => {
+            return row.studentPrime.lastname;
+          }
         },
         amount: {
           title: 'Amount',
@@ -499,8 +522,6 @@ export const ownsTableSettings = {
           display: true,
           perPage: 5,
         },
-        superClass: true,
-        classChildren: ['admins', 'students'],
         filters: [
           {
             contribution: [],
@@ -514,7 +535,7 @@ export const ownsTableSettings = {
           },
         ],
       },
-      entity: 'studentPrimes',
+      entity: 'students',
 
     },
     notContributed: {
@@ -557,10 +578,8 @@ export const ownsTableSettings = {
             filter: true,
           },
         },
-        superClass: true,
-        classChildren: ['admins', 'students'],
       },
-      entity: 'studentPrimes',
+      entity: 'students',
 
     },
     all: {
@@ -610,10 +629,8 @@ export const ownsTableSettings = {
             filter: true,
           },
         },
-        superClass: true,
-        classChildren: ['admins', 'students'],
       },
-      entity: 'studentPrimes',
+      entity: 'students',
     }
   },
 

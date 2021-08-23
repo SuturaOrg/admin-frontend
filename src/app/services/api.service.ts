@@ -37,7 +37,7 @@ export class ApiService {
     return new CustomDataServerSource(this.http,
       {
         endPoint: this.baseApi + entity + '/',
-        dataKey: settings.superClass ? `_embedded.` + settings.classChildren[0] : `_embedded.` + entity,
+        dataKey: `_embedded.` + entity,
         totalKey: 'page.totalElements',
         pagerLimitKey: 'size',
         pagerPageKey: 'page',
