@@ -3,7 +3,8 @@ import {PeriodsService} from './periods.service';
 import {OrdersChart, OrdersChartData} from '../data/orders-chart';
 import {ApiService} from '../../services/api.service';
 import {ApiDataPeriodService} from './api-data-period.service';
-import {Observable, Subject} from 'rxjs';
+import {forkJoin, Observable, Subject} from 'rxjs';
+import {take} from 'rxjs/operators';
 
 @Injectable()
 export class OrdersChartService extends OrdersChartData implements OnInit {
@@ -19,14 +20,10 @@ export class OrdersChartService extends OrdersChartData implements OnInit {
   ];
 
   private data = {};
-  private weekData: number[];
 
   constructor(private period: PeriodsService, private apiDataPeriodService: ApiDataPeriodService) {
     super();
-    this.getDataForWeekPeriod();
-    console.log(this.weekData);
     this.data = {
-      week: this.weekData,
       month: this.getDataForMonthPeriod(),
       year: this.getDataForYearPeriod(),
     };
@@ -35,9 +32,8 @@ export class OrdersChartService extends OrdersChartData implements OnInit {
   ngOnInit(): void {
   }
 
-  private getDataForWeekPeriod(): Observable<OrdersChart> {
+  private getDataForWeekPeriod(entities: string[]): Observable<OrdersChart> {
     const nPoints = 42;
-    const subject = new Subject<OrdersChart>();
     const ordersChart = {
       chartLabel: this.getDataLabels(nPoints, this.period.getWeeks()),
       linesData: [
@@ -50,16 +46,27 @@ export class OrdersChartService extends OrdersChartData implements OnInit {
           0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       ],
     };
-    this.apiDataPeriodService.get('loans', 'week', nPoints).subscribe((res) => {
-        console.log('vxcx', res);
-        ordersChart.linesData[1]=res;
+    const observables: Observable<number[]>[] = entities.map((entity, index) => {
+      return this.apiDataPeriodService.get(entity, 'week', nPoints);
+    });
+    return new Observable(subscriber => {
 
-        subject.next(<OrdersChart>ordersChart);
-        subject.complete();
-        this.weekData = res;
-      },
-    );
-    return subject.asObservable();
+      forkJoin(observables).subscribe((res) => {
+          res.map((val, index) => {
+            console.log(val, index);
+            ordersChart.linesData[index] = val;
+          });
+          subscriber.next(<OrdersChart>ordersChart);
+          subscriber.complete();
+        }, error => {
+          subscriber.error(error);
+        },
+        () => {
+          subscriber.complete();
+        }
+      );
+    });
+
 
   }
 
@@ -152,8 +159,9 @@ export class OrdersChartService extends OrdersChartData implements OnInit {
   }
 
   getOrdersChartData(period: string): Observable<OrdersChart> {
+    const entities = ['loans', 'students'];
     if (period == 'week') {
-      return this.getDataForWeekPeriod();
+      return this.getDataForWeekPeriod(entities);
     } else {
       return this.data[period];
     }
