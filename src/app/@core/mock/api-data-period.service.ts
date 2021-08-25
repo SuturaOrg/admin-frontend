@@ -14,12 +14,25 @@ export class ApiDataPeriodService extends ApiDataPeriod {
   }
 
   get(entity: string, period: string, nPoints: number): Observable<number[]> {
+    let dateOffset = 7;
+    switch (period) {
+      case 'week':
+        dateOffset = 7;
+        break;
+      case 'month':
+        dateOffset = 30;
+        break;
+      case 'year':
+        dateOffset = 365;
+        break;
+
+    }
     return new Observable(subscriber => {
-      this.apiService.get(entity).subscribe(
+      this.apiService.getWithSize(entity, 500).subscribe(
         (res) => {
           const end = new Date();
           const start = new Date();
-          start.setDate(start.getDate() - 7);
+          start.setDate(start.getDate() - dateOffset);
           const startTime = start.getTime();
           const endTime = end.getTime();
           const offset = (endTime - startTime) / nPoints;

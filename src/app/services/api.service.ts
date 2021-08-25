@@ -21,6 +21,10 @@ export class ApiService {
     return this.http.get<any>(this.baseApi + entity + '/');
   };
 
+  getWithSize(entity: string, size: number): Observable<any> {
+    return this.http.get<any>(this.baseApi + entity + '?size=' + size);
+  };
+
   getFromId(entity: string, id: number): Observable<any> {
     return this.http.get<any>(this.baseApi + entity + '/' + id);
   };

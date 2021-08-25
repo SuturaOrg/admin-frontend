@@ -1,7 +1,23 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 @Injectable()
 export class PeriodsService {
+
+  getLabels(period: string) {
+    switch (period) {
+      case 'week':
+        return this.getWeeks();
+        break;
+      case 'month':
+        return this.getMonths();
+        break;
+      case 'year':
+        return this.getYears();
+        break;
+
+    }
+  }
+
   getYears() {
     return [
       '2010', '2011', '2012',
