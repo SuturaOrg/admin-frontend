@@ -25,6 +25,17 @@ export class ApiService {
     return this.http.get<any>(this.baseApi + entity + '?size=' + size);
   };
 
+  getWithFilters(entity: string, filters: { param: string, value: string }[]): Observable<any> {
+    let first = true;
+    const params = filters.reduce((acc, val) => {
+      const res = acc + (!first ? '&' : '') + val.param + '=' + val.value;
+      first = false;
+      return res;
+    }, '');
+    console.log(params);
+    return this.http.get<any>(this.baseApi + entity + '/?' + params);
+  };
+
   getFromId(entity: string, id: number): Observable<any> {
     return this.http.get<any>(this.baseApi + entity + '/' + id);
   };
