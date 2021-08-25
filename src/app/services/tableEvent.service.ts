@@ -19,14 +19,19 @@ export class TableEventService {
   }
 
   loadEntity(entity, settings) {
+    console.log("loading");
     this.entity = entity;
     this.source = this.apiService.getCustomDataServerSource(this.entity, settings);
     if (settings.autofilter && settings.autofilter.length) {
+      const filterConf=[];
       for (const filter of settings.autofilter) {
-        this.source.addFilter({
+      filterConf.push(
+        {
           field: filter.column, search: filter.value,
-        });
+        }
+      );
       }
+      this.source.setFilter(filterConf);
     }
   }
 
