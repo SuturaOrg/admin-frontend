@@ -48,7 +48,7 @@ export class TableEventService {
         async res => {
           console.log(event.data);
           event.confirm.resolve();
-          this.source.refresh();
+          //this.source.refresh();
           // await this.source.update(event.data,res);
         },
         this.handleError);
@@ -65,7 +65,7 @@ export class TableEventService {
       this.apiService.post(this.entity, data).subscribe(
         async res => {
           console.log(res);
-          await this.source.add(res);
+       //   await this.source.add(res);
           // await this.source.find(res);
           event.confirm.resolve();
 
@@ -91,7 +91,7 @@ export class TableEventService {
       this.apiService.deleteFromId(this.entity, event.data.id).subscribe(
         async data => {
           console.log(data);
-          await this.source.remove(event.data);
+          //await this.source.remove(event.data);
           event.confirm.resolve();
           // await this.source.reset();
         },

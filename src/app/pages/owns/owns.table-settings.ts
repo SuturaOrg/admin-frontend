@@ -502,9 +502,6 @@ export const ownsTableSettings = {
         columns: {
           firstname: {
             title: 'Firstname',
-            filterFunction: (a, b) => {
-              console.log(a, b);
-            },
           },
           lastname: {
             title: 'Lastname',
@@ -538,6 +535,9 @@ export const ownsTableSettings = {
         autofilter: [{
           column: 'projection',
           value: 'contributionsProjection',
+        }, {
+          column: 'transactionHistory.contributed',
+          value: 'true',
         }],
       },
       entity: 'students',
@@ -586,7 +586,11 @@ export const ownsTableSettings = {
         autofilter: [{
           column: 'projection',
           value: 'contributionsProjection',
-        }],
+        },
+          {
+            column: 'transactionHistory.contributed',
+            value: 'false',
+          }],
       },
       entity: 'students',
 
