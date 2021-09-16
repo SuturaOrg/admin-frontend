@@ -79,11 +79,17 @@ export class AdvancedComponent implements OnInit, OnDestroy {
   }
   @ViewChild('dialog2',{static:false}) dialog2: TemplateRef<any>;
   approve(data): void {
-    this.dialogRef2 =this.dialogService.open(this.dialog2,{
+   if( data.hasOwnProperty("scoreAdmin")){ this.dialogRef2 =this.dialogService.open(this.dialog2,{
       context:data
-    });
+    });}
+   else{
+     this.apiService.patchFromId(this.entity,data.id,{approved:true}).subscribe((res)=>alert("Bien approuvé"),()=>alert("N'a pas été bien approuvé"))
+   }
 }
-  cancel() {
+  finish(data): void {
+    this.apiService.patchFromId(this.entity,data.id,{status:"FINISHED"}).subscribe((res)=>alert("Bien terminé"),()=>alert("N'a pas été bien terminé"))
+  }
+cancel() {
     this.dialogRef2.close();
   }
 
@@ -92,7 +98,7 @@ export class AdvancedComponent implements OnInit, OnDestroy {
       alert("Le score doit être compis entre 0 et 10");
       return
     }
-    this.apiService.patchFromId(this.entity,data.id,{scoreAdmin:score}).subscribe((res)=>{
+    this.apiService.patchFromId(this.entity,data.id,{scoreAdmin:score, approved:true}).subscribe((res)=>{
     },
       console.log)
     this.dialogRef2.close();
