@@ -23,7 +23,7 @@ export class TableEventService {
     this.entity = entity;
     this.source = this.apiService.getCustomDataServerSource(this.entity, settings);
     if (settings.autofilter && settings.autofilter.length) {
-      const filterConf=[];
+      const filterConf = [];
       for (const filter of settings.autofilter) {
       filterConf.push(
         {

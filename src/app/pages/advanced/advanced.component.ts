@@ -15,7 +15,7 @@ export class AdvancedComponent implements OnInit, OnDestroy {
   defaultSettings = defaultTableSettings;
   @Input()
   data: { settings: Object, entity: string } | null;
-
+  title;
   source: CustomDataServerSource;
   headers: HttpHeaders;
   sub;
@@ -40,7 +40,10 @@ export class AdvancedComponent implements OnInit, OnDestroy {
           console.log('GG', data);
           if (data.entity && data.settings) {
               this.data = {entity: data.entity, settings: data.settings};
-            }
+              this.title =data.entity;
+
+
+          }
           },
         ) : null;
     }
