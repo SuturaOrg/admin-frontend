@@ -14,6 +14,7 @@ export class CountryOrderService extends CountryOrderData {
     'Contributions',
     'Refunds',
     'Students',
+    'Admins',
   ];
   private countriesCategoriesLength = this.countriesCategories.length;
   private generateRandomData(nPoints: number): number[] {

@@ -35,6 +35,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
         icon: 'repeat-outline',
       },
       {
+        title: 'Pending',
+        link: '/pages/owns/loans/pending',
+        icon: 'repeat-outline',
+      },
+      {
         title: 'All',
         link: '/pages/owns/loans/all',
         icon: 'list-outline',

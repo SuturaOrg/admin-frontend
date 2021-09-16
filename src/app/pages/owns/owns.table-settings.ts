@@ -3,6 +3,9 @@ import {HttpClient, HttpHeaders, HttpXhrBackend} from '@angular/common/http';
 export const ownsTableSettings = {
   contributions: {
     settings: {
+      actions: {
+        add: false,
+      },
       add: {
         addButtonContent: '<i class="nb-plus"></i>',
         createButtonContent: '<i class="nb-checkmark"></i>',
@@ -58,6 +61,9 @@ export const ownsTableSettings = {
   loans: {
     chosen: {
       settings: {
+        actions: {
+          add: false,
+        },
         add: {
           addButtonContent: '<i class="nb-plus"></i>',
           createButtonContent: '<i class="nb-checkmark"></i>',
@@ -123,6 +129,9 @@ export const ownsTableSettings = {
     },
     finished: {
       settings: {
+        actions: {
+          add: false,
+        },
         add: {
           addButtonContent: '<i class="nb-plus"></i>',
           createButtonContent: '<i class="nb-checkmark"></i>',
@@ -182,8 +191,79 @@ export const ownsTableSettings = {
       entity: 'loans',
 
     },
+    pending: {
+      settings: {
+        actions: {
+          add: false,
+        },
+        add: {
+          addButtonContent: '<i class="nb-plus"></i>',
+          createButtonContent: '<i class="nb-checkmark"></i>',
+          cancelButtonContent: '<i class="nb-close"></i>',
+          confirmCreate: true,
+        },
+        edit: {
+          editButtonContent: '<i class="nb-edit"></i>',
+          saveButtonContent: '<i class="nb-checkmark"></i>',
+          cancelButtonContent: '<i class="nb-close"></i>',
+          confirmSave: true,
+
+        },
+        delete: {
+          deleteButtonContent: '<i class="nb-trash"></i>',
+          confirmDelete: true,
+        },
+        columns: {
+          firstname: {
+            title: 'Firstname',
+            valuePrepareFunction: (val, row) => {
+              return row.studentPrime.firstname;
+            }
+          },
+          lastname: {
+            title: 'Lastname',
+            valuePrepareFunction: (val, row) => {
+              return row.studentPrime.lastname;
+            }
+          },
+          amount: {
+            title: 'amount',
+            editable: false,
+          },
+          date: {
+            title: 'date',
+            filter: true,
+            editable: false,
+          },
+          priority: {
+            title: 'Priority',
+          },
+          RIB: {
+            title: 'RIB',
+          },
+          phone: {
+            title: 'Phone',
+          },
+        },
+        autofilter: [{
+          column: 'status',
+          value: 'NEW',
+        }],
+        joints: [
+          {
+            entity: 'studentPrime',
+            columns: ['firstname', 'lastname'],
+          },
+        ],
+      },
+      entity: 'loans',
+
+    },
     refunded: {
       settings: {
+        actions: {
+          add: false,
+        },
         add: {
           addButtonContent: '<i class="nb-plus"></i>',
           createButtonContent: '<i class="nb-checkmark"></i>',
@@ -239,6 +319,9 @@ export const ownsTableSettings = {
     },
     all: {
       settings: {
+        actions: {
+          add: false,
+        },
         add: {
           addButtonContent: '<i class="nb-plus"></i>',
           createButtonContent: '<i class="nb-checkmark"></i>',
@@ -258,9 +341,6 @@ export const ownsTableSettings = {
         columns: {
           firstname: {
             title: 'Firstname',
-            valuePrepareFunction: (val, row) => {
-              return row.studentPrime.firstname;
-            }
           },
           lastname: {
             title: 'Lastname',
@@ -307,6 +387,9 @@ export const ownsTableSettings = {
   },
   parameters: {
     settings: {
+      actions: {
+        add: false,
+      },
       add: {
         addButtonContent: '<i class="nb-plus"></i>',
         createButtonContent: '<i class="nb-checkmark"></i>',
@@ -343,6 +426,9 @@ export const ownsTableSettings = {
   },
   refunds: {
     settings: {
+      actions: {
+        add: false,
+      },
       add: {
         addButtonContent: '<i class="nb-plus"></i>',
         createButtonContent: '<i class="nb-checkmark"></i>',
@@ -545,6 +631,9 @@ export const ownsTableSettings = {
     },
     notContributed: {
       settings: {
+        actions: {
+          add: false,
+        },
         add: {
           addButtonContent: '<i class="nb-plus"></i>',
           createButtonContent: '<i class="nb-checkmark"></i>',
@@ -597,6 +686,9 @@ export const ownsTableSettings = {
     },
     all: {
       settings: {
+        actions: {
+          add: false,
+        },
         add: {
           addButtonContent: '<i class="nb-plus"></i>',
           createButtonContent: '<i class="nb-checkmark"></i>',
