@@ -19,7 +19,23 @@
       </nb-list>
     </nb-card-body>
     <nb-card-footer>
-      <button nbButton hero status="primary"(click)="ref.close()">Close Details</button>
+      <button nbButton hero class = "cancel" status="danger"(click)="ref.close()">Close Details</button>
+      <button nbButton hero status="success"(click)="approve(data)">Approve</button>
+    </nb-card-footer>
+  </nb-card>
+</ng-template>
+
+<ng-template #dialog2 let-data>
+  <nb-card>
+    <nb-card-header>Score</nb-card-header>
+    <nb-card-body>
+      <input #name nbInput placeholder="Score">
+    </nb-card-body>
+    <nb-card-footer >
+      <div class>
+      <button class="cancel" nbButton status="danger" (click)="cancel()">Cancel</button>
+      <button nbButton status="success" (click)="submit(name.value)">Submit</button>
+      </div>
     </nb-card-footer>
   </nb-card>
 </ng-template>

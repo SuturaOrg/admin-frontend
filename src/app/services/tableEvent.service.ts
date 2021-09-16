@@ -57,7 +57,6 @@ export class TableEventService {
           // await this.source.update(event.data,res);
         },
         this.handleError);
-
     } else {
       event.confirm.reject();
     }

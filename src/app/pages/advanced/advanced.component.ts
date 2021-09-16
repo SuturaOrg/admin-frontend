@@ -4,7 +4,9 @@ import {ActivatedRoute} from '@angular/router';
 import {CustomDataServerSource} from '../../services/CustomDataServerSource';
 import {TableEventService} from '../../services/tableEvent.service';
 import {defaultTableSettings} from './advanced.table-settings';
-import {NbDialogService} from '@nebular/theme';
+import {NbDialogRef, NbDialogService} from '@nebular/theme';
+import {DialogNamePromptComponent} from '../modal-overlays/dialog/dialog-name-prompt/dialog-name-prompt.component';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'ngx-advanced',
@@ -22,6 +24,7 @@ export class AdvancedComponent implements OnInit, OnDestroy {
   onEditConfirm: (event) => void;
   onCreateConfirm: (event) => void;
   onDeleteConfirm: (event) => void;
+  private dialogRef2: NbDialogRef<any>;
 
   constructor(private route: ActivatedRoute,
               private http: HttpClient,
@@ -74,5 +77,16 @@ export class AdvancedComponent implements OnInit, OnDestroy {
     this.dialogService.open(
       this.dialog,
       { context: event.data});
+  }
+  @ViewChild('dialog2',{static:false}) dialog2: TemplateRef<any>;
+  approve(data): void {
+    this.dialogRef2 =this.dialogService.open(this.dialog2);
+}
+  cancel() {
+    this.dialogRef2.close();
+  }
+
+  submit(score) {
+    this.dialogRef2.close();
   }
 }
