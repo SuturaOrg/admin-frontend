@@ -915,7 +915,7 @@ export const ownsTableSettings = {
               column: 'projection',
               value: 'contributionsProjection',
             }, {
-              column: 'transactionHistory.contributed',
+              column: 'transactionHistory.notContributed',
               value: 'true',
             }],
           },

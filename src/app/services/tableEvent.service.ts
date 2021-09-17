@@ -92,7 +92,7 @@ export class TableEventService {
 
   onDeleteConfirm(event): void {
     const data = event.data;
-    if (window.confirm('Are you sure you want to mouve to trash?')) {
+    if (window.confirm('Are you sure you want to move to trash?')) {
       if(['contributions','refunds'].includes(this.entity) && !data.approved){
          this.apiService.patchFromId(this.entity,data.id,{status:true}).subscribe((res)=>alert("Déplacé dans la corbeille"),(error)=>alert("N'a pas été bien terminé"+error.message))
       } else if (this.entity=="loans" && data.status=="NEW"){
