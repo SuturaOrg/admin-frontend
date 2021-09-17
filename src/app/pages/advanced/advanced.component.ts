@@ -105,5 +105,25 @@ cancel() {
   }
 
 
+  sendToTrash(data){
+    if(this.entity=="contribution" || this.entity==="refund"){
+      //on ne doit pas mettre dans la corbeille un élément déjà approuvé
+      this.apiService.patchFromId(this.entity,data.id,{deleted:true}).subscribe((res)=>alert("Déplacé dans la corbeille"),()=>alert("N'a pas été bien terminé"))
+    }
+    if(this.entity=="loan"){
+      //on ne doit pas supprimer un prêt ELU directement- déjà configuré dans l'API
+      //il faut faire une condition
+      this.apiService.patchFromId(this.entity,data.id,{status:"SUPPRIME"}).subscribe((res)=>alert("Déplacé dans la corbeille"),()=>alert("N'a pas été bien terminé"))
+    }
+  }
+
+  restore(data){
+        if(this.entity=="contribution" || this.entity=="refund"){
+          this.apiService.patchFromId(this.entity,data.id,{deleted:false}).subscribe((res)=>alert("Restauré avec succès"),()=>alert("N'a pas été bien terminé"))
+        }
+        if(this.entity=="loan"){
+          this.apiService.patchFromId(this.entity,data.id,{status:"NEW"}).subscribe((res)=>alert("Restauré avec succès"),()=>alert("N'a pas été bien terminé"))
+        }
+      }
 
 }
