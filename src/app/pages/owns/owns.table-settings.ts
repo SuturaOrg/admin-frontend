@@ -244,6 +244,9 @@ export const ownsTableSettings = {
           phone: {
             title: 'Phone',
           },
+          statusRefund: {
+            title: 'Refunded',
+          },
         },
         autofilter: [{
           column: 'status',
@@ -666,7 +669,7 @@ export const ownsTableSettings = {
         contributor: {
           title: 'Contributor',
         },
-        admin: {
+        createdBy: {
           title: 'Admin',
         },
         amount: {
