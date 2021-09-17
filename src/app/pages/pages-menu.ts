@@ -60,6 +60,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
       icon: 'person-delete-outline',
     },
     {
+      title: 'Administrators',
+      link: '/pages/owns/adherents/administrators',
+      icon: 'people-outline',
+    },
+    {
       title: 'All',
       link: '/pages/owns/adherents/all',
       icon: 'people-outline',
@@ -69,13 +74,40 @@ export const MENU_ITEMS: NbMenuItem[] = [
 {
   title: 'Contributions',
   icon: 'layers-outline',
-  link: '/pages/owns/contributions',
+  children: [
+      {
+        title: 'Pending',
+        link: '/pages/owns/contributions/pending',
+        icon: 'people-outline',
+      },
+      {
+        title: 'All',
+        link: '/pages/owns/contributions/all',
+        icon: 'people-outline',
+      },
+    ],
 },
 
 {
   title: 'Refunds',
   icon: 'repeat-outline',
-  link: '/pages/owns/refunds',
+  children: [
+        {
+          title: 'Pending',
+          link: '/pages/owns/refunds/pending',
+          icon: 'people-outline',
+        },
+        {
+          title: 'All',
+          link: '/pages/owns/refunds/all',
+          icon: 'people-outline',
+        },
+      ],
+},
+{
+  title: 'Expenses',
+  icon: 'repeat-outline',
+  link: '/pages/owns/expenses',
 },
 {
   title: 'Donations',
@@ -95,18 +127,19 @@ export const MENU_ITEMS: NbMenuItem[] = [
 {
   title: 'OTHERS',
   group: true,
-}, {
+},
+ {
   title: 'Trash',
   icon: 'trash-2-outline',
   children: [
       {
         title: 'Loans',
-        link: '/pages/owns/trash/contributed',
+        link: '/pages/owns/trash/loans',
         icon: 'shake-outline',
       },
       {
         title: 'Contributions',
-        link: '/pages/owns/trash/notContributed',
+        link: '/pages/owns/trash/contributions',
         icon: 'layers-outline',
       },
       {
@@ -120,8 +153,13 @@ export const MENU_ITEMS: NbMenuItem[] = [
         icon: 'gift-outline',
       },
       {
-        title: 'Adherents',
-        link: '/pages/owns/trash/adherents',
+        title: 'Students',
+        link: '/pages/owns/trash/students',
+        icon: 'people-outline',
+      },
+      {
+        title: 'Administrators',
+        link: '/pages/owns/trash/administrators',
         icon: 'people-outline',
       },
     ],

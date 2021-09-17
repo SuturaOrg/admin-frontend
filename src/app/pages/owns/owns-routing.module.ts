@@ -10,21 +10,22 @@ const baseChildren: {}[] = [{
 }];
 
 function setChildren(base: {}[]) {
-  const paths = [{
-    path: 'loans',
-    children: ['chosen', 'finished', 'refunded', 'pending', 'all'],
-  },
-  {
+  const paths = [
+    {
+      path: 'loans',
+      children: ['chosen', 'finished', 'refunded', 'pending', 'all'],
+    },
+    {
       path: 'adherents',
-      children: ['contributed', 'notContributed', 'all'],
+      children: ['contributed', 'notContributed', 'administrators', 'all'],
     },
     {
       path: 'contributions',
-      children: [],
+      children: ['pending','all'],
     },
     {
       path: 'refunds',
-      children: [],
+      children: ['pending','all'],
      },
     {
       path: 'donations',
@@ -34,13 +35,17 @@ function setChildren(base: {}[]) {
       path: 'funds',
       children: [],
      },
+     {
+       path: 'expenses',
+       children: [],
+      },
     {
       path: 'parameters',
       children: [],
     },
     {
       path: 'trash',
-      children: [],
+      children: ['loans','contributions','refunds','donations','students','administrators'],
     }];
 
   for (const group of paths) {
