@@ -55,17 +55,17 @@ export const ownsTableSettings = {
             filter: true,
           },
         },
+        autofilter: [{
+          column: 'approved',
+          value: false,
+        }],
+        joints: [
+          {
+            entity: 'studentPrime',
+            columns: ['firstname', 'lastname'],
+          },
+        ],
       },
-      autofilter: [{
-                column: 'approved',
-                value: 'false',
-              }],
-              joints: [
-                {
-                  entity: 'studentPrime',
-                  columns: ['firstname', 'lastname'],
-                },
-              ],
       entity: 'contributions',
     },
      all: {
@@ -260,7 +260,6 @@ export const ownsTableSettings = {
         ],
       },
       entity: 'loans',
-
     },
     pending: {
       settings: {
@@ -710,14 +709,16 @@ export const ownsTableSettings = {
           confirmDelete: true,
         },
         columns: {
-          contributor: {
-            title: 'Contributor',
-          },
-          admin: {
-            title: 'Admin',
-          },
           amount: {
             title: 'Amount',
+            filter: true,
+            editable: false,
+          },
+          createdBy: {
+            title: 'Admin',
+          },
+          proof: {
+            title: 'Proof',
             filter: true,
             editable: false,
           },
