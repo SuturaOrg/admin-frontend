@@ -51,7 +51,11 @@ export const ownsTableSettings = {
         },
         autofilter: [{
           column: 'approved',
-          value: false,
+          value: "false",
+        },
+        {
+          column: 'status',
+          value: "false",
         }],
         joints: [
           {
@@ -536,6 +540,16 @@ export const ownsTableSettings = {
           filter: true,
         },
       },
+      autofilter: [{
+        column: 'approved',
+        value: "false",
+      }],
+      joints: [
+        {
+          entity: 'studentPrime',
+          columns: ['firstname', 'lastname'],
+        },
+      ],
     },
     entity: 'refunds',
   },
@@ -910,7 +924,7 @@ export const ownsTableSettings = {
         },
 
 
-    all: {
+    students: {
       settings: {
         actions: {
           add: false,
@@ -1024,10 +1038,13 @@ export const ownsTableSettings = {
               title: 'Phone',
             },
           },
+          autofilter: [{
+            column: 'status',
+            value: "SUPPRIME",
+          }],
           joints: [
             {
-              entity: 'studentPrimes',
-              field: 'createdBy',
+              entity: 'studentPrime',
               columns: ['firstname', 'lastname'],
             },
           ],
@@ -1087,6 +1104,16 @@ export const ownsTableSettings = {
               filter: true,
             },
           },
+          autofilter: [{
+            column: 'approved',
+            value: "false",
+          }],
+          joints: [
+            {
+              entity: 'studentPrime',
+              columns: ['firstname', 'lastname'],
+            },
+          ],
         },
         entity: 'contributions',
       },
@@ -1143,6 +1170,16 @@ export const ownsTableSettings = {
               filter: true,
             },
           },
+          autofilter: [{
+            column: 'status',
+            value: "true",
+          }],
+          joints: [
+            {
+              entity: 'studentPrime',
+              columns: ['firstname', 'lastname'],
+            },
+          ],
         },
         entity: 'refunds',
       },

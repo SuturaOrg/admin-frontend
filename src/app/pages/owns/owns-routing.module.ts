@@ -17,7 +17,7 @@ function setChildren(base: {}[]) {
     },
     {
       path: 'adherents',
-      children: ['contributed', 'notContributed', 'administrators', 'all'],
+      children: ['contributed', 'notContributed', 'students', 'administrators'],
     },
     {
       path: 'contributions',

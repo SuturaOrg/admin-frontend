@@ -60,13 +60,13 @@ export const MENU_ITEMS: NbMenuItem[] = [
       icon: 'person-delete-outline',
     },
     {
-      title: 'Administrators',
-      link: '/pages/owns/adherents/administrators',
+      title: 'Students',
+      link: '/pages/owns/adherents/students',
       icon: 'people-outline',
     },
     {
-      title: 'All',
-      link: '/pages/owns/adherents/all',
+      title: 'Administrators',
+      link: '/pages/owns/adherents/administrators',
       icon: 'people-outline',
     },
   ],

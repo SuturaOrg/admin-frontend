@@ -91,15 +91,22 @@ export class TableEventService {
   }
 
   onDeleteConfirm(event): void {
-    if (window.confirm('Are you sure you want to delete?')) {
-      this.apiService.deleteFromId(this.entity, event.data.id).subscribe(
-        async data => {
-          console.log(data);
-          //await this.source.remove(event.data);
-          event.confirm.resolve();
-          // await this.source.reset();
-        },
-        this.handleError);
+    const data = event.data;
+    if (window.confirm('Are you sure you want to mouve to trash?')) {
+      if(['contributions','refunds'].includes(this.entity) && !data.approved){
+         this.apiService.patchFromId(this.entity,data.id,{status:true}).subscribe((res)=>alert("Déplacé dans la corbeille"),(error)=>alert("N'a pas été bien terminé"+error.message))
+      } else if (this.entity=="loans" && data.status=="NEW"){
+         this.apiService.patchFromId(this.entity,data.id,{status:"SUPPRIME"}).subscribe((res)=>alert("Déplacé dans la corbeille"),()=>alert("N'a pas été bien terminé"))
+        }
+      else {
+        this.apiService.deleteFromId(this.entity, event.data.id).subscribe(
+          async data => {
+            //await this.source.remove(event.data);
+            event.confirm.resolve();
+            // await this.source.reset();
+          },
+          this.handleError);
+      }
     } else {
       event.confirm.reject();
     }
