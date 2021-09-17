@@ -45,23 +45,6 @@ export class TableEventService {
     ], false);
   }
 
-  onEditConfirm(event): void {
-    if (window.confirm('Are you sure you want to save?')) {
-
-      const data = event.newData;
-      this.apiService.patchFromId(this.entity, event.newData.id, data).subscribe(
-        async res => {
-          console.log(event.data);
-          event.confirm.resolve();
-          //this.source.refresh();
-          // await this.source.update(event.data,res);
-        },
-        this.handleError);
-    } else {
-      event.confirm.reject();
-    }
-  }
-
   onCreateConfirm(event): void {
     if (window.confirm('Are you sure you want to create?')) {
 
@@ -112,11 +95,44 @@ export class TableEventService {
     }
   }
 
-  /* this.source.getElements().then(els=>{
-     //els.map(el=>{el.firstname="fd"});
-     // event.close();
-      this.source.load(els);
-    });
+  onEditConfirm(event): void {
+    const data = event.data;
+      if(['contributions','refunds'].includes(this.entity) && data.status){
+        if (window.confirm('Are you sure you want to restore?')) {
+        this.apiService.patchFromId(this.entity,data.id,{status:false}).subscribe((res)=>alert("Restauré avec succès"),()=>alert("N'a pas été bien terminé"))
+        } else {
+          event.confirm.reject();
+          }
+      } else if (this.entity=="loans" && data.status=="SUPPRIME"){
+        if (window.confirm('Are you sure you want to restore?')) {
+          this.apiService.patchFromId(this.entity,data.id,{status:"NEW"}).subscribe((res)=>alert("Restauré avec succès"),()=>alert("N'a pas été bien terminé"))
+          } else {
+              event.confirm.reject();
+           }
+      }
+      else {
+        if (window.confirm('Are you sure you want to save?')) {
+          const data = event.newData;
+          this.apiService.patchFromId(this.entity, event.newData.id, data).subscribe(
+            async res => {
+              console.log(event.data);
+              event.confirm.resolve();
+              //this.source.refresh();
+              // await this.source.update(event.data,res);
+            },
+            this.handleError);
+        } else {
+          event.confirm.reject();
+        }
+      }
+    }
 
-    */
+  restore(data){
+      if(this.entity=="contributions" || this.entity=="refunds"){
+        this.apiService.patchFromId(this.entity,data.id,{status:false}).subscribe((res)=>alert("Restauré avec succès"),()=>alert("N'a pas été bien terminé"))
+      }
+      if(this.entity=="loans"){
+        this.apiService.patchFromId(this.entity,data.id,{status:"NEW"}).subscribe((res)=>alert("Restauré avec succès"),()=>alert("N'a pas été bien terminé"))
+      }
+    }
 }

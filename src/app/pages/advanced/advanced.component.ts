@@ -104,13 +104,4 @@ cancel() {
     this.dialogRef2.close();
   }
 
-  restore(data){
-    if(this.entity=="contributions" || this.entity=="refunds"){
-      this.apiService.patchFromId(this.entity,data.id,{status:false}).subscribe((res)=>alert("Restauré avec succès"),()=>alert("N'a pas été bien terminé"))
-    }
-    if(this.entity=="loans"){
-      this.apiService.patchFromId(this.entity,data.id,{status:"NEW"}).subscribe((res)=>alert("Restauré avec succès"),()=>alert("N'a pas été bien terminé"))
-    }
-  }
-
 }
