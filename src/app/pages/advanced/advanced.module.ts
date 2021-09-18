@@ -12,6 +12,7 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { ThemeModule } from '../../@theme/theme.module';
 import { AdvancedComponent } from '../advanced/advanced.component';
 import {ImageUploadComponent} from './image-upload/image-upload.component';
+import { LinkComponent } from './link/link.component';
 
 @NgModule({
     imports: [
@@ -24,7 +25,7 @@ import {ImageUploadComponent} from './image-upload/image-upload.component';
         NbListModule,
         NbButtonModule,
     ],
-  declarations: [AdvancedComponent, ImageUploadComponent ],
+  declarations: [AdvancedComponent, ImageUploadComponent, LinkComponent ],
   exports: [AdvancedComponent],
 })
 export class AdvancedModule { }

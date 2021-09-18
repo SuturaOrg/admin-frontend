@@ -15,7 +15,6 @@ import {ApiService} from '../../../services/api.service';
                  (change)="updateValue($event)"
                  (keydown.enter)="onEdited.emit($event)"
                  (keydown.esc)="onStopEditing.emit()">
-    <div [hidden]="true" [innerHTML]="cell.getValue()" #htmlValue></div>
   `,
 })
 export class ImageUploadComponent extends DefaultEditor implements AfterViewInit {
@@ -25,7 +24,6 @@ export class ImageUploadComponent extends DefaultEditor implements AfterViewInit
   }
 
   @ViewChild('file') file: ElementRef;
-  @ViewChild('htmlValue') htmlValue: ElementRef;
 
 
   ngAfterViewInit() {
@@ -41,7 +39,5 @@ export class ImageUploadComponent extends DefaultEditor implements AfterViewInit
       this.cell.newValue = imageUrl;
     });
   }
-  getUrlHref(): string {
-    return this.htmlValue.nativeElement.querySelector('a').getAttribute('href');
-  }
+
 }
