@@ -48,6 +48,12 @@ export class ApiService {
     return this.http.delete<any>(this.baseApi + entity + '/' + id);
   };
 
+  upload(entity: string, file:any): Observable<any> {
+    const formData: any = new FormData();
+    formData.append("file", file);
+    formData.append("folder", entity);
+    return this.http.post(this.baseApi+'upload', formData)
+  };
   getCustomDataServerSource(entity: string, settings: any): CustomDataServerSource {
     return new CustomDataServerSource(this.http,
       {
