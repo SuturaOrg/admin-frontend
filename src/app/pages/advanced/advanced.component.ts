@@ -89,8 +89,8 @@ export class AdvancedComponent implements OnInit, OnDestroy {
   finish(data): void {
     this.apiService.patchFromId(this.entity,data.id,{status:"FINISHED"}).subscribe((res)=>alert("Bien terminé"),()=>alert("N'a pas été bien terminé"))
   }
-cancel() {
-    this.dialogRef2.close();
+    cancel() {
+      this.dialogRef2.close();
   }
 
   submit(score, data) {
@@ -103,5 +103,20 @@ cancel() {
       console.log)
     this.dialogRef2.close();
   }
+
+  restore(data){
+      if (window.confirm('Are you sure you want to restore?')) {
+        if (this.entity=="students" || this.entity=="admins"){
+         this.apiService.patchFromId(this.entity,data.id,{enabled:true}).subscribe((res)=>alert("Restauré avec succès"),()=>alert("N'a pas été bien terminé"))
+         }
+        if(this.entity=="contributions" || this.entity=="refunds"){
+          this.apiService.patchFromId(this.entity,data.id,{status:false}).subscribe((res)=>alert("Restauré avec succès"),()=>alert("N'a pas été bien terminé"))
+        }
+        if(this.entity=="loans"){
+          this.apiService.patchFromId(this.entity,data.id,{status:"NEW"}).subscribe((res)=>alert("Restauré avec succès"),()=>alert("N'a pas été bien terminé"))
+        }
+      } else {
+      }
+    }
 
 }

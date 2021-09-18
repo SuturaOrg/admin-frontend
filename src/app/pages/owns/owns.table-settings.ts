@@ -815,7 +815,12 @@ export const ownsTableSettings = {
         }, {
           column: 'transactionHistory.contributed',
           value: 'true',
-        }],
+        },
+        {
+          column: 'enabled',
+          value: "true",
+        }
+        ],
       },
       entity: 'students',
 
@@ -933,7 +938,12 @@ export const ownsTableSettings = {
             }, {
               column: 'transactionHistory.notContributed',
               value: 'true',
-            }],
+            },
+            {
+              column: 'enabled',
+              value: 'true',
+            }
+            ],
           },
           entity: 'admins',
 
@@ -993,7 +1003,12 @@ export const ownsTableSettings = {
         autofilter: [{
           column: 'projection',
           value: 'contributionsProjection',
-        }],
+        },
+        {
+          column: 'enabled',
+          value: 'true',
+        }
+        ],
       },
       entity: 'students',
     }
@@ -1295,7 +1310,12 @@ export const ownsTableSettings = {
         autofilter: [{
           column: 'projection',
           value: 'contributionsProjection',
-        }],
+        },
+        {
+          column: 'enabled',
+          value: 'false',
+        },
+        ],
       },
       entity: 'students',
     },
@@ -1353,10 +1373,12 @@ export const ownsTableSettings = {
         autofilter: [{
           column: 'projection',
           value: 'contributionsProjection',
-        }, {
-          column: 'transactionHistory.contributed',
-          value: 'true',
-        }],
+        },
+        {
+          column: 'enabled',
+          value: 'false',
+        }
+        ],
       },
       entity: 'admins',
 
