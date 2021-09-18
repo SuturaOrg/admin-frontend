@@ -17,20 +17,13 @@ import {ApiService} from '../../../services/api.service';
                  (keydown.esc)="onStopEditing.emit()">
   `,
 })
-export class ImageUploadComponent extends DefaultEditor implements AfterViewInit {
+export class ImageUploadComponent extends DefaultEditor {
 
   constructor(private apiService: ApiService) {
     super();
   }
 
   @ViewChild('file') file: ElementRef;
-
-
-  ngAfterViewInit() {
-    if (this.cell.newValue !== '') {
-      // this.url.nativeElement.value = this.getUrlHref();
-    }
-  }
 
   updateValue(event) {
     const image = (event.target as HTMLInputElement).files[0];

@@ -15,8 +15,5 @@ export class LinkComponent implements ViewCell, OnInit {
     this.renderValue = this.value.toString();
   }
 
-  clicked(name){
-    console.log(name);
-  }
 
 }
