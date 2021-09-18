@@ -119,6 +119,10 @@ export const ownsTableSettings = {
             filter: true,
           },
         },
+        autofilter: [{
+          column: 'status',
+          value: "false",
+        }],
       },
       entity: 'contributions',
     },
@@ -543,13 +547,11 @@ export const ownsTableSettings = {
       autofilter: [{
         column: 'approved',
         value: "false",
+      },
+      {
+        column: 'status',
+        value: "false",
       }],
-      joints: [
-        {
-          entity: 'studentPrime',
-          columns: ['firstname', 'lastname'],
-        },
-      ],
     },
     entity: 'refunds',
   },
@@ -606,6 +608,10 @@ export const ownsTableSettings = {
           filter: true,
         },
       },
+      autofilter: [{
+        column: 'status',
+        value: "false",
+      }],
     },
     entity: 'refunds',
   },
@@ -1105,8 +1111,8 @@ export const ownsTableSettings = {
             },
           },
           autofilter: [{
-            column: 'approved',
-            value: "false",
+            column: 'status',
+            value: "true",
           }],
           joints: [
             {

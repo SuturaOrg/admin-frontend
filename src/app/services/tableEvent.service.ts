@@ -74,25 +74,34 @@ export class TableEventService {
   }
 
   onDeleteConfirm(event): void {
-    const data = event.data;
-    if (window.confirm('Are you sure you want to move to trash?')) {
-      if(['contributions','refunds'].includes(this.entity) && !data.approved){
-         this.apiService.patchFromId(this.entity,data.id,{status:true}).subscribe((res)=>alert("Déplacé dans la corbeille"),(error)=>alert("N'a pas été bien terminé"+error.message))
-      } else if (this.entity=="loans" && data.status=="NEW"){
-         this.apiService.patchFromId(this.entity,data.id,{status:"SUPPRIME"}).subscribe((res)=>alert("Déplacé dans la corbeille"),()=>alert("N'a pas été bien terminé"))
+      const data = event.data;
+        if(['contributions','refunds'].includes(this.entity) && !data.approved){
+          if (window.confirm('Are you sure you want to move to trash?')) {
+           this.apiService.patchFromId(this.entity,data.id,{status:true}).subscribe((res)=>alert("Déplacé dans la corbeille"),(error)=>alert("N'a pas été bien terminé"+error.message))
+           } else {
+             event.confirm.reject();
+             }
+        } else if (this.entity=="loans" && data.status=="NEW"){
+          if (window.confirm('Are you sure you want to move to trash?')) {
+           this.apiService.patchFromId(this.entity,data.id,{status:"SUPPRIME"}).subscribe((res)=>alert("Déplacé dans la corbeille"),()=>alert("N'a pas été bien terminé"))
+           } else {
+              event.confirm.reject();
+            }
+          }
+        else {
+          if (window.confirm('Are you sure you want to delete?')) {
+              const data = event.newData;
+          this.apiService.deleteFromId(this.entity, event.data.id).subscribe(
+            async data => {
+              //await this.source.remove(event.data);
+              event.confirm.resolve();
+              // await this.source.reset();
+            },
+            this.handleError);
+        } else {
+          event.confirm.reject();
         }
-      else {
-        this.apiService.deleteFromId(this.entity, event.data.id).subscribe(
-          async data => {
-            //await this.source.remove(event.data);
-            event.confirm.resolve();
-            // await this.source.reset();
-          },
-          this.handleError);
       }
-    } else {
-      event.confirm.reject();
-    }
   }
 
   onEditConfirm(event): void {
