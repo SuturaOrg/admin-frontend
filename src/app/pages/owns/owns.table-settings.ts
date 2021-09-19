@@ -1,4 +1,6 @@
 import {HttpClient, HttpHeaders, HttpXhrBackend} from '@angular/common/http';
+import {ImageUploadComponent} from '../advanced/image-upload/image-upload.component';
+import {LinkComponent} from '../advanced/link/link.component';
 
 export const ownsTableSettings = {
   contributions: {
@@ -697,6 +699,15 @@ export const ownsTableSettings = {
         createdAt: {
           title: 'date',
           filter: true,
+        },
+        proof: {
+          title: 'Proof',
+          type: 'custom',
+          renderComponent:LinkComponent,
+          editor: {
+            type: 'custom',
+            component: ImageUploadComponent,
+          }
         },
       },
     },

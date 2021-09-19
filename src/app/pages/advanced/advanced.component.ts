@@ -95,7 +95,7 @@ export class AdvancedComponent implements OnInit, OnDestroy {
 
   submit(score, data) {
     if(score>10 || score<0){
-      alert("Le score doit être compis entre 0 et 10");
+      alert("Le score doit être compris entre 0 et 10");
       return
     }
     this.apiService.patchFromId(this.entity,data.id,{scoreAdmin:score, approved:true}).subscribe((res)=>{
