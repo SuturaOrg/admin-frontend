@@ -21,7 +21,7 @@
     <nb-card-footer>
       <button nbButton hero class = "cancel" status="danger"(click)="ref.close()">Close Details</button>
       <button *ngIf="!data.approved && ((['contributions','refunds'].includes(entity)) || (entity === 'loans'&& data.status==='NEW'))" nbButton hero status="success"(click)="approve(data)">Approve</button>
-      <button *ngIf="data.status!='FINISHED' && entity === 'loans'" nbButton hero (click)="finish(data)">Finish</button>
+      <button *ngIf="data.status!='FINISHED' && data.status!='NEW' && entity === 'loans'" nbButton hero (click)="finish(data)">Finish</button>
       <button *ngIf="!data.enabled && (entity === 'students' || entity === 'admins')" nbButton hero (click)="restore(data)">Restore</button>
       <button *ngIf="data.status && (entity === 'contributions' || entity === 'refunds')" nbButton hero (click)="restore(data)">Restore</button>
     </nb-card-footer>

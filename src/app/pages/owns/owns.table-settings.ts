@@ -50,6 +50,15 @@ export const ownsTableSettings = {
             title: 'Expiration date',
             filter: true,
           },
+          proof: {
+            title: 'Proof',
+            type: 'custom',
+            renderComponent:LinkComponent,
+            editor: {
+              type: 'custom',
+              component: ImageUploadComponent,
+            }
+          },
         },
         autofilter: [{
           column: 'approved',
@@ -315,6 +324,15 @@ export const ownsTableSettings = {
           phone: {
             title: 'Phone',
           },
+          proof: {
+            title: 'Proof',
+            type: 'custom',
+            renderComponent:LinkComponent,
+            editor: {
+              type: 'custom',
+              component: ImageUploadComponent,
+            }
+          },
         },
         autofilter: [{
           column: 'status',
@@ -545,6 +563,15 @@ export const ownsTableSettings = {
           title: 'Type',
           filter: true,
         },
+        proof: {
+          title: 'Proof',
+          type: 'custom',
+          renderComponent:LinkComponent,
+          editor: {
+            type: 'custom',
+            component: ImageUploadComponent,
+          }
+        },
       },
       autofilter: [{
         column: 'approved',
@@ -742,11 +769,6 @@ export const ownsTableSettings = {
           createdBy: {
             title: 'Admin',
           },
-          proof: {
-            title: 'Proof',
-            filter: true,
-            editable: false,
-          },
           period: {
             title: 'Period',
             filter: true,
@@ -754,6 +776,15 @@ export const ownsTableSettings = {
           createdAt: {
             title: 'Date',
             filter: true,
+          },
+          proof: {
+            title: 'Proof',
+            type: 'custom',
+            renderComponent:LinkComponent,
+            editor: {
+              type: 'custom',
+              component: ImageUploadComponent,
+            }
           },
         },
       },
