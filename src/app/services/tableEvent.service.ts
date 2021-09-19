@@ -86,7 +86,7 @@ export class TableEventService {
             else if (this.entity=="students" || this.entity=="admins"){
                   action={enabled:false}
               }
-          this.apiService.patchFromId(this.entity,data.id,action).subscribe((res)=>alert("Déplacé dans la corbeille"),()=>alert("N'a pas été bien terminé"))
+          this.apiService.patchFromId(this.entity,data.id,action).subscribe((res)=>alert("Déplacé dans la corbeille"),()=>alert("N'a pas été déplacé"))
           } else if (this.entity=="deletableEntity") {
           //faire une condition si l'objet est un loan, la méthode est déjà configurée
           //sinon on fait ceci. NB: on ne peut pas supprimer un objet approuvé

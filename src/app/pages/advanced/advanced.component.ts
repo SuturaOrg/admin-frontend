@@ -84,8 +84,8 @@ export class AdvancedComponent implements OnInit, OnDestroy {
     });}
    else{
      this.apiService.patchFromId(this.entity,data.id,{approved:true}).subscribe((res)=>alert("Bien approuvé"),()=>alert("N'a pas été bien approuvé"))
+       }
    }
-}
   finish(data): void {
     this.apiService.patchFromId(this.entity,data.id,{status:"FINISHED"}).subscribe((res)=>alert("Bien terminé"),()=>alert("N'a pas été bien terminé"))
   }
@@ -98,9 +98,9 @@ export class AdvancedComponent implements OnInit, OnDestroy {
       alert("Le score doit être compris entre 0 et 10");
       return
     }
-    this.apiService.patchFromId(this.entity,data.id,{scoreAdmin:score, approved:true}).subscribe((res)=>{
+    this.apiService.patchFromId(this.entity,data.id,{scoreAdmin:score, approved:true}).subscribe((res)=>{alert("Bien approuvé")
     },
-      console.log)
+      ()=>alert("N'a pas été bien approuvé"))
     this.dialogRef2.close();
   }
 
