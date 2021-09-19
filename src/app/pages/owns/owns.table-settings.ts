@@ -430,6 +430,9 @@ export const ownsTableSettings = {
         columns: {
           firstname: {
             title: 'Firstname',
+            valuePrepareFunction: (val, row) => {
+              return row.studentPrime.firstname;
+            }
           },
           lastname: {
             title: 'Lastname',
@@ -954,6 +957,15 @@ export const ownsTableSettings = {
                 title: 'Total periods',
                 filter: true,
               },
+              picture: {
+                title: 'Profil',
+                type: 'custom',
+                renderComponent:LinkComponent,
+                editor: {
+                  type: 'custom',
+                  component: ImageUploadComponent,
+                }
+              },
             },
             pager: {
               display: true,
@@ -1030,6 +1042,15 @@ export const ownsTableSettings = {
           faculty: {
             title: 'faculty',
             filter: true,
+          },
+          picture: {
+            title: 'Profil',
+            type: 'custom',
+            renderComponent:LinkComponent,
+            editor: {
+              type: 'custom',
+              component: ImageUploadComponent,
+            }
           },
         },
         autofilter: [{
@@ -1391,6 +1412,15 @@ export const ownsTableSettings = {
           totalPeriods: {
             title: 'Total periods',
             filter: true,
+          },
+          picture: {
+            title: 'Profil',
+            type: 'custom',
+            renderComponent:LinkComponent,
+            editor: {
+              type: 'custom',
+              component: ImageUploadComponent,
+            }
           },
         },
         pager: {
