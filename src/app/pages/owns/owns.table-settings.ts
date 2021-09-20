@@ -25,30 +25,34 @@ export const ownsTableSettings = {
             title: 'Firstname',
             valuePrepareFunction: (val, row) => {
               return row.studentPrime.firstname;
-            }
+            },
+            editable: false,
           },
           lastname: {
             title: 'Lastname',
             valuePrepareFunction: (val, row) => {
               return row.studentPrime.lastname;
-            }
+            },
+            editable: false,
           },
           amount: {
             title: 'Amount',
             filter: true,
-            editable: false,
           },
           period: {
             title: 'Period',
             filter: true,
+            editable: false,
           },
           createdAt: {
             title: 'Date',
             filter: true,
+            editable: false,
           },
           expiration: {
             title: 'Expiration date',
             filter: true,
+            editable: false,
           },
           proof: {
             title: 'Proof',
@@ -57,7 +61,8 @@ export const ownsTableSettings = {
             editor: {
               type: 'custom',
               component: ImageUploadComponent,
-            }
+            },
+            editable: false,
           },
         },
         autofilter: [{
@@ -104,13 +109,15 @@ export const ownsTableSettings = {
             title: 'Firstname',
             valuePrepareFunction: (val, row) => {
               return row.studentPrime.firstname;
-            }
+            },
+            editable: false,
           },
           lastname: {
             title: 'Lastname',
             valuePrepareFunction: (val, row) => {
               return row.studentPrime.lastname;
-            }
+            },
+            editable: false,
           },
           amount: {
             title: 'Amount',
@@ -120,14 +127,17 @@ export const ownsTableSettings = {
           period: {
             title: 'Period',
             filter: true,
+            editable: false,
           },
           createdAt: {
             title: 'Date',
             filter: true,
+            editable: false,
           },
           expiration: {
             title: 'Expiration date',
             filter: true,
+            editable: false,
           },
         },
         autofilter: [{
@@ -149,14 +159,13 @@ export const ownsTableSettings = {
           addButtonContent: '<i class="nb-plus"></i>',
           createButtonContent: '<i class="nb-checkmark"></i>',
           cancelButtonContent: '<i class="nb-close"></i>',
-          confirmCreate: true,
+          confirmCreate: false,
         },
         edit: {
           editButtonContent: '<i class="nb-edit"></i>',
           saveButtonContent: '<i class="nb-checkmark"></i>',
           cancelButtonContent: '<i class="nb-close"></i>',
           confirmSave: true,
-
         },
         delete: {
           deleteButtonContent: '<i class="nb-trash"></i>',
@@ -167,13 +176,15 @@ export const ownsTableSettings = {
             title: 'Firstname',
             valuePrepareFunction: (val, row) => {
               return row.studentPrime.firstname;
-            }
+            },
+            editable: false
           },
           lastname: {
             title: 'Lastname',
             valuePrepareFunction: (val, row) => {
               return row.studentPrime.lastname;
-            }
+            },
+            editable: false
           },
           amount: {
             title: 'Amount',
@@ -186,12 +197,15 @@ export const ownsTableSettings = {
           },
           priority: {
             title: 'Priority',
+            filter: true,
+            editable: false,
           },
           RIB: {
             title: 'RIB',
           },
           phone: {
             title: 'Phone',
+            editable: false,
           },
         },
         autofilter: [{
@@ -217,7 +231,7 @@ export const ownsTableSettings = {
           addButtonContent: '<i class="nb-plus"></i>',
           createButtonContent: '<i class="nb-checkmark"></i>',
           cancelButtonContent: '<i class="nb-close"></i>',
-          confirmCreate: true,
+          confirmCreate: false,
         },
         edit: {
           editButtonContent: '<i class="nb-edit"></i>',
@@ -228,20 +242,22 @@ export const ownsTableSettings = {
         },
         delete: {
           deleteButtonContent: '<i class="nb-trash"></i>',
-          confirmDelete: true,
+          confirmDelete: false,
         },
         columns: {
           firstname: {
             title: 'Firstname',
             valuePrepareFunction: (val, row) => {
               return row.studentPrime.firstname;
-            }
+            },
+            editable: false
           },
           lastname: {
             title: 'Lastname',
             valuePrepareFunction: (val, row) => {
               return row.studentPrime.lastname;
-            }
+            },
+            editable: false
           },
           amount: {
             title: 'Amount',
@@ -250,15 +266,29 @@ export const ownsTableSettings = {
           },
           amountRefund: {
             title: 'Amount refunded',
+            editable: false
           },
           sliceCount: {
             title: 'Slices',
+            editable: false
           },
           phone: {
             title: 'Phone',
+            editable: false
           },
           statusRefund: {
             title: 'Refunded',
+            editable: false
+          },
+          proof: {
+            title: 'Proof',
+            type: 'custom',
+            renderComponent:LinkComponent,
+            editor: {
+              type: 'custom',
+              component: ImageUploadComponent,
+            },
+            editable: false
           },
         },
         autofilter: [{
@@ -290,7 +320,6 @@ export const ownsTableSettings = {
           saveButtonContent: '<i class="nb-checkmark"></i>',
           cancelButtonContent: '<i class="nb-close"></i>',
           confirmSave: true,
-
         },
         delete: {
           deleteButtonContent: '<i class="nb-trash"></i>',
@@ -301,17 +330,18 @@ export const ownsTableSettings = {
             title: 'Firstname',
             valuePrepareFunction: (val, row) => {
               return row.studentPrime.firstname;
-            }
+            },
+            editable: false
           },
           lastname: {
             title: 'Lastname',
             valuePrepareFunction: (val, row) => {
               return row.studentPrime.lastname;
-            }
+            },
+            editable: false,
           },
           amount: {
             title: 'Amount',
-            editable: false,
           },
           createdAt: {
             title: 'Date',
@@ -320,9 +350,11 @@ export const ownsTableSettings = {
           },
           comment: {
             title: 'Comment',
+            editable: false,
           },
           phone: {
             title: 'Phone',
+            editable: false,
           },
           proof: {
             title: 'Proof',
@@ -331,7 +363,8 @@ export const ownsTableSettings = {
             editor: {
               type: 'custom',
               component: ImageUploadComponent,
-            }
+            },
+            editable: false,
           },
         },
         autofilter: [{
@@ -357,18 +390,18 @@ export const ownsTableSettings = {
           addButtonContent: '<i class="nb-plus"></i>',
           createButtonContent: '<i class="nb-checkmark"></i>',
           cancelButtonContent: '<i class="nb-close"></i>',
-          confirmCreate: true,
+          confirmCreate: false,
         },
         edit: {
           editButtonContent: '<i class="nb-edit"></i>',
           saveButtonContent: '<i class="nb-checkmark"></i>',
           cancelButtonContent: '<i class="nb-close"></i>',
-          confirmSave: true,
+          confirmSave: false,
 
         },
         delete: {
           deleteButtonContent: '<i class="nb-trash"></i>',
-          confirmDelete: true,
+          confirmDelete: false,
         },
         columns: {
           firstname: {
@@ -432,13 +465,15 @@ export const ownsTableSettings = {
             title: 'Firstname',
             valuePrepareFunction: (val, row) => {
               return row.studentPrime.firstname;
-            }
+            },
+            editable: false,
           },
           lastname: {
             title: 'Lastname',
             valuePrepareFunction: (val, row) => {
               return row.studentPrime.lastname;
-            }
+            },
+            editable: false,
           },
           amount: {
             title: 'Amount',
@@ -452,15 +487,19 @@ export const ownsTableSettings = {
           },
           status: {
             title: 'Status',
+            editable: false,
           },
           priority: {
             title: 'Priority',
+            editable: false,
           },
           reason: {
             title: 'Reason',
+            editable: false,
           },
           phone: {
             title: 'Phone',
+            editable: false,
           },
         },
         joints: [
@@ -511,7 +550,6 @@ export const ownsTableSettings = {
       },
     },
     entity: 'parameters',
-
   },
   refunds: {
     pending: {
@@ -541,13 +579,15 @@ export const ownsTableSettings = {
           title: 'Firstname',
           valuePrepareFunction: (val, row) => {
             return row.studentPrime.firstname;
-          }
+          },
+          editable: false,
         },
         lastname: {
           title: 'Lastname',
           valuePrepareFunction: (val, row) => {
             return row.studentPrime.lastname;
-          }
+          },
+          editable: false,
         },
         amount: {
           title: 'Amount',
@@ -557,14 +597,17 @@ export const ownsTableSettings = {
         period: {
           title: 'Period',
           filter: true,
+          editable: false,
         },
         createdAt: {
           title: 'Date',
           filter: true,
+          editable: false,
         },
         type: {
           title: 'Type',
           filter: true,
+          editable: false,
         },
         proof: {
           title: 'Proof',
@@ -573,7 +616,8 @@ export const ownsTableSettings = {
           editor: {
             type: 'custom',
             component: ImageUploadComponent,
-          }
+          },
+          editable: false,
         },
       },
       autofilter: [{
@@ -614,13 +658,15 @@ export const ownsTableSettings = {
           title: 'Firstname',
           valuePrepareFunction: (val, row) => {
             return row.studentPrime.firstname;
-          }
+          },
+          editable: false,
         },
         lastname: {
           title: 'Lastname',
           valuePrepareFunction: (val, row) => {
             return row.studentPrime.lastname;
-          }
+          },
+          editable: false,
         },
         amount: {
           title: 'Amount',
@@ -630,14 +676,17 @@ export const ownsTableSettings = {
         period: {
           title: 'Period',
           filter: true,
+          editable: false,
         },
         createdAt: {
           title: 'Date',
           filter: true,
+          editable: false,
         },
         type: {
           title: 'Type',
           filter: true,
+          editable: false,
         },
       },
       autofilter: [{
@@ -670,17 +719,21 @@ export const ownsTableSettings = {
       columns: {
         isFavorable: {
           title: 'IsFavorable',
+          editable: false,
         },
         threshold: {
           title: 'Threshold',
+          editable: false,
         },
         amountFund: {
           title: 'Amount Fund',
           filter: true,
+          editable: false,
         },
         currentAmount: {
           title: 'CurrentAmount',
           filter: true,
+          editable: false,
         },
         period: {
           title: 'period',
@@ -713,9 +766,11 @@ export const ownsTableSettings = {
       columns: {
         contributor: {
           title: 'Contributor',
+          editable: false,
         },
         createdBy: {
           title: 'Admin',
+          editable: false,
         },
         amount: {
           title: 'Amount',
@@ -725,10 +780,12 @@ export const ownsTableSettings = {
         period: {
           title: 'Period',
           filter: true,
+          editable: false,
         },
         createdAt: {
           title: 'date',
           filter: true,
+          editable: false,
         },
         proof: {
           title: 'Proof',
@@ -737,7 +794,8 @@ export const ownsTableSettings = {
           editor: {
             type: 'custom',
             component: ImageUploadComponent,
-          }
+          },
+          editable: false,
         },
       },
     },
@@ -771,14 +829,17 @@ export const ownsTableSettings = {
           },
           createdBy: {
             title: 'Admin',
+            editable: false,
           },
           period: {
             title: 'Period',
             filter: true,
+            editable: false,
           },
           createdAt: {
             title: 'Date',
             filter: true,
+            editable: false,
           },
           proof: {
             title: 'Proof',
@@ -787,7 +848,8 @@ export const ownsTableSettings = {
             editor: {
               type: 'custom',
               component: ImageUploadComponent,
-            }
+            },
+            editable: false,
           },
         },
       },
@@ -814,13 +876,16 @@ export const ownsTableSettings = {
         columns: {
           firstname: {
             title: 'Firstname',
+            editable: false,
           },
           lastname: {
             title: 'Lastname',
+            editable: false,
           },
           amount: {
             title: 'Amount',
             filter: true,
+            editable: false,
           },
           town: {
             title: 'Town',
@@ -829,10 +894,12 @@ export const ownsTableSettings = {
           },
           totalAmount: {
             title: 'Total amount',
+            editable: false,
           },
           totalPeriods: {
             title: 'Total periods',
             filter: true,
+            editable: false,
           },
         },
         pager: {
@@ -869,13 +936,13 @@ export const ownsTableSettings = {
           addButtonContent: '<i class="nb-plus"></i>',
           createButtonContent: '<i class="nb-checkmark"></i>',
           cancelButtonContent: '<i class="nb-close"></i>',
-          confirmCreate: true,
+          confirmCreate: false,
         },
         edit: {
           editButtonContent: '<i class="nb-edit"></i>',
           saveButtonContent: '<i class="nb-checkmark"></i>',
           cancelButtonContent: '<i class="nb-close"></i>',
-          confirmSave: true,
+          confirmSave: false,
 
         },
         delete: {
@@ -885,9 +952,11 @@ export const ownsTableSettings = {
         columns: {
           firstname: {
             title: 'Firstname',
+            editable: false,
           },
           lastname: {
             title: 'Lastname',
+            editable: false,
           },
           town: {
             title: 'Town',
@@ -897,10 +966,12 @@ export const ownsTableSettings = {
           totalAmount: {
             title: 'Total amount',
             filter: true,
+            editable: false,
           },
           totalPeriods: {
             title: 'Total periods',
             filter: true,
+            editable: false,
           },
         },
         autofilter: [{
@@ -934,16 +1005,20 @@ export const ownsTableSettings = {
             columns: {
               firstname: {
                 title: 'Firstname',
+                editable: false,
               },
               lastname: {
                 title: 'Lastname',
+                editable: false,
               },
               position: {
                 title: 'Position',
+                editable: false,
               },
               amount: {
                 title: 'Amount',
                 filter: true,
+                editable: false,
               },
               town: {
                 title: 'Town',
@@ -952,10 +1027,12 @@ export const ownsTableSettings = {
               },
               totalAmount: {
                 title: 'Total amount',
+                editable: false,
               },
               totalPeriods: {
                 title: 'Total periods',
                 filter: true,
+                editable: false,
               },
               picture: {
                 title: 'Profil',
@@ -964,7 +1041,8 @@ export const ownsTableSettings = {
                 editor: {
                   type: 'custom',
                   component: ImageUploadComponent,
-                }
+                },
+                editable: false,
               },
             },
             pager: {
@@ -976,17 +1054,19 @@ export const ownsTableSettings = {
                 contribution: [],
               },
             ],
-            autofilter: [{
-              column: 'projection',
-              value: 'contributionsProjection',
-            }, {
-              column: 'transactionHistory.notContributed',
-              value: 'true',
-            },
-            {
-              column: 'enabled',
-              value: 'true',
-            }
+            autofilter: [
+              {
+                column: 'projection',
+                value: 'contributionsProjection',
+              },
+              {
+                column: 'transactionHistory.notContributed',
+                value: 'true',
+              },
+              {
+                column: 'enabled',
+                value: 'true',
+              }
             ],
           },
           entity: 'admins',
