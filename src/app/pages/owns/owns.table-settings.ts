@@ -768,10 +768,6 @@ export const ownsTableSettings = {
           title: 'Contributor',
           editable: false,
         },
-        createdBy: {
-          title: 'Admin',
-          editable: false,
-        },
         amount: {
           title: 'Amount',
           filter: true,

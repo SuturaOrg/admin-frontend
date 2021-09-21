@@ -52,14 +52,16 @@ export class TableEventService {
       this.apiService.post(this.entity, data).subscribe(
         async res => {
           console.log(res);
+          alert("Créé avec succès");
        //   await this.source.add(res);
           // await this.source.find(res);
           event.confirm.resolve();
 
         },
-        this.handleError);
+        this.handleError,);
 
     } else {
+      alert("Une erreur est survenue dans la création"),
       event.confirm.reject();
     }
   }
@@ -87,6 +89,8 @@ export class TableEventService {
                   action={enabled:false}
               }
           this.apiService.patchFromId(this.entity,data.id,action).subscribe((res)=>alert("Déplacé dans la corbeille"),()=>alert("N'a pas été déplacé"))
+          this.source.refresh();
+          this.source.refresh();
           } else if (this.entity=="deletableEntity") {
           //faire une condition si l'objet est un loan, la méthode est déjà configurée
           //sinon on fait ceci. NB: on ne peut pas supprimer un objet approuvé
@@ -111,8 +115,10 @@ export class TableEventService {
             async res => {
               console.log(event.data);
               event.confirm.resolve();
-              //this.source.refresh();
-              // await this.source.update(event.data,res);
+              this.source.refresh();
+              await this.source.update(event.data,res);
+              this.source.refresh();
+              this.source.refresh();
             },
             this.handleError);
         } else {
