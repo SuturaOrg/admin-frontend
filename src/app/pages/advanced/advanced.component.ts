@@ -23,6 +23,7 @@ export class AdvancedComponent implements OnInit, OnDestroy {
   data: { settings: Object, entity: string } | null;
   entity:string;
   title;
+  loanReceiptUrl:string;
   source: CustomDataServerSource;
   sub;
   onEditConfirm: (event) => void;
@@ -30,8 +31,6 @@ export class AdvancedComponent implements OnInit, OnDestroy {
   onDeleteConfirm: (event) => void;
   private dialogRef2: NbDialogRef<any>;
   private dialogRef3: NbDialogRef<any>;
-  private imageUploadComponent: ImageUploadComponent;
-
   constructor(private route: ActivatedRoute,
               private http: HttpClient,
               private tableEventService: TableEventService,
@@ -97,12 +96,22 @@ export class AdvancedComponent implements OnInit, OnDestroy {
     this.dialogRef3 =this.dialogService.open(this.dialog3,{
           context:data,
         });
-    //this.apiService.patchFromId(this.entity,data.id,{status:"FINISHED"}).subscribe((res)=>alert("Bien terminé"),()=>alert("N'a pas été bien terminé"))
 
   }
     cancel() {
       this.dialogRef3.close();
   }
+  submitFinish(data): void {
+    this.apiService.patchFromId(this.entity,data.id,{status:"FINISHED",receipt:this.loanReceiptUrl}).subscribe((res)=>alert("Bien terminé"),()=>alert("N'a pas été bien terminé"))
+  }
+
+  uploadReceipt(event) {
+      const image = (event.target as HTMLInputElement).files[0];
+      this.apiService.upload('loans/receipts', image).subscribe((res) => {
+        this.loanReceiptUrl = res.url;
+      });
+      }
+
 
   submit(score, data) {
     if(score>10 || score<0){
@@ -127,11 +136,11 @@ export class AdvancedComponent implements OnInit, OnDestroy {
         if(this.entity=="loans"){
           action={status:"NEW"}
         }
-        this.apiService.patchFromId(this.entity,data.id,action).subscribe((res)=>alert("Restauré avec succès"),()=>alert("N'a pas été bien terminé"))
+        this.apiService.patchFromId(this.entity,data.id,action).subscribe((res)=>alert("Restauré avec succès"),
+            ()=>alert("N'a pas été bien terminé"))
         this.source.refresh();
         this.source.refresh();
         this.source.refresh();
-        this.dialogRef2.close();
       }
     }
 
