@@ -6,7 +6,7 @@ import {Injectable} from '@angular/core';
 export class TokenInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const token = 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzIiwiaWF0IjoxNjMxOTgxMDk0LCJleHAiOjE2MzI1ODU4OTR9.3ycP1WP_lzouT0hw2AXlsBFpm7wDVtyiTFzcahSAmGwv5WqpYB6Q4SoSkmwmjZkhtehiFl5ZeoeymppYXE6eWg';
+    const token = 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzIiwiaWF0IjoxNjMyNDA1NDcwLCJleHAiOjE2MzMwMTAyNzB9.foFvUSePnyEuBwKuwnB5UXi0GeG1kGCeDPtaS5NSi8D7HpSJS8CkATBgM2UbGq2wB30vdJkDdeO4yXnNzL7xeA';
     const modifiedReq = req.clone({
       headers: req.headers.set('Authorization', `Bearer ${token}`),
     });

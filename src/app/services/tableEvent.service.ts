@@ -111,6 +111,8 @@ export class TableEventService {
                 // await this.source.reset();
               },
               this.handleError);
+              this.source.refresh();
+              this.source.refresh();
             }
             else {
                event.confirm.reject();
@@ -121,12 +123,10 @@ export class TableEventService {
   onEditConfirm(event): void {
     const data = event.data;
         if (window.confirm('Are you sure you want to save?')) {
-          const data = event.newData;
-          this.apiService.patchFromId(this.entity, event.newData.id, data).subscribe(
+          this.apiService.patchFromId(this.entity, event.data.id, data).subscribe(
             async res => {
               console.log(event.data);
               event.confirm.resolve();
-              this.source.refresh();
               await this.source.update(event.data,res);
               this.source.refresh();
               this.source.refresh();

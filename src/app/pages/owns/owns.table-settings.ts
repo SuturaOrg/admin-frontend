@@ -205,7 +205,9 @@ export const ownsTableSettings = {
           },
           phone: {
             title: 'Phone',
-            editable: false,
+              valuePrepareFunction: (val, row) => {
+                return row.studentPrime.phone;
+              }
           },
         },
         autofilter: [{
@@ -274,14 +276,16 @@ export const ownsTableSettings = {
           },
           phone: {
             title: 'Phone',
-            editable: false
+              valuePrepareFunction: (val, row) => {
+                return row.studentPrime.phone;
+              }
           },
           statusRefund: {
             title: 'Refunded',
             editable: false
           },
-          proof: {
-            title: 'Proof',
+          receipt: {
+            title: 'Receipt',
             type: 'custom',
             renderComponent:LinkComponent,
             editor: {
@@ -354,7 +358,9 @@ export const ownsTableSettings = {
           },
           phone: {
             title: 'Phone',
-            editable: false,
+              valuePrepareFunction: (val, row) => {
+                return row.studentPrime.phone;
+              }
           },
           proof: {
             title: 'Proof',
@@ -424,6 +430,9 @@ export const ownsTableSettings = {
           },
           phone: {
             title: 'Phone',
+              valuePrepareFunction: (val, row) => {
+                return row.studentPrime.phone;
+              }
           },
         },
         autofilter: [{
@@ -499,7 +508,9 @@ export const ownsTableSettings = {
           },
           phone: {
             title: 'Phone',
-            editable: false,
+              valuePrepareFunction: (val, row) => {
+                return row.studentPrime.phone;
+              }
           },
         },
         joints: [
@@ -601,11 +612,6 @@ export const ownsTableSettings = {
         },
         createdAt: {
           title: 'Date',
-          filter: true,
-          editable: false,
-        },
-        type: {
-          title: 'Type',
           filter: true,
           editable: false,
         },
@@ -1168,6 +1174,9 @@ export const ownsTableSettings = {
           columns: {
             firstname: {
               title: 'Firstname',
+              valuePrepareFunction: (val, row) => {
+                return row.studentPrime.firstname;
+              }
             },
             lastname: {
               title: 'Lastname',
@@ -1196,6 +1205,9 @@ export const ownsTableSettings = {
             },
             phone: {
               title: 'Phone',
+                valuePrepareFunction: (val, row) => {
+                  return row.studentPrime.phone;
+                }
             },
           },
           autofilter: [{
