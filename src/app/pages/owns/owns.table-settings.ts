@@ -1238,13 +1238,15 @@ export const ownsTableSettings = {
               title: 'Firstname',
               valuePrepareFunction: (val, row) => {
                 return row.studentPrime.firstname;
-              }
+              },
+              editable: false,
             },
             lastname: {
               title: 'Lastname',
               valuePrepareFunction: (val, row) => {
                 return row.studentPrime.lastname;
-              }
+              },
+              editable: false,
             },
             amount: {
               title: 'Amount',
@@ -1254,14 +1256,17 @@ export const ownsTableSettings = {
             period: {
               title: 'Period',
               filter: true,
+              editable: false,
             },
             createdAt: {
               title: 'Date',
               filter: true,
+              editable: false,
             },
             expiration: {
               title: 'Expiration date',
               filter: true,
+              editable: false,
             },
           },
           autofilter: [{
