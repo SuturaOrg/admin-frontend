@@ -1,14 +1,27 @@
 import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Injectable} from '@angular/core';
+import {NbAuthJWTToken, NbAuthService} from '@nebular/auth';
+import {ApiService} from './api.service';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
+  token: NbAuthJWTToken;
+
+  constructor(private authService: NbAuthService) {
+    this.authService.onTokenChange()
+      .subscribe((token: NbAuthJWTToken) => {
+
+        if (token.isValid()) {
+          this.token = token;
+        }
+      });
+  }
+
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const token = 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzIiwiaWF0IjoxNjMyNDA1NDcwLCJleHAiOjE2MzMwMTAyNzB9.foFvUSePnyEuBwKuwnB5UXi0GeG1kGCeDPtaS5NSi8D7HpSJS8CkATBgM2UbGq2wB30vdJkDdeO4yXnNzL7xeA';
     const modifiedReq = req.clone({
-      headers: req.headers.set('Authorization', `Bearer ${token}`),
+      headers: req.headers.set('Authorization', `Bearer ${this.token}`),
     });
     return next.handle(modifiedReq);
   }
