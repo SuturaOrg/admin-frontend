@@ -109,6 +109,7 @@ export class AdvancedComponent implements OnInit, OnDestroy {
       const image = (event.target as HTMLInputElement).files[0];
       this.apiService.upload('loans/receipts', image).subscribe((res) => {
         this.loanReceiptUrl = res.url;
+        console.log(res.url)
       });
       }
 

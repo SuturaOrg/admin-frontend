@@ -412,17 +412,22 @@ export const ownsTableSettings = {
         columns: {
           firstname: {
             title: 'Firstname',
+            valuePrepareFunction: (val, row) => {
+              return row.studentPrime.firstname;
+            }
           },
           lastname: {
             title: 'Lastname',
-            filter: true,
+            valuePrepareFunction: (val, row) => {
+              return row.studentPrime.lastname;
+            }
           },
           amount: {
             title: 'Amount',
             filter: true,
             editable: false,
           },
-          amountRefunded: {
+          amountRefund: {
             title: 'Amount refunded',
           },
           sliceCount: {
@@ -1193,9 +1198,6 @@ export const ownsTableSettings = {
               title: 'Date',
               filter: true,
               editable: false,
-            },
-            status: {
-              title: 'Status',
             },
             priority: {
               title: 'Priority',
