@@ -46,6 +46,9 @@ export const ownsTableSettings = {
           },
           createdAt: {
             title: 'Date',
+            valuePrepareFunction: (createdAt) => {
+              return new Date(createdAt).toLocaleDateString('fr-FR');
+            },
             filter: true,
             editable: false,
           },
@@ -131,6 +134,9 @@ export const ownsTableSettings = {
           },
           createdAt: {
             title: 'Date',
+            valuePrepareFunction: (createdAt) => {
+              return new Date(createdAt).toLocaleDateString('fr-FR');
+            },
             filter: true,
             editable: false,
           },
@@ -192,6 +198,9 @@ export const ownsTableSettings = {
           },
           createdAt: {
             title: 'Date',
+            valuePrepareFunction: (createdAt) => {
+              return new Date(createdAt).toLocaleDateString('fr-FR');
+            },
             filter: true,
             editable: false,
           },
@@ -349,6 +358,9 @@ export const ownsTableSettings = {
           },
           createdAt: {
             title: 'Date',
+            valuePrepareFunction: (createdAt) => {
+              return new Date(createdAt).toLocaleDateString('fr-FR');
+            },
             filter: true,
             editable: false,
           },
@@ -496,6 +508,9 @@ export const ownsTableSettings = {
           },
           createdAt: {
             title: 'Date',
+            valuePrepareFunction: (createdAt) => {
+              return new Date(createdAt).toLocaleDateString('fr-FR');
+            },
             filter: true,
             editable: false,
           },
@@ -560,6 +575,9 @@ export const ownsTableSettings = {
         },
         updatedAt: {
           title: 'UpdatedAt',
+          valuePrepareFunction: (updatedAt) => {
+            return new Date(updatedAt).toLocaleDateString('fr-FR');
+          },
           filter: true,
           editable: false,
         },
@@ -617,6 +635,9 @@ export const ownsTableSettings = {
         },
         createdAt: {
           title: 'Date',
+          valuePrepareFunction: (createdAt) => {
+            return new Date(createdAt).toLocaleDateString('fr-FR');
+          },
           filter: true,
           editable: false,
         },
@@ -691,6 +712,9 @@ export const ownsTableSettings = {
         },
         createdAt: {
           title: 'Date',
+          valuePrepareFunction: (createdAt) => {
+            return new Date(createdAt).toLocaleDateString('fr-FR');
+          },
           filter: true,
           editable: false,
         },
@@ -791,6 +815,9 @@ export const ownsTableSettings = {
         },
         createdAt: {
           title: 'date',
+          valuePrepareFunction: (createdAt) => {
+            return new Date(createdAt).toLocaleDateString('fr-FR');
+          },
           filter: true,
           editable: false,
         },
@@ -845,6 +872,9 @@ export const ownsTableSettings = {
           },
           createdAt: {
             title: 'Date',
+            valuePrepareFunction: (createdAt) => {
+              return new Date(createdAt).toLocaleDateString('fr-FR');
+            },
             filter: true,
             editable: false,
           },
@@ -1196,6 +1226,9 @@ export const ownsTableSettings = {
             },
             createdAt: {
               title: 'Date',
+              valuePrepareFunction: (createdAt) => {
+                return new Date(createdAt).toLocaleDateString('fr-FR');
+              },
               filter: true,
               editable: false,
             },
@@ -1274,6 +1307,9 @@ export const ownsTableSettings = {
             },
             createdAt: {
               title: 'Date',
+              valuePrepareFunction: (createdAt) => {
+                return new Date(createdAt).toLocaleDateString('fr-FR');
+              },
               filter: true,
               editable: false,
             },
@@ -1342,6 +1378,9 @@ export const ownsTableSettings = {
             },
             createdAt: {
               title: 'Date',
+              valuePrepareFunction: (createdAt) => {
+                return new Date(createdAt).toLocaleDateString('fr-FR');
+              },
               filter: true,
             },
             type: {
@@ -1399,6 +1438,9 @@ export const ownsTableSettings = {
           },
           createdAt: {
             title: 'date',
+            valuePrepareFunction: (createdAt) => {
+              return new Date(createdAt).toLocaleDateString('fr-FR');
+            },
             filter: true,
           },
         },
