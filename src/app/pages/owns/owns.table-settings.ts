@@ -1139,7 +1139,7 @@ export const ownsTableSettings = {
           lastname: {
             title: 'Lastname',
           },
-          duration: {
+          totalPeriods: {
             title: 'Duration',
             filter: true,
             editable: false,
@@ -1475,7 +1475,7 @@ export const ownsTableSettings = {
           lastname: {
             title: 'Lastname',
           },
-          duration: {
+          totalPeriods: {
             title: 'Duration',
             filter: true,
             editable: false,
