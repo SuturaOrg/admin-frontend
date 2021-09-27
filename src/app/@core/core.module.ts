@@ -117,6 +117,7 @@ export const NB_CORE_PROVIDERS = [
           // ...
           endpoint: '/api/auth/signin',
           method: 'post',
+          defaultMessages:["gg"],
         },
         register: {
           // ...
@@ -128,11 +129,12 @@ export const NB_CORE_PROVIDERS = [
           },
 
         },
-        logout:{
+        logout: {
           endpoint: '/api/stats/',
+          method: 'get',
           redirect: {
-            success: '/auth/login/',
-            failure: '/auth/logout', // stay on the same page
+            success: '/owns/contributions/pending',
+            failure: 'auth/login', // stay on the same page
           },
         }
       }),
