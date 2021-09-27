@@ -12,9 +12,8 @@
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
-    "conventional-changelog": "conventional-changelog",
     "build": "ng build --prod",
-    "build:prod": "npm run build -- --configuration production --aot",
+    "conventional-changelog": "conventional-changelog",
     "test": "ng test",
     "test:coverage": "rimraf coverage && npm run test -- --code-coverage",
     "lint": "ng lint",
