@@ -12,6 +12,7 @@ import {
   NbCheckboxModule,
   NbInputModule
 } from '@nebular/theme';
+import {NgxLogoutComponent} from './logout/logout.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {
   ],
   declarations: [
 
-    NgxLoginComponent
+    NgxLoginComponent,
+    NgxLogoutComponent
   ],
 })
 export class NgxAuthModule {
