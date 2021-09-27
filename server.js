@@ -8,7 +8,6 @@ function requireHTTPS(req, res, next) {
 }
 const express = require('express');
 const app = express();
-app.use(requireHTTPS);
 
 //2. Serve our static files.
 app.use(express.static('./dist/'));

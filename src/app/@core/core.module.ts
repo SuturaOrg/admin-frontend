@@ -122,13 +122,17 @@ export const NB_CORE_PROVIDERS = [
           // ...
           endpoint: '/api/auth/signup/admin',
           method: 'post',
+          redirect: {
+            success: '/auth/login/',
+            failure: '/auth/register', // stay on the same page
+          },
 
         },
         logout:{
           endpoint: '/api/stats/',
           redirect: {
             success: '/auth/login/',
-            failure: '/auth/login', // stay on the same page
+            failure: '/auth/logout', // stay on the same page
           },
         }
       }),
