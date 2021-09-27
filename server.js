@@ -15,7 +15,7 @@ app.use(requireHTTPS);
 app.use(express.static(’./dist/ngx-admin’));
 //3. Wait for a request to any path and redirect all of the requests to index.html
 app.get('/*', function(req, res) {
-  res.sendFile('src/index.html', {root: 'dist/ngx-admin/’}
+  res.sendFile('index.html', {root: 'dist/ngx-admin/’}
 );
 });
 //4. Listen for requests at the PORT specified by env variables or the default Heroku port, which is 8080.
