@@ -113,6 +113,9 @@ export const NB_CORE_PROVIDERS = [
           class: NbAuthJWTToken,
           key: 'accessToken',
         },
+        errors:{
+          key:"message",
+        },
         login: {
           // ...
           endpoint: '/api/auth/signin',
@@ -123,9 +126,10 @@ export const NB_CORE_PROVIDERS = [
           // ...
           endpoint: '/api/auth/signup/admin',
           method: 'post',
+          requireValidToken:false,
           redirect: {
-            success: '/auth/login/',
-            failure: '/auth/register',
+            success:'/auth/login',
+            failure:'/auth/register'
           },
 
         },
