@@ -3,6 +3,7 @@ import {Injectable} from '@angular/core';
 import {SmartTableData} from '../@core/data/smart-table';
 import {CustomDataServerSource} from './CustomDataServerSource';
 import {ApiService} from './api.service';
+import config from '../../config';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +11,7 @@ import {ApiService} from './api.service';
 export class TableEventService {
   settings;
   entity;
-  baseApi = 'http://localhost:8082/api/';
+  baseApi = `${config.apiUrl}`;
 
   source: CustomDataServerSource;
 

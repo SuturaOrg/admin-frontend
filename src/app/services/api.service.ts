@@ -2,12 +2,13 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {CustomDataServerSource} from './CustomDataServerSource';
+import config from '../../config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  baseApi = 'http://localhost:8082/api/';
+  baseApi = `${config.apiUrl}`;
 
   constructor(private http: HttpClient) {
 
