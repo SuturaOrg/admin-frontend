@@ -117,7 +117,7 @@ export const NB_CORE_PROVIDERS = [
           // ...
           endpoint: '/api/auth/signin',
           method: 'post',
-          defaultMessages:["gg"],
+          defaultMessages:["Authenfication réussie!"],
         },
         register: {
           // ...
@@ -125,7 +125,7 @@ export const NB_CORE_PROVIDERS = [
           method: 'post',
           redirect: {
             success: '/auth/login/',
-            failure: '/auth/register', // stay on the same page
+            failure: '/auth/register',
           },
 
         },
@@ -134,7 +134,7 @@ export const NB_CORE_PROVIDERS = [
           method: 'get',
           redirect: {
             success: '/owns/contributions/pending',
-            failure: 'auth/login', // stay on the same page
+            failure: 'auth/login',
           },
         }
       }),

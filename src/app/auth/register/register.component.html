@@ -1,4 +1,4 @@
-<h1 id="title" class="title">Register</h1>
+<h1 id="title" class="title">Inscription</h1>
 
 <nb-alert *ngIf="showMessages.error && errors?.length && !submitted" outline="danger" role="alert">
   <p class="alert-title"><b>Oh snap!</b></p>
@@ -17,65 +17,129 @@
 <form (ngSubmit)="register()" #form="ngForm" aria-labelledby="title">
 
   <div class="form-control-group">
-    <label class="label" for="input-name">Full name:</label>
+    <label class="label" for="position">Poste dans Sutura:</label>
     <input nbInput
-           [(ngModel)]="user.fullName"
-           #fullName="ngModel"
-           id="input-name"
-           name="fullName"
-           placeholder="Full name"
+           [(ngModel)]="user.position"
+           #position="ngModel"
+           id="position"
+           name="position"
+           placeholder="votre poste"
            autofocus
            fullWidth
            [status]="email.dirty ? (email.invalid  ? 'danger' : 'success') : ''"
-           [required]="getConfigValue('forms.validation.fullName.required')"
-           [minlength]="getConfigValue('forms.validation.fullName.minLength')"
-           [maxlength]="getConfigValue('forms.validation.fullName.maxLength')"
-           [attr.aria-invalid]="fullName.invalid && fullName.touched ? true : null">
-    <ng-container *ngIf="fullName.invalid && fullName.touched">
-      <p class="error-message" *ngIf="fullName.errors?.required">
-        Full name is required!
+           [required]="getConfigValue('forms.validation.position.required')"
+           [minlength]="getConfigValue('forms.validation.position.minLength')"
+           [maxlength]="getConfigValue('forms.validation.position.maxLength')"
+           [attr.aria-invalid]="position.invalid && position.touched ? true : null">
+    <ng-container *ngIf="position.invalid && position.touched">
+      <p class="error-message" *ngIf="position.errors?.required">
+        Vous devez renseigner votre rôle dans Sutura!
       </p>
-      <p class="error-message" *ngIf="fullName.errors?.minlength || fullName.errors?.maxlength">
-        Full name should contains
-        from {{getConfigValue('forms.validation.fullName.minLength')}}
-        to {{getConfigValue('forms.validation.fullName.maxLength')}}
-        characters
+      <p class="error-message" *ngIf="position.errors?.minlength || position.errors?.maxlength">
+        Votre rôle doit contenir
+        entre {{getConfigValue('forms.validation.position.minLength')}}
+        à {{getConfigValue('forms.validation.position.maxLength')}}
+        caractères
       </p>
     </ng-container>
   </div>
 
   <div class="form-control-group">
-    <label class="label" for="input-email">Email address:</label>
+    <label class="label" for="firstname">Prénom:</label>
+    <input nbInput
+           [(ngModel)]="user.firstname"
+           #firstname="ngModel"
+           id="firstname"
+           name="firstname"
+           placeholder="votre prénom"
+           autofocus
+           fullWidth
+           [status]="email.dirty ? (email.invalid  ? 'danger' : 'success') : ''"
+           [required]="getConfigValue('forms.validation.firstname.required')"
+           [minlength]="getConfigValue('forms.validation.firstname.minLength')"
+           [maxlength]="getConfigValue('forms.validation.firstname.maxLength')"
+           [attr.aria-invalid]="firstname.invalid && firstname.touched ? true : null">
+    <ng-container *ngIf="firstname.invalid && firstname.touched">
+      <p class="error-message" *ngIf="firstname.errors?.required">
+        Votre prénom est obligatoire!
+      </p>
+      <p class="error-message" *ngIf="firstname.errors?.minlength || firstname.errors?.maxlength">
+        Le prénom devrait contenir
+        entre {{getConfigValue('forms.validation.firstname.minLength')}}
+        à {{getConfigValue('forms.validation.firstname.maxLength')}}
+        caractères
+      </p>
+    </ng-container>
+  </div>
+
+  <div class="form-control-group">
+    <label class="label" for="lastname">Nom:</label>
+    <input nbInput
+           [(ngModel)]="user.lastname"
+           #lastname="ngModel"
+           id="lastname"
+           name="lastname"
+           placeholder="votre nom"
+           autofocus
+           fullWidth
+           [status]="email.dirty ? (email.invalid  ? 'danger' : 'success') : ''"
+           [required]="getConfigValue('forms.validation.lastname.required')"
+           [minlength]="getConfigValue('forms.validation.lastname.minLength')"
+           [maxlength]="getConfigValue('forms.validation.lastname.maxLength')"
+           [attr.aria-invalid]="lastname.invalid && lastname.touched ? true : null">
+    <ng-container *ngIf="lastname.invalid && lastname.touched">
+      <p class="error-message" *ngIf="lastname.errors?.required">
+        Votre nom est obligatoire!
+      </p>
+      <p class="error-message" *ngIf="lastname.errors?.minlength || lastname.errors?.maxlength">
+        Votre nom doit contenir
+        entre {{getConfigValue('forms.validation.lastname.minLength')}}
+        à {{getConfigValue('forms.validation.lastname.maxLength')}}
+        caractères
+      </p>
+    </ng-container>
+  </div>
+
+  <div class="form-group">
+    <label class="label" for="female">Sexe:</label>
+    <select class="form-control" id="female" required>
+      <option [value]="true">Femme</option>
+      <option [value]="false">Homme</option>
+    </select>
+  </div>
+
+  <div class="form-control-group">
+    <label class="label" for="input-email">Adresse email:</label>
     <input nbInput
            [(ngModel)]="user.email"
            #email="ngModel"
            id="input-email"
            name="email"
            pattern=".+@.+..+"
-           placeholder="Email address"
+           placeholder="votre email"
            fullWidth
            [status]="email.dirty ? (email.invalid  ? 'danger' : 'success') : ''"
            [required]="getConfigValue('forms.validation.email.required')"
            [attr.aria-invalid]="email.invalid && email.touched ? true : null">
     <ng-container *ngIf="email.invalid && email.touched">
       <p class="error-message" *ngIf="email.errors?.required">
-        Email is required!
+        Votre email est obligatoire!
       </p>
       <p class="error-message" *ngIf="email.errors?.pattern">
-        Email should be the real one!
+        L'email saisi doit avoir n'est pas valide!
       </p>
     </ng-container>
   </div>
 
   <div class="form-control-group">
-    <label class="label" for="input-password">Password:</label>
+    <label class="label" for="input-password">Mot de passe:</label>
     <input nbInput
            [(ngModel)]="user.password"
            #password="ngModel"
            type="password"
            id="input-password"
            name="password"
-           placeholder="Password"
+           placeholder="mot de passe"
            fullWidth
            [status]="email.dirty ? (email.invalid  ? 'danger' : 'success') : ''"
            [required]="getConfigValue('forms.validation.password.required')"
@@ -84,43 +148,242 @@
            [attr.aria-invalid]="password.invalid && password.touched ? true : null">
     <ng-container *ngIf="password.invalid && password.touched">
       <p class="error-message" *ngIf="password.errors?.required">
-        Password is required!
+        Le mot de passe est obligatoire!
       </p>
       <p class="error-message" *ngIf="password.errors?.minlength || password.errors?.maxlength">
-        Password should contains
-        from {{ getConfigValue('forms.validation.password.minLength') }}
-        to {{ getConfigValue('forms.validation.password.maxLength') }}
+        Le mot de passe doit contenir
+        entre {{ getConfigValue('forms.validation.password.minLength') }}
+        à {{ getConfigValue('forms.validation.password.maxLength') }}
         characters
       </p>
     </ng-container>
   </div>
 
   <div class="form-control-group">
-    <label class="label" for="input-re-password">Repeat password:</label>
+    <label class="label" for="input-re-password">Retapez votre mot de passe:</label>
     <input nbInput
            [(ngModel)]="user.confirmPassword"
            #rePass="ngModel"
            type="password"
            id="input-re-password"
            name="rePass"
-           placeholder="Confirm Password"
+           placeholder="confirmer votre mot de passe"
            fullWidth
-           [status]="email.dirty ? (email.invalid || password.value != rePass.value  ? 'danger' : 'success') : ''"
+           [status]="email.dirty ? (email.invalid  ? 'danger' : 'success') : ''"
            [required]="getConfigValue('forms.validation.password.required')"
            [attr.aria-invalid]="rePass.invalid && rePass.touched ? true : null">
     <ng-container *ngIf="rePass.invalid && rePass.touched">
       <p class="error-message" *ngIf="rePass.errors?.required">
-        Password confirmation is required!
+        La confirmation de mot de passe est obligatoire!
       </p>
       <p class="error-message" *ngIf="password.value != rePass.value && !rePass.errors?.required">
-        Password does not match the confirm password.
+        Les mots de passe saisis sont différents!
+      </p>
+    </ng-container>
+  </div>
+
+  <div class="form-group">
+    <label class="label" for="town">Ville de résidence:</label>
+    <select class="form-control" id="town" required>
+      <option value="">- Sélectionnez votre ville -</option>
+      <option value="Agadir">Agadir</option>
+      <option value="Al Hoceïma">Al Hoceïma</option>
+      <option value="Béni Mellal">Béni Mellal</option>
+      <option value="Casablanca">Casablanca</option>
+      <option value="El Jadida">El Jadida</option>
+      <option value="Errachidia">Errachidia</option>
+      <option value="Essaouira">Essaouira</option>
+      <option value="Fès">Fès</option>
+      <option value="Marrakech">Marrakech</option>
+      <option value="Meknès">Meknès</option>
+      <option value="Mouhammédia">Mouhammédia</option>
+      <option value="Kénitra">Kénitra</option>
+      <option value="Khouribga">Khouribga</option>
+      <option value="Ouarzazate">Ouarzazate</option>
+      <option value="Oujda">Oujda</option>
+      <option value="Rabat">Rabat</option>
+      <option value="Safi">Safi</option>
+      <option value="Salé">Salé</option>
+      <option value="Settat">Settat</option>
+      <option value="Tanger">Tanger</option>
+      <option value="Tétouan">Tétouan</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label class="label" for="country">Pays d'origine:</label>
+    <select class="form-control" id="country"  required>
+      <option value="">- Sélectionnez votre pays -</option>
+      <option value="Afghanistan">Afghanistan</option>
+      <option value="Angola">Angola</option>
+      <option value="Benin">Bénin</option>
+      <option value="Burkina Faso">Burkina-Faso</option>
+      <option value="Burundi">Burundi</option>
+      <option value="Cameroon">Caméroun</option>
+      <option value="Cabo Verde">Cap-Vert</option>
+      <option value="Dominica">Commonwealth</option>
+      <option value="Congo">Congo</option>
+      <option value="Ivory Coast">Côte d'Ivoire</option>
+      <option value="Djibouti">Djibouti</option>
+      <option value="Egypt">Egypte</option>
+      <option value="Eritrea">Erythrée</option>
+      <option value="Gabon">Gabon</option>
+      <option value="Gambia">Gambie</option>
+      <option value="Ghana">Ghana</option>
+      <option value="Guinea">Guinée</option>
+      <option value="Guinea-Bissau">Guinée-Bissau</option>
+      <option value="Equatorial Guinea">Guinée Equatoriale</option>
+      <option value="Haiti">Haïti</option>
+      <option value="Indonesia">Indonésie</option>
+      <option value="Iraq">Irak</option>
+      <option value="Jordan">Jordonie</option>
+      <option value="Kenya">Kénya</option>
+      <option value="Kiribati">Kiribati</option>
+      <option value="Lao People's Democratic Republic">Laos</option>
+      <option value="Lebanon">Liban</option>
+      <option value="Liberia">Libéria</option>
+      <option value="Madagascar">Madagascar</option>
+      <option value="Malaysia">Malaisie</option>
+      <option value="Malawi">Malawi</option>
+      <option value="Mali">Mali</option>
+      <option value="Mauritania">Mauritanie</option>
+      <option value="Niger">Niger</option>
+      <option value="Nigeria">Nigéria</option>
+      <option value="Pakistan">Pakistan</option>
+      <option value="Palestine">Palestine</option>
+      <option value="Panama">Panama</option>
+      <option value="Central African Republic">République Centrafrique</option>
+      <option value="Democratic Republic of the Congo">République Démocratique du Congo</option>
+      <option value="Rwanda">Rwanda</option>
+      <option value="Saint Lucia">Saint Lucie</option>
+      <option value="Sao Tome and Principe">Sao-Tomé et Principe</option>
+      <option value="Senegal">Sénégal</option>
+      <option value="Sierra Leone">Sierra Léone</option>
+      <option value="Singapore">Singapour</option>
+      <option value="Somalia">Somalie</option>
+      <option value="Sudan">Soudan</option>
+      <option value="South sudan">Soudan du Sud</option>
+      <option value="Syrian Arab Republic">Syrie</option>
+      <option value="United Republic of Tanzania">Tanzanie</option>
+      <option value="Chad">Tchad</option>
+      <option value="Thailand">Thaïlande</option>
+      <option value="Togo">Togo</option>
+      <option value="Tunisia">Tunisie</option>
+      <option value="Turkey">Turquie</option>
+      <option value="Union of the Comoros">Union des Comores</option>
+      <option value="Viet Nam">Vietnam</option>
+      <option value="Yemen">Yémen</option>
+      <option value="Zambia">Zambie</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label class="label" for="yearEntryMorocco">Année d'entrée au Maroc:</label>
+    <select class="form-control" id="yearEntryMorocco"  required>
+      <option value="">- Sélectionnez une année -</option>
+      <option value="2022">2022</option>
+      <option value="2021">2021</option>
+      <option value="2020">2020</option>
+      <option value="2019">2019</option>
+      <option value="2018">2018</option>
+      <option value="2017">2017</option>
+      <option value="2016">2016</option>
+      <option value="2015">2015</option>
+      <option value="2014">2014</option>
+      <option value="2013">2013</option>
+      <option value="2012">2012</option>
+      <option value="2011">2011</option>
+    </select>
+  </div>
+
+  <div class="form-control-group">
+    <label class="label" for="school">Etablissement:</label>
+    <input nbInput
+           [(ngModel)]="user.school"
+           #school="ngModel"
+           id="school"
+           name="school"
+           placeholder="votre établissement"
+           autofocus
+           fullWidth
+           [status]="email.dirty ? (email.invalid  ? 'danger' : 'success') : ''"
+           [required]="getConfigValue('forms.validation.school.required')"
+           [minlength]="getConfigValue('forms.validation.school.minLength')"
+           [maxlength]="getConfigValue('forms.validation.school.maxLength')"
+           [attr.aria-invalid]="school.invalid && school.touched ? true : null">
+    <ng-container *ngIf="school.invalid && school.touched">
+      <p class="error-message" *ngIf="school.errors?.required">
+        Full name is required!
+      </p>
+      <p class="error-message" *ngIf="school.errors?.minlength || school.errors?.maxlength">
+        Votre établissement doit contenir
+        entre {{getConfigValue('forms.validation.school.minLength')}}
+        à {{getConfigValue('forms.validation.school.maxLength')}}
+        caractères
+      </p>
+    </ng-container>
+  </div>
+
+  <div class="form-control-group">
+    <label class="label" for="faculty">Filière d'étude:</label>
+    <input nbInput
+           [(ngModel)]="user.faculty"
+           #faculty="ngModel"
+           id="faculty"
+           name="faculty"
+           placeholder="votre filière"
+           autofocus
+           fullWidth
+           [status]="email.dirty ? (email.invalid  ? 'danger' : 'success') : ''"
+           [required]="getConfigValue('forms.validation.faculty.required')"
+           [minlength]="getConfigValue('forms.validation.faculty.minLength')"
+           [maxlength]="getConfigValue('forms.validation.faculty.maxLength')"
+           [attr.aria-invalid]="faculty.invalid && faculty.touched ? true : null">
+    <ng-container *ngIf="faculty.invalid && faculty.touched">
+      <p class="error-message" *ngIf="faculty.errors?.required">
+        Votre filière est obligatoire!
+      </p>
+      <p class="error-message" *ngIf="faculty.errors?.minlength || faculty.errors?.maxlength">
+        Votre nom d'établissement doit contenir
+        entre {{getConfigValue('forms.validation.faculty.minLength')}}
+        à {{getConfigValue('forms.validation.faculty.maxLength')}}
+        caractères
+      </p>
+    </ng-container>
+  </div>
+
+  <div class="form-control-group">
+    <label class="label" for="phone">Téléphone:</label>
+    <input nbInput
+           [(ngModel)]="user.phone"
+           #phone="ngModel"
+           id="phone"
+           name="phone"
+           placeholder="06********"
+           type="number"
+           autofocus
+           fullWidth
+           [status]="email.dirty ? (email.invalid  ? 'danger' : 'success') : ''"
+           [required]="getConfigValue('forms.validation.phone.required')"
+           [minlength]="getConfigValue('forms.validation.phone.minLength')"
+           [maxlength]="getConfigValue('forms.validation.phone.maxLength')"
+           [attr.aria-invalid]="phone.invalid && phone.touched ? true : null">
+    <ng-container *ngIf="phone.invalid && phone.touched">
+      <p class="error-message" *ngIf="phone.errors?.required">
+        Votre numéro de téléphone est obligatoire!
+      </p>
+      <p class="error-message" *ngIf="phone.errors?.minlength || phone.errors?.maxlength">
+        votre numéro de téléphone doit contenir
+        entre {{getConfigValue('forms.validation.phone.minLength')}}
+        à {{getConfigValue('forms.validation.phone.maxLength')}}
+        characters
       </p>
     </ng-container>
   </div>
 
   <div class="form-control-group accept-group" *ngIf="getConfigValue('forms.register.terms')">
     <nb-checkbox name="terms" [(ngModel)]="user.terms" [required]="getConfigValue('forms.register.terms')">
-      Agree to <a href="#" target="_blank"><strong>Terms & Conditions</strong></a>
+      J'accepte les <a href="#" target="_blank"><strong>conditions générales d'utilisation</strong></a>
     </nb-checkbox>
   </div>
 
@@ -129,7 +392,7 @@
           status="success"
           [disabled]="submitted || !form.valid"
           [class.btn-pulse]="submitted">
-    Register
+    S'inscrire
   </button>
 </form>
 
@@ -152,5 +415,5 @@
 </section>
 
 <section class="another-action" aria-label="Sign in">
-  Already have an account? <a class="text-link" routerLink="../login">Log in</a>
+  Vous avez déjà un compte? <a class="text-link" routerLink="../login">Se connecter</a>
 </section>
