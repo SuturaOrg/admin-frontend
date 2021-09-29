@@ -16,7 +16,7 @@
     "ng": "ng",
     "start": "node server.js",
     "dev": "ng serve",
-    "build": "set production=false&&npm start",
+    "build": "set production=true&&npm start",
     "build:prod": "set production=true&&ng build --configuration production",
     "conventional-changelog": "conventional-changelog",
     "test": "ng test",

@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 
 import { SmartTableData } from '../../../@core/data/smart-table';
-import config from '../../../../../config';
+import config from '../../../../config';
 
 @Component({
   selector: 'ngx-smart-table',
