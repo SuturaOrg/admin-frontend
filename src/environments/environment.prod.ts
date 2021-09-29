@@ -5,4 +5,5 @@
  */
 export const environment = {
   production: true,
+  apiUrl:'https://suturaapi.herokuapp.com/api/'
 };
