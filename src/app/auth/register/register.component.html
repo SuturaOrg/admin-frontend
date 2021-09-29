@@ -102,9 +102,9 @@
 
   <div class="form-group">
     <label class="label" for="female">Sexe:</label>
-    <select class="form-control" id="female" required>
-      <option [value]="true">Femme</option>
-      <option [value]="false">Homme</option>
+    <select class="form-control" id="female" #female="ngModel" [(ngModel)]="user.female" name="female" required>
+      <option value="true">Femme</option>
+      <option value="false">Homme</option>
     </select>
   </div>
 
@@ -184,7 +184,7 @@
 
   <div class="form-group">
     <label class="label" for="town">Ville de résidence:</label>
-    <select class="form-control" id="town" required>
+    <select class="form-control" id="town" id="town" #town="ngModel" [(ngModel)]="user.town" name="town" required>
       <option value="">- Sélectionnez votre ville -</option>
       <option value="Agadir">Agadir</option>
       <option value="Al Hoceïma">Al Hoceïma</option>
@@ -212,7 +212,7 @@
 
   <div class="form-group">
     <label class="label" for="country">Pays d'origine:</label>
-    <select class="form-control" id="country"  required>
+    <select class="form-control" id="country" id="country" #country="ngModel" [(ngModel)]="user.country" name="country" required>
       <option value="">- Sélectionnez votre pays -</option>
       <option value="Afghanistan">Afghanistan</option>
       <option value="Angola">Angola</option>
@@ -279,7 +279,7 @@
 
   <div class="form-group">
     <label class="label" for="yearEntryMorocco">Année d'entrée au Maroc:</label>
-    <select class="form-control" id="yearEntryMorocco"  required>
+    <select class="form-control" id="yearEntryMorocco" id="yearEntryMorocco" #yearEntryMorocco="ngModel" [(ngModel)]="user.yearEntryMorocco" name="yearEntryMorocco" required>
       <option value="">- Sélectionnez une année -</option>
       <option value="2022">2022</option>
       <option value="2021">2021</option>

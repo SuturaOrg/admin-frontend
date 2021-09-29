@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 
 import { SmartTableData } from '../../../@core/data/smart-table';
+import config from '../../../../config';
 
 @Component({
   selector: 'ngx-smart-table',
@@ -57,7 +58,7 @@ export class SmartTableComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.http.get<any>('http://localhost:8082/api/students/', { headers: this.headers }).subscribe(
+    this.http.get<any>(`${config.apiUrl}`'/students/', { headers: this.headers }).subscribe(
       data => {
         this.source.load(data._embedded.students);
       },
@@ -86,7 +87,7 @@ export class SmartTableComponent implements OnInit {
         'email': event.newData.email,
         'prenom': event.newData.prenom,
       };
-      this.http.put<any>('http://localhost:8082/api/students/' + event.newData.id, data, { headers: this.headers }).subscribe(
+      this.http.put<any>(`${config.apiUrl}`'/students/' + event.newData.id, data, { headers: this.headers }).subscribe(
         res => {
           console.log(res);
           event.confirm.resolve(event.newData);
@@ -105,7 +106,7 @@ export class SmartTableComponent implements OnInit {
   }
   onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {
-      this.http.delete<any>('http://localhost:8082/api/students/' + event.newData.id, { headers: this.headers }).subscribe(
+      this.http.delete<any>(`${config.apiUrl}`'/students/' + event.newData.id, { headers: this.headers }).subscribe(
         data => {
           console.log(data);
         },

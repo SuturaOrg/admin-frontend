@@ -1,6 +1,9 @@
 {
   "name": "ngx-admin",
   "version": "7.0.0",
+  "engines": {
+    "node": "14.x"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -13,8 +16,8 @@
     "ng": "ng",
     "start": "node server.js",
     "dev": "ng serve",
-    "build": "ng build --prod",
-    "build:prod": "npm run build -- --configuration production --aot",
+    "build": "set production=true&&npm start",
+    "build:prod": "set production=true&&ng build --configuration production",
     "conventional-changelog": "conventional-changelog",
     "test": "ng test",
     "test:coverage": "rimraf coverage && npm run test -- --code-coverage",
