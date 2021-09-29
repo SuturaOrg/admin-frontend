@@ -1,6 +1,9 @@
 {
   "name": "ngx-admin",
   "version": "7.0.0",
+  "engines": {
+    "node": "14.x"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
