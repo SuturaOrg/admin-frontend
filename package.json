@@ -1,9 +1,6 @@
 {
   "name": "ngx-admin",
   "version": "7.0.0",
-  "engines": {
-    "node": "14.x"
-  },
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -16,8 +13,8 @@
     "ng": "ng",
     "start": "node server.js",
     "dev": "ng serve",
-    "build": "set production=true&&npm start",
-    "build:prod": "set production=true&&ng build --configuration production",
+    "build": "ng build --prod",
+    "build:prod": "npm run build -- --configuration production --aot",
     "conventional-changelog": "conventional-changelog",
     "test": "ng test",
     "test:coverage": "rimraf coverage && npm run test -- --code-coverage",
@@ -31,7 +28,7 @@
     "docs:serve": "compodoc -p src/tsconfig.app.json -d docs -s",
     "prepush": "npm run lint:ci",
     "release:changelog": "npm run conventional-changelog -- -p angular -i CHANGELOG.md -s",
-    "heroku-postbuild": "ng build --configuration=production"
+    "postinstall": "ngcc --properties es2015 es5 browser module main --first-only --create-ivy-entry-points --tsconfig \"./src/tsconfig.app.json\""
   },
   "dependencies": {
     "@akveo/ng2-completer": "^9.0.1",
