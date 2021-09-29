@@ -17,7 +17,7 @@
     "start": "node server.js",
     "dev": "ng serve",
     "build": "set NODE_ENV=production&&npm start",
-    "build:prod": "npm run build -- --configuration production --aot",
+    "build:prod": "ng build --prod",
     "conventional-changelog": "conventional-changelog",
     "test": "ng test",
     "test:coverage": "rimraf coverage && npm run test -- --code-coverage",
