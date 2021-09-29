@@ -52,6 +52,7 @@ import {StatsProgressBarService} from './mock/stats-progress-bar.service';
 import {VisitorsAnalyticsService} from './mock/visitors-analytics.service';
 import {SecurityCamerasService} from './mock/security-cameras.service';
 import {MockDataModule} from './mock/mock-data.module';
+import {environment} from '../../environments/environment';
 
 const socialLinks = [
   {
@@ -108,7 +109,7 @@ export const NB_CORE_PROVIDERS = [
     strategies: [
       NbPasswordAuthStrategy.setup({
         name: 'email',
-        baseEndpoint: 'http://localhost:8082',
+        baseEndpoint: environment.apiUrl,
         token: {
           class: NbAuthJWTToken,
           key: 'accessToken',
@@ -118,23 +119,23 @@ export const NB_CORE_PROVIDERS = [
         },
         login: {
           // ...
-          endpoint: '/api/auth/signin',
+          endpoint: 'auth/signin',
           method: 'post',
           defaultMessages:["Authenfication réussie!"],
         },
         register: {
           // ...
-          endpoint: '/api/auth/signup/admin',
+          endpoint: 'auth/signup/admin',
           method: 'post',
           requireValidToken:false,
           redirect: {
-            success:'/auth/login',
+            success:'auth/login',
             failure:'/auth/register'
           },
 
         },
         logout: {
-          endpoint: '/api/stats/',
+          endpoint: '/stats/',
           method: 'get',
           redirect: {
             success: '/owns/contributions/pending',

@@ -10,7 +10,7 @@ import {ApiService} from './api.service';
 export class TableEventService {
   settings;
   entity;
-  baseApi = 'http://localhost:8082/api/';
+  baseApi = 'environment.apiUrl/';
 
   source: CustomDataServerSource;
 
@@ -87,17 +87,9 @@ export class TableEventService {
             else if (this.entity=="students" || this.entity=="admins"){
                   action={enabled:false}
               }
-            else if (['contributions','refunds'].includes(this.entity) && !data.approved && data.status){
-                    action=0;
-            }
-            else if (this.entity=="loans" && data.status=="SUPPRIME"){
-                      action=0;
-            }
-            if(action!=0){
+            if(!action){
               if (window.confirm('Are you sure you want to move to trash?')) {
                 this.apiService.patchFromId(this.entity,data.id,action).subscribe((res)=>alert("Déplacé dans la corbeille"),()=>alert("N'a pas été déplacé"))
-                this.source.refresh();
-                this.source.refresh();
               }
               else {
                event.confirm.reject();
@@ -111,9 +103,7 @@ export class TableEventService {
                 // await this.source.reset();
               },
               this.handleError);
-              this.source.refresh();
-              this.source.refresh();
-            }
+             }
             else {
                event.confirm.reject();
             }
@@ -127,9 +117,6 @@ export class TableEventService {
             async res => {
               console.log(event.data);
               event.confirm.resolve();
-              await this.source.update(event.data,res);
-              this.source.refresh();
-              this.source.refresh();
             },
             this.handleError);
         } else {
