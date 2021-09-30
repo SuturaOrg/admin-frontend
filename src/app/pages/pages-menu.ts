@@ -7,11 +7,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/dashboard',
     home: true,
   },
-  {
+  /*{
     title: 'IoT Dashboard',
     icon: 'home-outline',
     link: '/pages/iot-dashboard',
-  },
+  },*/
   {
     title: 'ENTITIES',
     group: true,
@@ -106,7 +106,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
 },
 {
   title: 'Expenses',
-  icon: 'repeat-outline',
+  icon: 'shopping-cart-outline',
   link: '/pages/owns/expenses',
 },
 {
@@ -177,9 +177,9 @@ export const MENU_ITEMS: NbMenuItem[] = [
 
   {
     title: 'FEATURES',
-    group: true,
+    group: false,
   },
-  {
+  /*{
     title: 'Layout',
     icon: 'layout-outline',
     children: [
@@ -384,7 +384,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/miscellaneous/404',
       },
     ],
-  },
+  },*/
   {
     title: 'Auth',
     icon: 'lock-outline',
@@ -396,7 +396,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: 'Register',
         link: '/auth/register',
-      },
+      },/*
       {
         title: 'Request Password',
         link: '/auth/request-password',
@@ -404,7 +404,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: 'Reset Password',
         link: '/auth/reset-password',
-      },
+      },*/
     ],
   },
 ];
