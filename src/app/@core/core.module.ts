@@ -135,11 +135,11 @@ export const NB_CORE_PROVIDERS = [
 
         },
         logout: {
-          endpoint: '/stats/',
+          endpoint: 'stats/',
           method: 'get',
           redirect: {
-            success: '/owns/contributions/pending',
-            failure: 'auth/login',
+            success: '/auth/login',
+            failure: '/pages',
           },
         }
       }),
