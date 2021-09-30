@@ -27,23 +27,45 @@ export class PeriodsService {
   }
 
   getMonths() {
-    return [
+    const days= [
       'Jan', 'Feb', 'Mar',
       'Apr', 'May', 'Jun',
       'Jul', 'Aug', 'Sep',
       'Oct', 'Nov', 'Dec',
     ];
+    const goBackDays = 12;
+
+    const today = new Date();
+    const daysSorted = [];
+
+    for(let i = 0; i < goBackDays; i++) {
+      daysSorted.unshift(days[today.getMonth()]);
+      today.setDate(today.getDate() - 31);
+    }
+    return daysSorted
+
   }
 
   getWeeks() {
-    return [
+    const days = [
+      'Sun',
       'Mon',
       'Tue',
       'Wed',
       'Thu',
       'Fri',
       'Sat',
-      'Sun',
     ];
+    const goBackDays = 7;
+
+    const today = new Date();
+    const daysSorted = [];
+
+    for(let i = 0; i < goBackDays; i++) {
+      daysSorted.unshift(days[today.getDay()]);
+      today.setDate(today.getDate() - 1);
+    }
+    return daysSorted
+
   }
 }
