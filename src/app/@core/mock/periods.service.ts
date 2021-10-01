@@ -27,7 +27,7 @@ export class PeriodsService {
   }
 
   getMonths() {
-    const days= [
+    const months= [
       'Jan', 'Feb', 'Mar',
       'Apr', 'May', 'Jun',
       'Jul', 'Aug', 'Sep',
@@ -39,7 +39,7 @@ export class PeriodsService {
     const daysSorted = [];
 
     for(let i = 0; i < goBackDays; i++) {
-      daysSorted.unshift(days[today.getMonth()]);
+      daysSorted.unshift(months[today.getMonth()]);
       today.setDate(today.getDate() - 31);
     }
     return daysSorted
