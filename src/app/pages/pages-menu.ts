@@ -386,18 +386,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },*/
-  {
-    title: 'Auth',
-    icon: 'lock-outline',
-    children: [
-      {
-        title: 'Se connecter',
-        link: '/auth/login',
-      },
-      {
-        title: 'S\'inscrire',
-        link: '/auth/register',
-      },/*
+ /*
       {
         title: 'Request Password',
         link: '/auth/request-password',
