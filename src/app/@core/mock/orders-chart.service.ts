@@ -10,13 +10,13 @@ import {take} from 'rxjs/operators';
 export class OrdersChartService extends OrdersChartData implements OnInit {
 
   private year = [
-    '2012',
-    '2013',
-    '2014',
-    '2015',
-    '2016',
-    '2017',
-    '2018',
+    '2021',
+    '2022',
+    '2023',
+    '2024',
+    '2025',
+    '2026',
+    '2027',
   ];
 
   constructor(private period: PeriodsService, private apiDataPeriodService: ApiDataPeriodService) {

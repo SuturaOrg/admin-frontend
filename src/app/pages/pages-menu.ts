@@ -2,7 +2,7 @@ import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
-    title: 'Home',
+    title: 'Accueil',
     icon: 'home-outline',
     link: '/pages/dashboard',
     home: true,
@@ -13,75 +13,75 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/iot-dashboard',
   },*/
   {
-    title: 'ENTITIES',
+    title: 'ENTITES',
     group: true,
   },
-  { title: 'Loans',
+  { title: 'Prêts',
     icon: 'shake-outline',
     children: [
       {
-        title: 'Chosen',
+        title: 'ELUS',
         icon: 'clock-outline',
         link: '/pages/owns/loans/chosen',
       },
       {
-        title: 'Finished',
+        title: 'TERMINES',
         icon: 'done-all-outline',
         link: '/pages/owns/loans/finished',
       },
       {
-        title: 'Refunded',
+        title: 'REMBOURSES',
         link: '/pages/owns/loans/refunded',
         icon: 'repeat-outline',
       },
       {
-        title: 'Pending',
+        title: 'En attente',
         link: '/pages/owns/loans/pending',
         icon: 'repeat-outline',
       },
       {
-        title: 'All',
+        title: 'Tout',
         link: '/pages/owns/loans/all',
         icon: 'list-outline',
       },
     ],
   },
-  { title: 'Adherents',
+  { title: 'Adhérents',
   icon: 'person-outline',
   children: [
     {
-      title: 'Contributed',
+      title: 'ayant cotisé',
       link: '/pages/owns/adherents/contributed',
       icon: 'person-done-outline',
     },
     {
-      title: 'NotContributed',
+      title: 'n\'ayant pas cotisé ',
       link: '/pages/owns/adherents/notContributed',
       icon: 'person-delete-outline',
     },
     {
-      title: 'Students',
+      title: 'Etudiants',
       link: '/pages/owns/adherents/students',
       icon: 'people-outline',
     },
     {
-      title: 'Administrators',
+      title: 'Administrateurs',
       link: '/pages/owns/adherents/administrators',
       icon: 'people-outline',
     },
   ],
 },
 {
-  title: 'Contributions',
+  title: 'Cotisations',
   icon: 'layers-outline',
   children: [
       {
-        title: 'Pending',
+        title: 'En attente',
         link: '/pages/owns/contributions/pending',
         icon: 'people-outline',
       },
       {
-        title: 'All',
+        title: 'Tout',
         link: '/pages/owns/contributions/all',
         icon: 'people-outline',
       },
@@ -89,76 +89,76 @@ export const MENU_ITEMS: NbMenuItem[] = [
 },
 
 {
-  title: 'Refunds',
+  title: 'Remboursements',
   icon: 'repeat-outline',
   children: [
         {
-          title: 'Pending',
+          title: 'En attente',
           link: '/pages/owns/refunds/pending',
           icon: 'people-outline',
         },
         {
-          title: 'All',
+          title: 'Tout',
           link: '/pages/owns/refunds/all',
           icon: 'people-outline',
         },
       ],
 },
 {
-  title: 'Expenses',
+  title: 'Dépenses',
   icon: 'shopping-cart-outline',
   link: '/pages/owns/expenses',
 },
 {
-  title: 'Donations',
+  title: 'Dons',
   icon: 'gift-outline',
   link: '/pages/owns/donations',
 },
 {
-  title: 'Funds',
+  title: 'Caisses',
   icon: 'cube-outline',
   link: '/pages/owns/funds',
 },
 {
-  title: 'Parameters',
+  title: 'Paramètres',
   icon: 'settings-outline',
   link: '/pages/owns/parameters',
 },
 {
-  title: 'OTHERS',
+  title: 'AUTRES',
   group: true,
 },
  {
-  title: 'Trash',
+  title: 'Corbeille',
   icon: 'trash-2-outline',
   children: [
       {
-        title: 'Loans',
+        title: 'Prêts',
         link: '/pages/owns/trash/loans',
         icon: 'shake-outline',
       },
       {
-        title: 'Contributions',
+        title: 'Cotisations',
         link: '/pages/owns/trash/contributions',
         icon: 'layers-outline',
       },
       {
-        title: 'Refunds',
+        title: 'Remboursements',
         link: '/pages/owns/trash/refunds',
         icon: 'repeat-outline',
       },
       {
-        title: 'Donations',
+        title: 'Dons',
         link: '/pages/owns/trash/donations',
         icon: 'gift-outline',
       },
       {
-        title: 'Students',
+        title: 'Etudiants',
         link: '/pages/owns/trash/students',
         icon: 'people-outline',
       },
       {
-        title: 'Administrators',
+        title: 'Administrateurs',
         link: '/pages/owns/trash/administrators',
         icon: 'people-outline',
       },
@@ -381,4 +381,14 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },*/
+  /*
+      {
+        title: 'Request Password',
+        link: '/auth/request-password',
+      },
+      {
+        title: 'Reset Password',
+        link: '/auth/reset-password',
+      },*/
+
 ];
