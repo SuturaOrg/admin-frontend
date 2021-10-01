@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { PeriodsService } from './periods.service';
 import { ProfitChart, ProfitChartData } from '../data/profit-chart';
+import {forkJoin, Observable} from 'rxjs';
+import {OrdersChart} from '../data/orders-chart';
+import {ApiDataPeriodService} from './api-data-period.service';
 
 @Injectable()
 export class ProfitChartService extends ProfitChartData {
@@ -15,17 +18,45 @@ export class ProfitChartService extends ProfitChartData {
     '2018',
   ];
 
-  private data = { };
 
-  constructor(private period: PeriodsService) {
+  constructor(private period: PeriodsService, private apiDataPeriodService: ApiDataPeriodService) {
     super();
-    this.data = {
-      week: this.getDataForWeekPeriod(),
-      month: this.getDataForMonthPeriod(),
-      year: this.getDataForYearPeriod(),
-    };
   }
+  private getDataForPeriod(entities: string[],period: string): Observable<ProfitChart> {
+    const nPoints = this.period.getLabels(period).length;
+    const defaultData = entities.map(item => {
+      const zeros = [];
+      for (let i = 0; i < nPoints; i++) {
+        zeros.push(0);
+      }
+      return zeros;
+    });
+    const profitChart:ProfitChart = {
+      chartLabel: this.period.getLabels(period),
+      data:defaultData,
+    };
+    const observables: Observable<number[]>[] = entities.map((entity, index) => {
+      return this.apiDataPeriodService.get(entity, period, nPoints);
+    });
+    return new Observable(subscriber => {
 
+      forkJoin(observables).subscribe((res) => {
+          res.map((val, index) => {
+            profitChart.data[index] = val;
+          });
+          console.log(profitChart.data);
+          subscriber.next(profitChart);
+          subscriber.complete();
+        }, error => {
+          subscriber.error(error);
+        },
+        () => {
+          subscriber.complete();
+        }
+      );
+    });
+
+  }
   private getDataForWeekPeriod(): ProfitChart {
     const nPoint = this.period.getWeeks().length;
 
@@ -71,7 +102,9 @@ export class ProfitChartService extends ProfitChartData {
     });
   }
 
-  getProfitChartData(period: string): ProfitChart {
-    return this.data[period];
+  getProfitChartData(period: string): Observable<ProfitChart> {
+    const entities = ['loans', 'contributions','refunds'];
+    return this.getDataForPeriod(entities, period);
+
   }
 }
