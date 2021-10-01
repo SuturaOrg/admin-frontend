@@ -18,7 +18,7 @@
     <nb-action href="pages/notifications" title= "notifications" size="20" class="control-item" icon="bell-outline" badgeDot [badgeStatus]=notificationStatus></nb-action>
     <nb-action class="user-action" *nbIsGranted="['view', 'user']" >
       <nb-user [nbContextMenu]="userMenu"
-               [name]="user?.firstname+user?.lastname"
+               [name]="user?.firstname+' '+user?.lastname"
                [picture]="user?.picture">
       </nb-user>
     </nb-action>
