@@ -52,20 +52,6 @@ export class ApiDataPeriodService extends ApiDataPeriod {
           for (let i = 0; i < nPoints; i++) {
             result.push(countOccurrences(finalMap, i));
           }
-
-
-          /*   const result = [184, 267, 326, 366, 389, 399,
-               392, 371, 340, 304, 265, 227,
-               191, 158, 130, 108, 95, 91, 97,
-               109, 125, 144, 166, 189, 212,
-               236, 259, 280, 300, 316, 329,
-               338, 342, 339, 329, 312, 288,
-               258, 221, 178, 128, 71,
-             ];*/
-          /* for (let i = 0; i < nPoints; i++) {
-             result.push(4);
-           }*/
-          console.log(entity, period, result);
           subscriber.next(result);
           subscriber.complete();
         }, null

@@ -19,8 +19,6 @@ export class OrdersChartService extends OrdersChartData implements OnInit {
     '2018',
   ];
 
-  private data = {};
-
   constructor(private period: PeriodsService, private apiDataPeriodService: ApiDataPeriodService) {
     super();
   }

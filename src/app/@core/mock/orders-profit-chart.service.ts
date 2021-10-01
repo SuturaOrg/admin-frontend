@@ -40,6 +40,6 @@ export class OrdersProfitChartService extends OrdersProfitChartData {
   }
 
   getProfitChartData(period: string): Observable<ProfitChart> {
-    return observableOf(this.profitChartService.getProfitChartData(period));
+    return this.profitChartService.getProfitChartData(period);
   }
 }

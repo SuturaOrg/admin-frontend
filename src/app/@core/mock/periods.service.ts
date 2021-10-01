@@ -3,7 +3,7 @@ import {Injectable} from '@angular/core';
 @Injectable()
 export class PeriodsService {
 
-  getLabels(period: string) {
+  getLabels(period: string):string[] {
     switch (period) {
       case 'week':
         return this.getWeeks();
