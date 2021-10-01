@@ -1,38 +1,52 @@
-import { of as observableOf,  Observable } from 'rxjs';
-import { Injectable } from '@angular/core';
-import { OrdersChart, OrdersChartData } from '../data/orders-chart';
-import { OrderProfitChartSummary, OrdersProfitChartData } from '../data/orders-profit-chart';
-import { ProfitChart, ProfitChartData } from '../data/profit-chart';
+import {of as observableOf, Observable, forkJoin} from 'rxjs';
+import {Injectable} from '@angular/core';
+import {OrdersChart, OrdersChartData} from '../data/orders-chart';
+import {OrderProfitChartSummary, OrdersProfitChartData} from '../data/orders-profit-chart';
+import {ProfitChart, ProfitChartData} from '../data/profit-chart';
+import {ApiService} from '../../services/api.service';
+import {map} from 'rxjs/operators';
 
 @Injectable()
 export class OrdersProfitChartService extends OrdersProfitChartData {
 
-  private summary = [
-    {
-      title: 'Transactions',
-      value: 3654,
-    },
-    {
-      title: 'Last Month',
-      value: 946,
-    },
-    {
-      title: 'Last Week',
-      value: 654,
-    },
-    {
-      title: 'Today',
-      value: 230,
-    },
-  ];
 
   constructor(private ordersChartService: OrdersChartData,
-              private profitChartService: ProfitChartData) {
+              private profitChartService: ProfitChartData,
+              private apiService: ApiService) {
     super();
   }
 
+  getSingleChartSummary(name: string, entities: string[]): Observable<OrderProfitChartSummary> {
+    let transactionsCount = 0;
+    const observables: Observable<number>[] = entities.map((entity, index) => {
+      return this.apiService.get(entity).pipe(map(value => {
+        return value.page.totalElements;
+      }));
+    });
+    return new Observable(subscriber => {
+
+      forkJoin(observables).subscribe((res) => {
+          transactionsCount = res.reduce((previousValue, currentValue) => previousValue + currentValue);
+          const summary =
+            {
+              title: name,
+              value: transactionsCount,
+            };
+          subscriber.next(summary);
+        }, error => {
+          subscriber.error(error);
+        },
+        () => {
+          subscriber.complete();
+        }
+      );
+    });
+  }
+
   getOrderProfitChartSummary(): Observable<OrderProfitChartSummary[]> {
-    return observableOf(this.summary);
+    return forkJoin(
+      this.getSingleChartSummary('Transactions', ['loans', 'contributions']),
+      this.getSingleChartSummary('Users', ['students', 'admins']));
   }
 
   getOrdersChartData(period: string): Observable<OrdersChart> {
