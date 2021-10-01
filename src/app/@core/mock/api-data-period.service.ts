@@ -14,16 +14,16 @@ export class ApiDataPeriodService extends ApiDataPeriod {
   }
 
   get(entity: string, period: string, nPoints: number): Observable<number[]> {
-    let dateOffset = 7;
+    let dateOffset;
     switch (period) {
       case 'week':
         dateOffset = 7;
         break;
       case 'month':
-        dateOffset = 30;
+        dateOffset = 365;
         break;
       case 'year':
-        dateOffset = 365;
+        dateOffset = 365*7;
         break;
 
     }
@@ -38,12 +38,14 @@ export class ApiDataPeriodService extends ApiDataPeriod {
           const offset = (endTime - startTime) / nPoints;
 
           const dates = [];
+          //between start and end
           res._embedded[entity].map(item => {
-            const itemDate = Date.parse(item.createdAt);
+            const itemDate = Date.parse(item.createdAt)-60*60*10000;
             if (itemDate > startTime && itemDate < endTime) {
               dates.push(itemDate);
             }
           });
+          //array of rank compared to offset from 0 to nPoints
           const finalMap = dates.map(i => {
             return Math.floor((i - startTime) / offset);
           });
