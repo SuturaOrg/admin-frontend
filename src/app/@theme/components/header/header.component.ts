@@ -22,11 +22,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   themes = [
     {
-      value: 'dark',
+      value: 'default',
       name: 'Dark',
     },
     {
-      value: 'default',
+      value: 'light',
       name: 'Light',
     },
     {
