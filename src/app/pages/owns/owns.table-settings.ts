@@ -280,7 +280,7 @@ export const ownsTableSettings = {
             editable: false
           },
           sliceCount: {
-            title: 'Slices',
+            title: 'Tranches',
             editable: false
           },
           phone: {
@@ -443,7 +443,7 @@ export const ownsTableSettings = {
             title: 'Montant remboursé',
           },
           sliceCount: {
-            title: 'Slices',
+            title: 'Tranches',
           },
           phone: {
             title: 'Téléphone',
