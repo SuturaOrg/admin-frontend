@@ -41,7 +41,6 @@ export class ProfitChartComponent implements AfterViewInit, OnDestroy, OnChanges
     this.theme.getJsTheme()
       .pipe(takeWhile(() => this.alive))
       .subscribe(config => {
-        console.log("vgf",config)
         const eTheme: any = config.variables.profit;
 
         this.setOptions(eTheme);
@@ -49,7 +48,6 @@ export class ProfitChartComponent implements AfterViewInit, OnDestroy, OnChanges
   }
 
   setOptions(eTheme) {
-    console.log("kkj", this.profitChartData)
     this.options = {
       backgroundColor: eTheme.bg,
       tooltip: {
@@ -162,7 +160,6 @@ export class ProfitChartComponent implements AfterViewInit, OnDestroy, OnChanges
   }
 
   updateProfitChartOptions(profitChartData: ProfitChart) {
-    console.log("xxf",profitChartData,this.options);
     const options = this.options;
     const series = this.getNewSeries(options.series, profitChartData.data);
 

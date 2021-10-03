@@ -88,7 +88,6 @@ export class SmartTableComponent implements OnInit {
       };
       this.http.put<any>('http://localhost:8082/api/students/' + event.newData.id, data, { headers: this.headers }).subscribe(
         res => {
-          console.log(res);
           event.confirm.resolve(event.newData);
         },
         (err: HttpErrorResponse) => {
@@ -107,7 +106,6 @@ export class SmartTableComponent implements OnInit {
     if (window.confirm('Are you sure you want to delete?')) {
       this.http.delete<any>('http://localhost:8082/api/students/' + event.newData.id, { headers: this.headers }).subscribe(
         data => {
-          console.log(data);
         },
         (err: HttpErrorResponse) => {
           if (err.error instanceof Error) {

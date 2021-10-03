@@ -48,7 +48,6 @@ export class OrdersChartService extends OrdersChartData implements OnInit {
           res.map((val, index) => {
             ordersChart.linesData[index] = val;
           });
-          console.log(ordersChart.linesData);
           subscriber.next(<OrdersChart>ordersChart);
           subscriber.complete();
         }, error => {

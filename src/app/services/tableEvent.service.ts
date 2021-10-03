@@ -115,7 +115,6 @@ export class TableEventService {
         if (window.confirm('Are you sure you want to save?')) {
           this.apiService.patchFromId(this.entity, event.data.id, data).subscribe(
             async res => {
-              console.log(event.data);
               event.confirm.resolve();
             },
             this.handleError);

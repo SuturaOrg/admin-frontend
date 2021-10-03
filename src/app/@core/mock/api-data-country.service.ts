@@ -15,7 +15,6 @@ export class ApiDataCountryService extends ApiDataCountry {
   }
 
   get(categories: string[], country: string): Observable<number[]> {
-    console.log(country, categories);
     const observables: Observable<number>[] = categories.map((category, index) => {
       return this.apiService.getWithFilters(category.toLowerCase(),
         [{

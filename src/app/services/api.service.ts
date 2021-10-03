@@ -33,7 +33,6 @@ export class ApiService {
       first = false;
       return res;
     }, '');
-    console.log(params);
     return this.http.get<any>(this.baseApi + entity + '/?' + params);
   };
 

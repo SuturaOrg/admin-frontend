@@ -44,7 +44,6 @@ export class ProfitChartService extends ProfitChartData {
           res.map((val, index) => {
             profitChart.data[index] = val;
           });
-          console.log(profitChart.data);
           subscriber.next(profitChart);
           subscriber.complete();
         }, error => {
