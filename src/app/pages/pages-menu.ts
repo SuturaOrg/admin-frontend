@@ -37,7 +37,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: 'En attente',
         link: '/pages/owns/loans/pending',
-        icon: 'repeat-outline',
+        icon: 'arrowhead-down-outline',
       },
       {
         title: 'Tout',
@@ -78,7 +78,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: 'En attente',
         link: '/pages/owns/contributions/pending',
-        icon: 'people-outline',
+        icon: 'arrowhead-down-outline',
       },
       {
         title: 'Tout',
@@ -95,7 +95,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
         {
           title: 'En attente',
           link: '/pages/owns/refunds/pending',
-          icon: 'people-outline',
+          icon: 'arrowhead-down-outline',
         },
         {
           title: 'Tout',
