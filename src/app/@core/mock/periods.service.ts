@@ -28,9 +28,9 @@ export class PeriodsService {
 
   getMonths() {
     const months= [
-      'Jan', 'Feb', 'Mar',
-      'Apr', 'May', 'Jun',
-      'Jul', 'Aug', 'Sep',
+      'Jan', 'Fev', 'Mar',
+      'Avr', 'Mai', 'Jun',
+      'Jul', 'Aout', 'Sep',
       'Oct', 'Nov', 'Dec',
     ];
     const goBackDays = 12;
@@ -48,13 +48,13 @@ export class PeriodsService {
 
   getWeeks() {
     const days = [
-      'Sun',
-      'Mon',
-      'Tue',
-      'Wed',
-      'Thu',
-      'Fri',
-      'Sat',
+      'Dim',
+      'Lun',
+      'Mar',
+      'Mer',
+      'Jeu',
+      'Ven',
+      'Sam',
     ];
     const goBackDays = 7;
 
