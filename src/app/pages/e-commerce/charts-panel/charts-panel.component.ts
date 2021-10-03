@@ -19,7 +19,46 @@ export class ECommerceChartsPanelComponent implements OnDestroy {
   chartPanelSummary: OrderProfitChartSummary[];
   period: string = 'week';
   ordersChartData: OrdersChart;
-  profitChartData: ProfitChart;
+  profitChartData: ProfitChart={
+    "chartLabel": [
+      "Lun",
+      "Mar",
+      "Mer",
+      "Jeu",
+      "Ven",
+      "Sam",
+      "Dim"
+    ],
+    "data": [
+      [
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ]
+  };
 
   @ViewChild('ordersChart', { static: true }) ordersChart: OrdersChartComponent;
   @ViewChild('profitChart', { static: true }) profitChart: ProfitChartComponent;
@@ -64,6 +103,7 @@ export class ECommerceChartsPanelComponent implements OnDestroy {
     this.ordersProfitChartService.getProfitChartData(period)
       .pipe(takeWhile(() => this.alive))
       .subscribe(profitChartData => {
+        console.log("jbj",profitChartData);
         this.profitChartData = profitChartData;
       });
   }

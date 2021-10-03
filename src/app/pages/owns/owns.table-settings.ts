@@ -24,14 +24,14 @@ export const ownsTableSettings = {
           firstname: {
             title: 'Prénom',
             valuePrepareFunction: (val, row) => {
-              return row.studentPrime.firstname;
+              return row.studentPrime?.firstname;
             },
             editable: false,
           },
           lastname: {
             title: 'Nom',
             valuePrepareFunction: (val, row) => {
-              return row.studentPrime.lastname;
+              return row.studentPrime?.lastname;
             },
             editable: false,
           },
@@ -111,14 +111,14 @@ export const ownsTableSettings = {
           firstname: {
             title: 'Prénom',
             valuePrepareFunction: (val, row) => {
-              return row.studentPrime.firstname;
+              return row.studentPrime?.firstname;
             },
             editable: false,
           },
           lastname: {
             title: 'Nom',
             valuePrepareFunction: (val, row) => {
-              return row.studentPrime.lastname;
+              return row.studentPrime?.lastname;
             },
             editable: false,
           },
@@ -181,14 +181,14 @@ export const ownsTableSettings = {
           firstname: {
             title: 'Prénom',
             valuePrepareFunction: (val, row) => {
-              return row.studentPrime.firstname;
+              return row.studentPrime?.firstname;
             },
             editable: false
           },
           lastname: {
             title: 'Nom',
             valuePrepareFunction: (val, row) => {
-              return row.studentPrime.lastname;
+              return row.studentPrime?.lastname;
             },
             editable: false
           },
@@ -215,7 +215,7 @@ export const ownsTableSettings = {
           phone: {
             title: 'Téléphone',
             valuePrepareFunction: (val, row) => {
-              return row.studentPrime.phone;
+              return row.studentPrime?.phone;
             }
           },
         },
@@ -259,14 +259,14 @@ export const ownsTableSettings = {
           firstname: {
             title: 'Prénom',
             valuePrepareFunction: (val, row) => {
-              return row.studentPrime.firstname;
+              return row.studentPrime?.firstname;
             },
             editable: false
           },
           lastname: {
             title: 'Nom',
             valuePrepareFunction: (val, row) => {
-              return row.studentPrime.lastname;
+              return row.studentPrime?.lastname;
             },
             editable: false
           },
@@ -286,7 +286,7 @@ export const ownsTableSettings = {
           phone: {
             title: 'Téléphone',
             valuePrepareFunction: (val, row) => {
-              return row.studentPrime.phone;
+              return row.studentPrime?.phone;
             }
           },
           statusRefund: {
@@ -342,14 +342,14 @@ export const ownsTableSettings = {
           firstname: {
             title: 'Prénom',
             valuePrepareFunction: (val, row) => {
-              return row.studentPrime.firstname;
+              return row.studentPrime?.firstname;
             },
             editable: false
           },
           lastname: {
             title: 'Nom',
             valuePrepareFunction: (val, row) => {
-              return row.studentPrime.lastname;
+              return row.studentPrime?.lastname;
             },
             editable: false,
           },
@@ -371,7 +371,7 @@ export const ownsTableSettings = {
           phone: {
             title: 'Téléphone',
             valuePrepareFunction: (val, row) => {
-              return row.studentPrime.phone;
+              return row.studentPrime?.phone;
             }
           },
           proof: {
@@ -425,13 +425,13 @@ export const ownsTableSettings = {
           firstname: {
             title: 'Prénom',
             valuePrepareFunction: (val, row) => {
-              return row.studentPrime.firstname;
+              return row.studentPrime?.firstname;
             }
           },
           lastname: {
             title: 'Nom',
             valuePrepareFunction: (val, row) => {
-              return row.studentPrime.lastname;
+              return row.studentPrime?.lastname;
             }
           },
           amount: {
@@ -448,7 +448,7 @@ export const ownsTableSettings = {
           phone: {
             title: 'Téléphone',
             valuePrepareFunction: (val, row) => {
-              return row.studentPrime.phone;
+              return row.studentPrime?.phone;
             }
           },
         },
@@ -490,14 +490,14 @@ export const ownsTableSettings = {
           firstname: {
             title: 'Prénom',
             valuePrepareFunction: (val, row) => {
-              return row.studentPrime.firstname;
+              return row.studentPrime?.firstname;
             },
             editable: false,
           },
           lastname: {
             title: 'Nom',
             valuePrepareFunction: (val, row) => {
-              return row.studentPrime.lastname;
+              return row.studentPrime?.lastname;
             },
             editable: false,
           },
@@ -529,7 +529,7 @@ export const ownsTableSettings = {
           phone: {
             title: 'Téléphone',
             valuePrepareFunction: (val, row) => {
-              return row.studentPrime.phone;
+              return row.studentPrime?.phone;
             }
           },
         },
@@ -612,14 +612,14 @@ export const ownsTableSettings = {
           firstname: {
             title: 'Prénom',
             valuePrepareFunction: (val, row) => {
-              return row.studentPrime.firstname;
+              return row.studentPrime?.firstname;
             },
             editable: false,
           },
           lastname: {
             title: 'Nom',
             valuePrepareFunction: (val, row) => {
-              return row.studentPrime.lastname;
+              return row.studentPrime?.lastname;
             },
             editable: false,
           },
@@ -689,14 +689,14 @@ export const ownsTableSettings = {
           firstname: {
             title: 'Prénom',
             valuePrepareFunction: (val, row) => {
-              return row.studentPrime.firstname;
+              return row.studentPrime?.firstname;
             },
             editable: false,
           },
           lastname: {
             title: 'Nom',
             valuePrepareFunction: (val, row) => {
-              return row.studentPrime.lastname;
+              return row.studentPrime?.lastname;
             },
             editable: false,
           },
@@ -1213,13 +1213,13 @@ export const ownsTableSettings = {
           firstname: {
             title: 'Prénom',
             valuePrepareFunction: (val, row) => {
-              return row.studentPrime.firstname;
+              return row.studentPrime?.firstname;
             }
           },
           lastname: {
             title: 'Nom',
             valuePrepareFunction: (val, row) => {
-              return row.studentPrime.lastname;
+              return row.studentPrime?.lastname;
             }
           },
           amount: {
@@ -1244,7 +1244,7 @@ export const ownsTableSettings = {
           phone: {
             title: 'Téléphone',
             valuePrepareFunction: (val, row) => {
-              return row.studentPrime.phone;
+              return row.studentPrime?.phone;
             }
           },
         },
@@ -1287,14 +1287,14 @@ export const ownsTableSettings = {
           firstname: {
             title: 'Prénom',
             valuePrepareFunction: (val, row) => {
-              return row.studentPrime.firstname;
+              return row.studentPrime?.firstname;
             },
             editable: false,
           },
           lastname: {
             title: 'Nom',
             valuePrepareFunction: (val, row) => {
-              return row.studentPrime.lastname;
+              return row.studentPrime?.lastname;
             },
             editable: false,
           },
@@ -1361,13 +1361,13 @@ export const ownsTableSettings = {
           firstname: {
             title: 'Prénom',
             valuePrepareFunction: (val, row) => {
-              return row.studentPrime.firstname;
+              return row.studentPrime?.firstname;
             }
           },
           lastname: {
             title: 'Nom',
             valuePrepareFunction: (val, row) => {
-              return row.studentPrime.lastname;
+              return row.studentPrime?.lastname;
             }
           },
           amount: {
