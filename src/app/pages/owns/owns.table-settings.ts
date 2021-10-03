@@ -4,7 +4,7 @@ import {LinkComponent} from '../advanced/link/link.component';
 
 export const ownsTableSettings = {
   contributions: {
-     pending: {
+    pending: {
       settings: {
         actions: {
           add: false,
@@ -60,7 +60,7 @@ export const ownsTableSettings = {
           proof: {
             title: 'Preuve',
             type: 'custom',
-            renderComponent:LinkComponent,
+            renderComponent: LinkComponent,
             editor: {
               type: 'custom',
               component: ImageUploadComponent,
@@ -70,12 +70,12 @@ export const ownsTableSettings = {
         },
         autofilter: [{
           column: 'approved',
-          value: "false",
+          value: 'false',
         },
-        {
-          column: 'status',
-          value: "false",
-        }],
+          {
+            column: 'status',
+            value: 'false',
+          }],
         joints: [
           {
             entity: 'studentPrime',
@@ -85,7 +85,7 @@ export const ownsTableSettings = {
       },
       entity: 'contributions',
     },
-     all: {
+    all: {
       settings: {
         actions: {
           add: false,
@@ -148,7 +148,7 @@ export const ownsTableSettings = {
         },
         autofilter: [{
           column: 'status',
-          value: "false",
+          value: 'false',
         }],
       },
       entity: 'contributions',
@@ -214,9 +214,9 @@ export const ownsTableSettings = {
           },
           phone: {
             title: 'Téléphone',
-              valuePrepareFunction: (val, row) => {
-                return row.studentPrime.phone;
-              }
+            valuePrepareFunction: (val, row) => {
+              return row.studentPrime.phone;
+            }
           },
         },
         autofilter: [{
@@ -285,9 +285,9 @@ export const ownsTableSettings = {
           },
           phone: {
             title: 'Téléphone',
-              valuePrepareFunction: (val, row) => {
-                return row.studentPrime.phone;
-              }
+            valuePrepareFunction: (val, row) => {
+              return row.studentPrime.phone;
+            }
           },
           statusRefund: {
             title: 'Refunded',
@@ -296,7 +296,7 @@ export const ownsTableSettings = {
           receipt: {
             title: 'Receipt',
             type: 'custom',
-            renderComponent:LinkComponent,
+            renderComponent: LinkComponent,
             editor: {
               type: 'custom',
               component: ImageUploadComponent,
@@ -370,14 +370,14 @@ export const ownsTableSettings = {
           },
           phone: {
             title: 'Téléphone',
-              valuePrepareFunction: (val, row) => {
-                return row.studentPrime.phone;
-              }
+            valuePrepareFunction: (val, row) => {
+              return row.studentPrime.phone;
+            }
           },
           proof: {
             title: 'Preuve',
             type: 'custom',
-            renderComponent:LinkComponent,
+            renderComponent: LinkComponent,
             editor: {
               type: 'custom',
               component: ImageUploadComponent,
@@ -447,9 +447,9 @@ export const ownsTableSettings = {
           },
           phone: {
             title: 'Téléphone',
-              valuePrepareFunction: (val, row) => {
-                return row.studentPrime.phone;
-              }
+            valuePrepareFunction: (val, row) => {
+              return row.studentPrime.phone;
+            }
           },
         },
         autofilter: [{
@@ -528,9 +528,9 @@ export const ownsTableSettings = {
           },
           phone: {
             title: 'Téléphone',
-              valuePrepareFunction: (val, row) => {
-                return row.studentPrime.phone;
-              }
+            valuePrepareFunction: (val, row) => {
+              return row.studentPrime.phone;
+            }
           },
         },
         joints: [
@@ -587,151 +587,151 @@ export const ownsTableSettings = {
   },
   refunds: {
     pending: {
-    settings: {
-      actions: {
-        add: false,
-      },
-      add: {
-        addButtonContent: '<i class="nb-plus"></i>',
-        createButtonContent: '<i class="nb-checkmark"></i>',
-        cancelButtonContent: '<i class="nb-close"></i>',
-        confirmCreate: true,
-      },
-      edit: {
-        editButtonContent: '<i class="nb-edit"></i>',
-        saveButtonContent: '<i class="nb-checkmark"></i>',
-        cancelButtonContent: '<i class="nb-close"></i>',
-        confirmSave: true,
+      settings: {
+        actions: {
+          add: false,
+        },
+        add: {
+          addButtonContent: '<i class="nb-plus"></i>',
+          createButtonContent: '<i class="nb-checkmark"></i>',
+          cancelButtonContent: '<i class="nb-close"></i>',
+          confirmCreate: true,
+        },
+        edit: {
+          editButtonContent: '<i class="nb-edit"></i>',
+          saveButtonContent: '<i class="nb-checkmark"></i>',
+          cancelButtonContent: '<i class="nb-close"></i>',
+          confirmSave: true,
 
-      },
-      delete: {
-        deleteButtonContent: '<i class="nb-trash"></i>',
-        confirmDelete: true,
-      },
-      columns: {
-        firstname: {
-          title: 'Prénom',
-          valuePrepareFunction: (val, row) => {
-            return row.studentPrime.firstname;
+        },
+        delete: {
+          deleteButtonContent: '<i class="nb-trash"></i>',
+          confirmDelete: true,
+        },
+        columns: {
+          firstname: {
+            title: 'Prénom',
+            valuePrepareFunction: (val, row) => {
+              return row.studentPrime.firstname;
+            },
+            editable: false,
           },
-          editable: false,
-        },
-        lastname: {
-          title: 'Nom',
-          valuePrepareFunction: (val, row) => {
-            return row.studentPrime.lastname;
+          lastname: {
+            title: 'Nom',
+            valuePrepareFunction: (val, row) => {
+              return row.studentPrime.lastname;
+            },
+            editable: false,
           },
-          editable: false,
-        },
-        amount: {
-          title: 'Montant',
-          filter: true,
-          editable: false,
-        },
-        period: {
-          title: 'Période',
-          filter: true,
-          editable: false,
-        },
-        createdAt: {
-          title: 'Date',
-          valuePrepareFunction: (createdAt) => {
-            return new Date(createdAt).toLocaleDateString('fr-FR');
+          amount: {
+            title: 'Montant',
+            filter: true,
+            editable: false,
           },
-          filter: true,
-          editable: false,
-        },
-        proof: {
-          title: 'Preuve',
-          type: 'custom',
-          renderComponent:LinkComponent,
-          editor: {
+          period: {
+            title: 'Période',
+            filter: true,
+            editable: false,
+          },
+          createdAt: {
+            title: 'Date',
+            valuePrepareFunction: (createdAt) => {
+              return new Date(createdAt).toLocaleDateString('fr-FR');
+            },
+            filter: true,
+            editable: false,
+          },
+          proof: {
+            title: 'Preuve',
             type: 'custom',
-            component: ImageUploadComponent,
+            renderComponent: LinkComponent,
+            editor: {
+              type: 'custom',
+              component: ImageUploadComponent,
+            },
+            editable: false,
           },
-          editable: false,
         },
+        autofilter: [{
+          column: 'approved',
+          value: 'false',
+        },
+          {
+            column: 'status',
+            value: 'false',
+          }],
       },
-      autofilter: [{
-        column: 'approved',
-        value: "false",
-      },
-      {
-        column: 'status',
-        value: "false",
-      }],
+      entity: 'refunds',
     },
-    entity: 'refunds',
-  },
-  all: {
-    settings: {
-      actions: {
-        add: false,
-      },
-      add: {
-        addButtonContent: '<i class="nb-plus"></i>',
-        createButtonContent: '<i class="nb-checkmark"></i>',
-        cancelButtonContent: '<i class="nb-close"></i>',
-        confirmCreate: true,
-      },
-      edit: {
-        editButtonContent: '<i class="nb-edit"></i>',
-        saveButtonContent: '<i class="nb-checkmark"></i>',
-        cancelButtonContent: '<i class="nb-close"></i>',
-        confirmSave: true,
+    all: {
+      settings: {
+        actions: {
+          add: false,
+        },
+        add: {
+          addButtonContent: '<i class="nb-plus"></i>',
+          createButtonContent: '<i class="nb-checkmark"></i>',
+          cancelButtonContent: '<i class="nb-close"></i>',
+          confirmCreate: true,
+        },
+        edit: {
+          editButtonContent: '<i class="nb-edit"></i>',
+          saveButtonContent: '<i class="nb-checkmark"></i>',
+          cancelButtonContent: '<i class="nb-close"></i>',
+          confirmSave: true,
 
-      },
-      delete: {
-        deleteButtonContent: '<i class="nb-trash"></i>',
-        confirmDelete: true,
-      },
-      columns: {
-        firstname: {
-          title: 'Prénom',
-          valuePrepareFunction: (val, row) => {
-            return row.studentPrime.firstname;
+        },
+        delete: {
+          deleteButtonContent: '<i class="nb-trash"></i>',
+          confirmDelete: true,
+        },
+        columns: {
+          firstname: {
+            title: 'Prénom',
+            valuePrepareFunction: (val, row) => {
+              return row.studentPrime.firstname;
+            },
+            editable: false,
           },
-          editable: false,
-        },
-        lastname: {
-          title: 'Nom',
-          valuePrepareFunction: (val, row) => {
-            return row.studentPrime.lastname;
+          lastname: {
+            title: 'Nom',
+            valuePrepareFunction: (val, row) => {
+              return row.studentPrime.lastname;
+            },
+            editable: false,
           },
-          editable: false,
-        },
-        amount: {
-          title: 'Montant',
-          filter: true,
-          editable: false,
-        },
-        period: {
-          title: 'Période',
-          filter: true,
-          editable: false,
-        },
-        createdAt: {
-          title: 'Date',
-          valuePrepareFunction: (createdAt) => {
-            return new Date(createdAt).toLocaleDateString('fr-FR');
+          amount: {
+            title: 'Montant',
+            filter: true,
+            editable: false,
           },
-          filter: true,
-          editable: false,
+          period: {
+            title: 'Période',
+            filter: true,
+            editable: false,
+          },
+          createdAt: {
+            title: 'Date',
+            valuePrepareFunction: (createdAt) => {
+              return new Date(createdAt).toLocaleDateString('fr-FR');
+            },
+            filter: true,
+            editable: false,
+          },
+          type: {
+            title: 'Type',
+            filter: true,
+            editable: false,
+          },
         },
-        type: {
-          title: 'Type',
-          filter: true,
-          editable: false,
-        },
+        autofilter: [{
+          column: 'status',
+          value: 'false',
+        }],
       },
-      autofilter: [{
-        column: 'status',
-        value: "false",
-      }],
+      entity: 'refunds',
     },
-    entity: 'refunds',
   },
- },
   funds: {
     settings: {
       add: {
@@ -754,6 +754,9 @@ export const ownsTableSettings = {
       columns: {
         isFavorable: {
           title: 'IsFavorable',
+          filter: {
+            type: 'checkbox',
+          },
           editable: false,
         },
         threshold: {
@@ -824,7 +827,7 @@ export const ownsTableSettings = {
         proof: {
           title: 'Preuve',
           type: 'custom',
-          renderComponent:LinkComponent,
+          renderComponent: LinkComponent,
           editor: {
             type: 'custom',
             component: ImageUploadComponent,
@@ -837,62 +840,62 @@ export const ownsTableSettings = {
   },
 
   expenses: {
-      settings: {
-        add: {
-          addButtonContent: '<i class="nb-plus"></i>',
-          createButtonContent: '<i class="nb-checkmark"></i>',
-          cancelButtonContent: '<i class="nb-close"></i>',
-          confirmCreate: true,
-        },
-        edit: {
-          editButtonContent: '<i class="nb-edit"></i>',
-          saveButtonContent: '<i class="nb-checkmark"></i>',
-          cancelButtonContent: '<i class="nb-close"></i>',
-          confirmSave: true,
+    settings: {
+      add: {
+        addButtonContent: '<i class="nb-plus"></i>',
+        createButtonContent: '<i class="nb-checkmark"></i>',
+        cancelButtonContent: '<i class="nb-close"></i>',
+        confirmCreate: true,
+      },
+      edit: {
+        editButtonContent: '<i class="nb-edit"></i>',
+        saveButtonContent: '<i class="nb-checkmark"></i>',
+        cancelButtonContent: '<i class="nb-close"></i>',
+        confirmSave: true,
 
+      },
+      delete: {
+        deleteButtonContent: '<i class="nb-trash"></i>',
+        confirmDelete: true,
+      },
+      columns: {
+        amount: {
+          title: 'Montant',
+          filter: true,
+          editable: false,
         },
-        delete: {
-          deleteButtonContent: '<i class="nb-trash"></i>',
-          confirmDelete: true,
+        createdBy: {
+          title: 'Admin',
+          editable: false,
         },
-        columns: {
-          amount: {
-            title: 'Montant',
-            filter: true,
-            editable: false,
+        period: {
+          title: 'Période',
+          filter: true,
+          editable: false,
+        },
+        createdAt: {
+          title: 'Date',
+          valuePrepareFunction: (createdAt) => {
+            return new Date(createdAt).toLocaleDateString('fr-FR');
           },
-          createdBy: {
-            title: 'Admin',
-            editable: false,
-          },
-          period: {
-            title: 'Période',
-            filter: true,
-            editable: false,
-          },
-          createdAt: {
-            title: 'Date',
-            valuePrepareFunction: (createdAt) => {
-              return new Date(createdAt).toLocaleDateString('fr-FR');
-            },
-            filter: true,
-            editable: false,
-          },
-          proof: {
-            title: 'Preuve',
+          filter: true,
+          editable: false,
+        },
+        proof: {
+          title: 'Preuve',
+          type: 'custom',
+          renderComponent: LinkComponent,
+          editor: {
             type: 'custom',
-            renderComponent:LinkComponent,
-            editor: {
-              type: 'custom',
-              component: ImageUploadComponent,
-            },
-            editable: false,
+            component: ImageUploadComponent,
           },
+          editable: false,
         },
       },
-      entity: 'expenses',
-
     },
+    entity: 'expenses',
+
+  },
 
   adherents: {
     contributed: {
@@ -955,10 +958,10 @@ export const ownsTableSettings = {
           column: 'transactionHistory.contributed',
           value: 'true',
         },
-        {
-          column: 'enabled',
-          value: "true",
-        }
+          {
+            column: 'enabled',
+            value: 'true',
+          }
         ],
       },
       entity: 'students',
@@ -1025,90 +1028,90 @@ export const ownsTableSettings = {
     },
 
     administrators: {
-          settings: {
-            actions: {
-              add: false,
-            },
-            edit: {
-              editButtonContent: '<i class="nb-edit"></i>',
-              saveButtonContent: '<i class="nb-checkmark"></i>',
-              cancelButtonContent: '<i class="nb-close"></i>',
-              confirmSave: true,
-            },
-            delete: {
-              deleteButtonContent: '<i class="nb-trash"></i>',
-              confirmDelete: true,
-            },
-            columns: {
-              firstname: {
-                title: 'Prénom',
-                editable: false,
-              },
-              lastname: {
-                title: 'Nom',
-                editable: false,
-              },
-              position: {
-                title: 'Rôle',
-                editable: false,
-              },
-              amount: {
-                title: 'Montant',
-                filter: true,
-                editable: false,
-              },
-              town: {
-                title: 'Ville',
-                filter: true,
-                editable: false,
-              },
-              totalAmount: {
-                title: 'Montant total',
-                editable: false,
-              },
-              totalPeriods: {
-                title: 'Nombre de périodes',
-                filter: true,
-                editable: false,
-              },
-              picture: {
-                title: 'Profil',
-                type: 'custom',
-                renderComponent:LinkComponent,
-                editor: {
-                  type: 'custom',
-                  component: ImageUploadComponent,
-                },
-                editable: false,
-              },
-            },
-            pager: {
-              display: true,
-              perPage: 5,
-            },
-            filters: [
-              {
-                contribution: [],
-              },
-            ],
-            autofilter: [
-              {
-                column: 'projection',
-                value: 'contributionsProjection',
-              },
-              {
-                column: 'transactionHistory.notContributed',
-                value: 'true',
-              },
-              {
-                column: 'enabled',
-                value: 'true',
-              }
-            ],
-          },
-          entity: 'admins',
-
+      settings: {
+        actions: {
+          add: false,
         },
+        edit: {
+          editButtonContent: '<i class="nb-edit"></i>',
+          saveButtonContent: '<i class="nb-checkmark"></i>',
+          cancelButtonContent: '<i class="nb-close"></i>',
+          confirmSave: true,
+        },
+        delete: {
+          deleteButtonContent: '<i class="nb-trash"></i>',
+          confirmDelete: true,
+        },
+        columns: {
+          firstname: {
+            title: 'Prénom',
+            editable: false,
+          },
+          lastname: {
+            title: 'Nom',
+            editable: false,
+          },
+          position: {
+            title: 'Rôle',
+            editable: false,
+          },
+          amount: {
+            title: 'Montant',
+            filter: true,
+            editable: false,
+          },
+          town: {
+            title: 'Ville',
+            filter: true,
+            editable: false,
+          },
+          totalAmount: {
+            title: 'Montant total',
+            editable: false,
+          },
+          totalPeriods: {
+            title: 'Nombre de périodes',
+            filter: true,
+            editable: false,
+          },
+          picture: {
+            title: 'Profil',
+            type: 'custom',
+            renderComponent: LinkComponent,
+            editor: {
+              type: 'custom',
+              component: ImageUploadComponent,
+            },
+            editable: false,
+          },
+        },
+        pager: {
+          display: true,
+          perPage: 5,
+        },
+        filters: [
+          {
+            contribution: [],
+          },
+        ],
+        autofilter: [
+          {
+            column: 'projection',
+            value: 'contributionsProjection',
+          },
+          {
+            column: 'transactionHistory.notContributed',
+            value: 'true',
+          },
+          {
+            column: 'enabled',
+            value: 'true',
+          }
+        ],
+      },
+      entity: 'admins',
+
+    },
 
 
     students: {
@@ -1163,7 +1166,7 @@ export const ownsTableSettings = {
           picture: {
             title: 'Profil',
             type: 'custom',
-            renderComponent:LinkComponent,
+            renderComponent: LinkComponent,
             editor: {
               type: 'custom',
               component: ImageUploadComponent,
@@ -1174,10 +1177,10 @@ export const ownsTableSettings = {
           column: 'projection',
           value: 'contributionsProjection',
         },
-        {
-          column: 'enabled',
-          value: 'true',
-        }
+          {
+            column: 'enabled',
+            value: 'true',
+          }
         ],
       },
       entity: 'students',
@@ -1185,222 +1188,222 @@ export const ownsTableSettings = {
   },
 
   trash: {
-      loans: {
-        settings: {
-          actions: {
-            add: false,
-          },
-          add: {
-            addButtonContent: '<i class="nb-plus"></i>',
-            createButtonContent: '<i class="nb-checkmark"></i>',
-            cancelButtonContent: '<i class="nb-close"></i>',
-            confirmCreate: true,
-          },
-          edit: {
-            editButtonContent: '<i class="nb-edit"></i>',
-            saveButtonContent: '<i class="nb-checkmark"></i>',
-            cancelButtonContent: '<i class="nb-close"></i>',
-            confirmSave: true,
-          },
-          delete: {
-            deleteButtonContent: '<i class="nb-trash"></i>',
-            confirmDelete: true,
-          },
-          columns: {
-            firstname: {
-              title: 'Prénom',
-              valuePrepareFunction: (val, row) => {
-                return row.studentPrime.firstname;
-              }
-            },
-            lastname: {
-              title: 'Nom',
-              valuePrepareFunction: (val, row) => {
-                return row.studentPrime.lastname;
-              }
-            },
-            amount: {
-              title: 'Montant',
-              filter: true,
-              editable: false,
-            },
-            createdAt: {
-              title: 'Date',
-              valuePrepareFunction: (createdAt) => {
-                return new Date(createdAt).toLocaleDateString('fr-FR');
-              },
-              filter: true,
-              editable: false,
-            },
-            priority: {
-              title: 'Priorité',
-            },
-            reason: {
-              title: 'Raison',
-            },
-            phone: {
-              title: 'Téléphone',
-                valuePrepareFunction: (val, row) => {
-                  return row.studentPrime.phone;
-                }
-            },
-          },
-          autofilter: [{
-            column: 'status',
-            value: "SUPPRIME",
-          }],
-          joints: [
-            {
-              entity: 'studentPrime',
-              columns: ['firstname', 'lastname'],
-            },
-          ],
+    loans: {
+      settings: {
+        actions: {
+          add: false,
         },
-        entity: 'loans',
+        add: {
+          addButtonContent: '<i class="nb-plus"></i>',
+          createButtonContent: '<i class="nb-checkmark"></i>',
+          cancelButtonContent: '<i class="nb-close"></i>',
+          confirmCreate: true,
+        },
+        edit: {
+          editButtonContent: '<i class="nb-edit"></i>',
+          saveButtonContent: '<i class="nb-checkmark"></i>',
+          cancelButtonContent: '<i class="nb-close"></i>',
+          confirmSave: true,
+        },
+        delete: {
+          deleteButtonContent: '<i class="nb-trash"></i>',
+          confirmDelete: true,
+        },
+        columns: {
+          firstname: {
+            title: 'Prénom',
+            valuePrepareFunction: (val, row) => {
+              return row.studentPrime.firstname;
+            }
+          },
+          lastname: {
+            title: 'Nom',
+            valuePrepareFunction: (val, row) => {
+              return row.studentPrime.lastname;
+            }
+          },
+          amount: {
+            title: 'Montant',
+            filter: true,
+            editable: false,
+          },
+          createdAt: {
+            title: 'Date',
+            valuePrepareFunction: (createdAt) => {
+              return new Date(createdAt).toLocaleDateString('fr-FR');
+            },
+            filter: true,
+            editable: false,
+          },
+          priority: {
+            title: 'Priorité',
+          },
+          reason: {
+            title: 'Raison',
+          },
+          phone: {
+            title: 'Téléphone',
+            valuePrepareFunction: (val, row) => {
+              return row.studentPrime.phone;
+            }
+          },
+        },
+        autofilter: [{
+          column: 'status',
+          value: 'SUPPRIME',
+        }],
+        joints: [
+          {
+            entity: 'studentPrime',
+            columns: ['firstname', 'lastname'],
+          },
+        ],
       },
-      contributions: {
-        settings: {
-          actions: {
-            add: false,
-          },
-          add: {
-            addButtonContent: '<i class="nb-plus"></i>',
-            createButtonContent: '<i class="nb-checkmark"></i>',
-            cancelButtonContent: '<i class="nb-close"></i>',
-            confirmCreate: true,
-          },
-          edit: {
-            editButtonContent: '<i class="nb-edit"></i>',
-            saveButtonContent: '<i class="nb-checkmark"></i>',
-            cancelButtonContent: '<i class="nb-close"></i>',
-            confirmSave: true,
+      entity: 'loans',
+    },
+    contributions: {
+      settings: {
+        actions: {
+          add: false,
+        },
+        add: {
+          addButtonContent: '<i class="nb-plus"></i>',
+          createButtonContent: '<i class="nb-checkmark"></i>',
+          cancelButtonContent: '<i class="nb-close"></i>',
+          confirmCreate: true,
+        },
+        edit: {
+          editButtonContent: '<i class="nb-edit"></i>',
+          saveButtonContent: '<i class="nb-checkmark"></i>',
+          cancelButtonContent: '<i class="nb-close"></i>',
+          confirmSave: true,
 
-          },
-          delete: {
-            deleteButtonContent: '<i class="nb-trash"></i>',
-            confirmDelete: true,
-          },
-          columns: {
-            firstname: {
-              title: 'Prénom',
-              valuePrepareFunction: (val, row) => {
-                return row.studentPrime.firstname;
-              },
-              editable: false,
-            },
-            lastname: {
-              title: 'Nom',
-              valuePrepareFunction: (val, row) => {
-                return row.studentPrime.lastname;
-              },
-              editable: false,
-            },
-            amount: {
-              title: 'Montant',
-              filter: true,
-              editable: false,
-            },
-            period: {
-              title: 'Période',
-              filter: true,
-              editable: false,
-            },
-            createdAt: {
-              title: 'Date',
-              valuePrepareFunction: (createdAt) => {
-                return new Date(createdAt).toLocaleDateString('fr-FR');
-              },
-              filter: true,
-              editable: false,
-            },
-            expiration: {
-              title: 'Date d\'expiration',
-              filter: true,
-              editable: false,
-            },
-          },
-          autofilter: [{
-            column: 'status',
-            value: "true",
-          }],
-          joints: [
-            {
-              entity: 'studentPrime',
-              columns: ['firstname', 'lastname'],
-            },
-          ],
         },
-        entity: 'contributions',
+        delete: {
+          deleteButtonContent: '<i class="nb-trash"></i>',
+          confirmDelete: true,
+        },
+        columns: {
+          firstname: {
+            title: 'Prénom',
+            valuePrepareFunction: (val, row) => {
+              return row.studentPrime.firstname;
+            },
+            editable: false,
+          },
+          lastname: {
+            title: 'Nom',
+            valuePrepareFunction: (val, row) => {
+              return row.studentPrime.lastname;
+            },
+            editable: false,
+          },
+          amount: {
+            title: 'Montant',
+            filter: true,
+            editable: false,
+          },
+          period: {
+            title: 'Période',
+            filter: true,
+            editable: false,
+          },
+          createdAt: {
+            title: 'Date',
+            valuePrepareFunction: (createdAt) => {
+              return new Date(createdAt).toLocaleDateString('fr-FR');
+            },
+            filter: true,
+            editable: false,
+          },
+          expiration: {
+            title: 'Date d\'expiration',
+            filter: true,
+            editable: false,
+          },
+        },
+        autofilter: [{
+          column: 'status',
+          value: 'true',
+        }],
+        joints: [
+          {
+            entity: 'studentPrime',
+            columns: ['firstname', 'lastname'],
+          },
+        ],
       },
-      refunds: {
-        settings: {
-          actions: {
-            add: false,
-          },
-          add: {
-            addButtonContent: '<i class="nb-plus"></i>',
-            createButtonContent: '<i class="nb-checkmark"></i>',
-            cancelButtonContent: '<i class="nb-close"></i>',
-            confirmCreate: true,
-          },
-          edit: {
-            editButtonContent: '<i class="nb-edit"></i>',
-            saveButtonContent: '<i class="nb-checkmark"></i>',
-            cancelButtonContent: '<i class="nb-close"></i>',
-            confirmSave: true,
+      entity: 'contributions',
+    },
+    refunds: {
+      settings: {
+        actions: {
+          add: false,
+        },
+        add: {
+          addButtonContent: '<i class="nb-plus"></i>',
+          createButtonContent: '<i class="nb-checkmark"></i>',
+          cancelButtonContent: '<i class="nb-close"></i>',
+          confirmCreate: true,
+        },
+        edit: {
+          editButtonContent: '<i class="nb-edit"></i>',
+          saveButtonContent: '<i class="nb-checkmark"></i>',
+          cancelButtonContent: '<i class="nb-close"></i>',
+          confirmSave: true,
 
-          },
-          delete: {
-            deleteButtonContent: '<i class="nb-trash"></i>',
-            confirmDelete: true,
-          },
-          columns: {
-            firstname: {
-              title: 'Prénom',
-              valuePrepareFunction: (val, row) => {
-                return row.studentPrime.firstname;
-              }
-            },
-            lastname: {
-              title: 'Nom',
-              valuePrepareFunction: (val, row) => {
-                return row.studentPrime.lastname;
-              }
-            },
-            amount: {
-              title: 'Montant',
-              filter: true,
-              editable: false,
-            },
-            period: {
-              title: 'Période',
-              filter: true,
-            },
-            createdAt: {
-              title: 'Date',
-              valuePrepareFunction: (createdAt) => {
-                return new Date(createdAt).toLocaleDateString('fr-FR');
-              },
-              filter: true,
-            },
-            type: {
-              title: 'Type',
-              filter: true,
-            },
-          },
-          autofilter: [{
-            column: 'status',
-            value: "true",
-          }],
-          joints: [
-            {
-              entity: 'studentPrime',
-              columns: ['firstname', 'lastname'],
-            },
-          ],
         },
-        entity: 'refunds',
+        delete: {
+          deleteButtonContent: '<i class="nb-trash"></i>',
+          confirmDelete: true,
+        },
+        columns: {
+          firstname: {
+            title: 'Prénom',
+            valuePrepareFunction: (val, row) => {
+              return row.studentPrime.firstname;
+            }
+          },
+          lastname: {
+            title: 'Nom',
+            valuePrepareFunction: (val, row) => {
+              return row.studentPrime.lastname;
+            }
+          },
+          amount: {
+            title: 'Montant',
+            filter: true,
+            editable: false,
+          },
+          period: {
+            title: 'Période',
+            filter: true,
+          },
+          createdAt: {
+            title: 'Date',
+            valuePrepareFunction: (createdAt) => {
+              return new Date(createdAt).toLocaleDateString('fr-FR');
+            },
+            filter: true,
+          },
+          type: {
+            title: 'Type',
+            filter: true,
+          },
+        },
+        autofilter: [{
+          column: 'status',
+          value: 'true',
+        }],
+        joints: [
+          {
+            entity: 'studentPrime',
+            columns: ['firstname', 'lastname'],
+          },
+        ],
       },
+      entity: 'refunds',
+    },
     donations: {
       settings: {
         add: {
@@ -1501,10 +1504,10 @@ export const ownsTableSettings = {
           column: 'projection',
           value: 'contributionsProjection',
         },
-        {
-          column: 'enabled',
-          value: 'false',
-        },
+          {
+            column: 'enabled',
+            value: 'false',
+          },
         ],
       },
       entity: 'students',
@@ -1553,7 +1556,7 @@ export const ownsTableSettings = {
           picture: {
             title: 'Profil',
             type: 'custom',
-            renderComponent:LinkComponent,
+            renderComponent: LinkComponent,
             editor: {
               type: 'custom',
               component: ImageUploadComponent,
@@ -1573,15 +1576,15 @@ export const ownsTableSettings = {
           column: 'projection',
           value: 'contributionsProjection',
         },
-        {
-          column: 'enabled',
-          value: 'false',
-        }
+          {
+            column: 'enabled',
+            value: 'false',
+          }
         ],
       },
       entity: 'admins',
 
     },
 
-    }
+  }
 };
