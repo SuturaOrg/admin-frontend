@@ -46,7 +46,7 @@ export class OrdersProfitChartService extends OrdersProfitChartData {
   getOrderProfitChartSummary(): Observable<OrderProfitChartSummary[]> {
     return forkJoin(
       this.getSingleChartSummary('Transactions', ['loans', 'contributions']),
-      this.getSingleChartSummary('Users', ['students', 'admins']));
+      this.getSingleChartSummary('Adhérents', ['students', 'admins']));
   }
 
   getOrdersChartData(period: string): Observable<OrdersChart> {
