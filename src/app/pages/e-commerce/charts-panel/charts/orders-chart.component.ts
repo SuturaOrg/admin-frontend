@@ -262,8 +262,8 @@ export class OrdersChartComponent implements AfterViewInit, OnDestroy, OnChanges
 
   updateOrdersChartOptions(ordersChartData: OrdersChart) {
     const options = this.option;
-    const series = this.getNewSeries(options.series, ordersChartData.linesData);
-    const xAxis = this.getNewXAxis(options.xAxis, ordersChartData.chartLabel);
+    const series = this.getNewSeries(options.series, ordersChartData?.linesData);
+    const xAxis = this.getNewXAxis(options.xAxis, ordersChartData?.chartLabel);
 
     this.option = {
       ...options,

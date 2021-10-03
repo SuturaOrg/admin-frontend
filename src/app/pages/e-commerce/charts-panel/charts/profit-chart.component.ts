@@ -41,6 +41,7 @@ export class ProfitChartComponent implements AfterViewInit, OnDestroy, OnChanges
     this.theme.getJsTheme()
       .pipe(takeWhile(() => this.alive))
       .subscribe(config => {
+        console.log("vgf",config)
         const eTheme: any = config.variables.profit;
 
         this.setOptions(eTheme);
@@ -48,6 +49,7 @@ export class ProfitChartComponent implements AfterViewInit, OnDestroy, OnChanges
   }
 
   setOptions(eTheme) {
+    console.log("kkj", this.profitChartData)
     this.options = {
       backgroundColor: eTheme.bg,
       tooltip: {
@@ -68,7 +70,7 @@ export class ProfitChartComponent implements AfterViewInit, OnDestroy, OnChanges
       xAxis: [
         {
           type: 'category',
-          data: this.profitChartData.chartLabel,
+          data: this.profitChartData?.chartLabel,
           axisTick: {
             alignWithLabel: true,
           },
@@ -104,7 +106,7 @@ export class ProfitChartComponent implements AfterViewInit, OnDestroy, OnChanges
       ],
       series: [
         {
-          name: 'Canceled',
+          name: 'Prêts',
           type: 'bar',
           barGap: 0,
           barWidth: '20%',
@@ -119,10 +121,10 @@ export class ProfitChartComponent implements AfterViewInit, OnDestroy, OnChanges
               }]),
             },
           },
-          data: this.profitChartData.data[0],
+          data: this.profitChartData?.data[0],
         },
         {
-          name: 'Payment',
+          name: 'Cotisations',
           type: 'bar',
           barWidth: '20%',
           itemStyle: {
@@ -136,10 +138,10 @@ export class ProfitChartComponent implements AfterViewInit, OnDestroy, OnChanges
               }]),
             },
           },
-          data: this.profitChartData.data[1],
+          data: this.profitChartData?.data[1],
         },
         {
-          name: 'All orders',
+          name: 'Remboursements',
           type: 'bar',
           barWidth: '20%',
           itemStyle: {
@@ -153,13 +155,14 @@ export class ProfitChartComponent implements AfterViewInit, OnDestroy, OnChanges
               }]),
             },
           },
-          data: this.profitChartData.data[2],
+          data: this.profitChartData?.data[2],
         },
       ],
     };
   }
 
   updateProfitChartOptions(profitChartData: ProfitChart) {
+    console.log("xxf",profitChartData,this.options);
     const options = this.options;
     const series = this.getNewSeries(options.series, profitChartData.data);
 
