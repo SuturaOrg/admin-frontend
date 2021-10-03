@@ -45,8 +45,8 @@ export class AdvancedComponent implements OnInit, OnDestroy {
       this.route.data ? this.sub = this.route
         .data
         .subscribe(data => {
-          console.log('GG', data);
           if (data.entity && data.settings) {
+            data.settings.noDataMessage="Aucun élément trouvé";
               this.data = {entity: data.entity, settings: data.settings};
               this.entity=this.title =data.entity;
 
