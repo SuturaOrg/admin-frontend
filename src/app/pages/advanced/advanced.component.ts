@@ -119,7 +119,9 @@ export class AdvancedComponent implements OnInit, OnDestroy {
     this.apiService.patchFromId(this.entity, data.id, {
       status: 'FINISHED',
       receipt: this.loanReceiptUrl
-    }).subscribe((res) => alert('Bien terminé'), () => alert('N\'a pas été bien terminé'));
+    }).subscribe((res) => {
+      data.status="FINISHED";
+      alert('Bien terminé')}, () => alert('N\'a pas été bien terminé'));
   }
 
   uploadReceipt(event) {
