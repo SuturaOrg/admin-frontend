@@ -9,7 +9,7 @@ import {DialogNamePromptComponent} from '../modal-overlays/dialog/dialog-name-pr
 import {Subscription} from 'rxjs';
 import {ApiService} from '../../services/api.service';
 import {ImageUploadComponent} from './image-upload/image-upload.component';
-import { NbWindowRef } from '@nebular/theme';
+import {NbWindowRef} from '@nebular/theme';
 
 
 @Component({
@@ -21,22 +21,24 @@ export class AdvancedComponent implements OnInit, OnDestroy {
   defaultSettings = defaultTableSettings;
   @Input()
   data: { settings: Object, entity: string } | null;
-  entity:string;
+  entity: string;
   title;
-  loanReceiptUrl:string;
+  loanReceiptUrl: string;
   source: CustomDataServerSource;
   sub;
   onEditConfirm: (event) => void;
   onCreateConfirm: (event) => void;
   onDeleteConfirm: (event) => void;
+  private dialogRef1: NbDialogRef<any>;
   private dialogRef2: NbDialogRef<any>;
   private dialogRef3: NbDialogRef<any>;
+
   constructor(private route: ActivatedRoute,
               private http: HttpClient,
               private tableEventService: TableEventService,
-              private apiService:ApiService,
+              private apiService: ApiService,
               private dialogService: NbDialogService
-              ) {
+  ) {
   }
 
   ngOnInit() {
@@ -45,12 +47,12 @@ export class AdvancedComponent implements OnInit, OnDestroy {
       this.route.data ? this.sub = this.route
         .data
         .subscribe(data => {
-          if (data.entity && data.settings) {
-            data.settings.noDataMessage="Aucun élément trouvé";
+            if (data.entity && data.settings) {
+              data.settings.noDataMessage = 'Aucun élément trouvé';
               this.data = {entity: data.entity, settings: data.settings};
-              this.entity=this.title =data.entity;
+              this.entity = this.title = data.entity;
 
-          }
+            }
           },
         ) : null;
     }
@@ -74,73 +76,92 @@ export class AdvancedComponent implements OnInit, OnDestroy {
       },
     ], false);
   }
-  @ViewChild('dialog',{static:false}) dialog: TemplateRef<any>;
+
+  @ViewChild('dialog', {static: false}) dialog: TemplateRef<any>;
+
   onRowSelect(event): void {
-    this.dialogService.open(
+    this.dialogRef1 = this.dialogService.open(
       this.dialog,
-      { context: event.data});
+      {context: event.data});
   }
-  @ViewChild('dialog2',{static:false}) dialog2: TemplateRef<any>;
+
+  @ViewChild('dialog2', {static: false}) dialog2: TemplateRef<any>;
+
   approve(data): void {
-   if( data.hasOwnProperty("scoreAdmin")){ this.dialogRef2 =this.dialogService.open(this.dialog2,{
-      context:data
-    });}
-   else{
-     this.apiService.patchFromId(this.entity,data.id,{approved:true}).subscribe((res)=>alert("Bien approuvé"),()=>alert("N'a pas été bien approuvé"))
-      }
-   }
+    if (data.hasOwnProperty('scoreAdmin')) {
+      this.dialogRef2 = this.dialogService.open(this.dialog2, {
+        context: data
+      });
+    } else {
+      this.apiService.patchFromId(this.entity, data.id, {approved: true}).subscribe((res) => {
+        data.approved = true;
+        alert('Bien approuvé');
+      }, () => alert('N\'a pas été bien approuvé'));
+    }
+    this.dialogRef2?.close();
+    this.dialogRef1.close();
+  }
 
-  @ViewChild('dialog3',{static:false}) dialog3: TemplateRef<any>;
+  @ViewChild('dialog3', {static: false}) dialog3: TemplateRef<any>;
+
   finish(data): void {
-    this.dialogRef3 =this.dialogService.open(this.dialog3,{
-          context:data,
-        });
+    this.dialogRef3 = this.dialogService.open(this.dialog3, {
+      context: data,
+    });
 
   }
-    cancel() {
-      this.dialogRef3.close();
+
+  cancel() {
+    this.dialogRef3.close();
   }
+
   submitFinish(data): void {
-    this.apiService.patchFromId(this.entity,data.id,{status:"FINISHED",receipt:this.loanReceiptUrl}).subscribe((res)=>alert("Bien terminé"),()=>alert("N'a pas été bien terminé"))
+    this.apiService.patchFromId(this.entity, data.id, {
+      status: 'FINISHED',
+      receipt: this.loanReceiptUrl
+    }).subscribe((res) => alert('Bien terminé'), () => alert('N\'a pas été bien terminé'));
   }
 
   uploadReceipt(event) {
-      const image = (event.target as HTMLInputElement).files[0];
-      this.apiService.upload('loans/receipts', image).subscribe((res) => {
-        this.loanReceiptUrl = res.url;
-      });
-      }
+    const image = (event.target as HTMLInputElement).files[0];
+    this.apiService.upload('loans/receipts', image).subscribe((res) => {
+      this.loanReceiptUrl = res.url;
+    });
+  }
 
 
   submit(score, data) {
-    if(score>10 || score<0){
-      alert("Le score doit être compris entre 0 et 10");
-      return
+    if (score > 10 || score < 0) {
+      alert('Le score doit être compris entre 0 et 10');
+      return;
     }
-    this.apiService.patchFromId(this.entity,data.id,{scoreAdmin:score, approved:true}).subscribe((res)=>{alert("Bien approuvé")
-    },
-      ()=>alert("N'a pas été bien approuvé"))
-    this.dialogRef2.close();
+    this.apiService.patchFromId(this.entity, data.id, {scoreAdmin: score, approved: true}).subscribe((res) => {
+        data.approved = true;
+        alert('Bien approuvé');
+      },
+      () => alert('N\'a pas été bien approuvé'));
+    this.dialogRef2?.close();
+    this.dialogRef1.close();
   }
 
-  restore(data){
-      if (window.confirm('Are you sure you want to restore?')) {
-        let action;
-        if (this.entity=="students" || this.entity=="admins"){
-          action={enabled:true}
-         }
-        if(this.entity=="contributions" || this.entity=="refunds"){
-          action={status:false}
-        }
-        if(this.entity=="loans"){
-          action={status:"NEW"}
-        }
-        this.apiService.patchFromId(this.entity,data.id,action).subscribe((res)=>alert("Restauré avec succès"),
-            ()=>alert("N'a pas été bien terminé"))
-        this.source.refresh();
-        this.source.refresh();
-        this.source.refresh();
+  restore(data) {
+    if (window.confirm('Are you sure you want to restore?')) {
+      let action;
+      if (this.entity == 'students' || this.entity == 'admins') {
+        action = {enabled: true};
       }
+      if (this.entity == 'contributions' || this.entity == 'refunds') {
+        action = {status: false};
+      }
+      if (this.entity == 'loans') {
+        action = {status: 'NEW'};
+      }
+      this.apiService.patchFromId(this.entity, data.id, action).subscribe((res) => alert('Restauré avec succès'),
+        () => alert('N\'a pas été bien terminé'));
+      this.source.refresh();
+      this.source.refresh();
+      this.source.refresh();
     }
+  }
 
 }
