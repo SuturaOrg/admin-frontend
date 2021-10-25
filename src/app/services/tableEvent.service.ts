@@ -87,7 +87,7 @@ export class TableEventService {
             else if (this.entity=="students" || this.entity=="admins"){
                   action={enabled:false}
               }
-            if(!action){
+            if(action){
               if (window.confirm('Are you sure you want to move to trash?')) {
                 this.apiService.patchFromId(this.entity,data.id,action).subscribe((res)=>alert("Déplacé dans la corbeille"),()=>alert("N'a pas été déplacé"))
               }
@@ -95,7 +95,7 @@ export class TableEventService {
                event.confirm.reject();
               }
             } else{
-            if (window.confirm('Are you sure you want to drop to trash?')) {
+            if (window.confirm('Are you sure you want to delete permanently?')) {
               this.apiService.deleteFromId(this.entity, event.data.id).subscribe(
               async data => {
                 //await this.source.remove(event.data);

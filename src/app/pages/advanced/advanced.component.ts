@@ -67,15 +67,6 @@ export class AdvancedComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
-  onSearch(query: string) {
-    this.source.setFilter([
-      // fields we want to include in the search
-      {
-        field: 'email',
-        search: query,
-      },
-    ], false);
-  }
 
   @ViewChild('dialog', {static: false}) dialog: TemplateRef<any>;
 
