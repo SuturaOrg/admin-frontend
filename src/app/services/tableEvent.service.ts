@@ -82,7 +82,7 @@ export class TableEventService {
               action={status:true}
             }
             else if (this.entity=="loans" && data.status=="NEW"){
-                action={status:"SUPPRIME"}
+                action={status:"DELETED"}
               }
             else if (this.entity=="students" || this.entity=="admins"){
                   action={enabled:false}
